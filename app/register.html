@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1f5c2b">
+<title>Create account · AgriPilot</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell auth-shell-register">
+  <section class="auth-brand-panel">
+    <a class="auth-brand" href="/" aria-label="AgriPilot home"><span class="auth-mark">A</span><span>AgriPilot<small>Farm decision assistant</small></span></a>
+    <div class="auth-intro"><span class="auth-eyebrow">YOUR FARM, YOUR GUIDANCE</span><h1>Start with the<br>ground you know.</h1><p>Create your farmer account first. You’ll add your own farm details before opening the dashboard.</p></div>
+    <div class="auth-brand-foot">New accounts receive farmer access. Analyst access is assigned separately.</div>
+  </section>
+  <section class="auth-form-panel">
+    <form class="auth-card auth-card-register" id="auth-form" data-kind="register" novalidate>
+      <div class="auth-mobile-brand"><span class="auth-mark">A</span> AgriPilot</div>
+      <span class="auth-eyebrow">CREATE YOUR ACCOUNT</span><h2>Register as a farmer</h2><p class="auth-subtitle">After registration, set up the farm that belongs to you.</p>
+      <div class="auth-grid">
+        <div><label for="name">Full name</label><input id="name" name="name" required maxlength="120" autocomplete="name"></div>
+        <div><label for="username">Username or email</label><input id="username" name="username" type="text" required maxlength="120" autocomplete="username"></div>
+        <div><label for="password">Password</label><input id="password" name="password" type="password" required minlength="10" autocomplete="new-password"><small>Use at least 10 characters.</small></div>
+        <div><label for="confirm">Confirm password</label><input id="confirm" name="confirm" type="password" required minlength="10" autocomplete="new-password"></div>
+        <div><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div><label for="language">Preferred language</label><select id="language" name="language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="mr">मराठी</option></select></div>
+      </div>
+      <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+      <button class="auth-primary" type="submit">Create farmer account</button>
+      <p class="auth-switch">Already registered? <a href="/login">Sign in</a></p>
+    </form>
+  </section>
+</main>
+<script src="auth.js" defer></script>
+</body></html>

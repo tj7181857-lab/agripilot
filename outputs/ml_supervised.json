@@ -1,0 +1,102 @@
+{
+ "yield_regressor": {
+  "task": "yield_efficiency_regression",
+  "model": "GradientBoostingRegressor",
+  "cv_folds": 5,
+  "cv_scheme": "GroupKFold by farm_id",
+  "cv_r2_mean": 0.6694673734517567,
+  "cv_r2_std": 0.1727617394750097,
+  "cv_mae_efficiency": 0.041828613622114624,
+  "baseline_mae_efficiency": 0.09716305413495686,
+  "n_samples": 240,
+  "n_features": 28,
+  "top_features": [
+   {
+    "feature": "crop_cotton",
+    "importance": 0.8368
+   },
+   {
+    "feature": "crop_onion",
+    "importance": 0.3797
+   },
+   {
+    "feature": "soil_sandy",
+    "importance": 0.0839
+   },
+   {
+    "feature": "bio_sprays",
+    "importance": 0.0731
+   },
+   {
+    "feature": "water_scarcity",
+    "importance": 0.0442
+   },
+   {
+    "feature": "water_intensity",
+    "importance": 0.0295
+   },
+   {
+    "feature": "chem_sprays",
+    "importance": 0.0246
+   },
+   {
+    "feature": "irrigation_mm",
+    "importance": 0.0209
+   },
+   {
+    "feature": "n_intensity",
+    "importance": 0.0177
+   },
+   {
+    "feature": "n_applied",
+    "importance": 0.0174
+   }
+  ]
+ },
+ "stress_classifier": {
+  "task": "stress_risk_classification",
+  "model": "GradientBoostingClassifier",
+  "cv_folds": 5,
+  "cv_scheme": "GroupKFold by farm_id",
+  "cv_accuracy_mean": 0.8333333333333334,
+  "cv_f1_mean": 0.675035274655768,
+  "cv_auc_mean": 0.8883959155169944,
+  "baseline_accuracy": 0.7375,
+  "n_samples": 240,
+  "n_features": 22,
+  "top_features": [
+   {
+    "feature": "crop_onion",
+    "importance": 0.3845
+   },
+   {
+    "feature": "soil_sandy",
+    "importance": 0.0893
+   },
+   {
+    "feature": "sustainability_pref",
+    "importance": 0.0719
+   },
+   {
+    "feature": "crop_tomato",
+    "importance": 0.0692
+   },
+   {
+    "feature": "monsoon_index",
+    "importance": 0.0301
+   },
+   {
+    "feature": "soil_black_cotton",
+    "importance": 0.0229
+   },
+   {
+    "feature": "area_ha",
+    "importance": 0.0216
+   },
+   {
+    "feature": "water_scarcity",
+    "importance": 0.0177
+   }
+  ]
+ }
+}

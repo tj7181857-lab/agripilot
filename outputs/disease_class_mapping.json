@@ -1,0 +1,90 @@
+{
+  "0": {
+    "index": 0,
+    "class_name": "Grape___Black_rot",
+    "crop": "Grape",
+    "disease": "Black rot",
+    "is_healthy": false,
+    "display_name": "Grape — Black rot"
+  },
+  "1": {
+    "index": 1,
+    "class_name": "Grape___Esca_(Black_Measles)",
+    "crop": "Grape",
+    "disease": "Esca (Black Measles)",
+    "is_healthy": false,
+    "display_name": "Grape — Esca (Black Measles)"
+  },
+  "2": {
+    "index": 2,
+    "class_name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "crop": "Grape",
+    "disease": "Leaf blight (Isariopsis Leaf Spot)",
+    "is_healthy": false,
+    "display_name": "Grape — Leaf blight (Isariopsis Leaf Spot)"
+  },
+  "3": {
+    "index": 3,
+    "class_name": "Grape___healthy",
+    "crop": "Grape",
+    "disease": "Healthy",
+    "is_healthy": true,
+    "display_name": "Grape — Healthy"
+  },
+  "4": {
+    "index": 4,
+    "class_name": "Potato___Early_blight",
+    "crop": "Potato",
+    "disease": "Early blight",
+    "is_healthy": false,
+    "display_name": "Potato — Early blight"
+  },
+  "5": {
+    "index": 5,
+    "class_name": "Potato___Late_blight",
+    "crop": "Potato",
+    "disease": "Late blight",
+    "is_healthy": false,
+    "display_name": "Potato — Late blight"
+  },
+  "6": {
+    "index": 6,
+    "class_name": "Potato___healthy",
+    "crop": "Potato",
+    "disease": "Healthy",
+    "is_healthy": true,
+    "display_name": "Potato — Healthy"
+  },
+  "7": {
+    "index": 7,
+    "class_name": "Tomato___Bacterial_spot",
+    "crop": "Tomato",
+    "disease": "Bacterial spot",
+    "is_healthy": false,
+    "display_name": "Tomato — Bacterial spot"
+  },
+  "8": {
+    "index": 8,
+    "class_name": "Tomato___Early_blight",
+    "crop": "Tomato",
+    "disease": "Early blight",
+    "is_healthy": false,
+    "display_name": "Tomato — Early blight"
+  },
+  "9": {
+    "index": 9,
+    "class_name": "Tomato___Late_blight",
+    "crop": "Tomato",
+    "disease": "Late blight",
+    "is_healthy": false,
+    "display_name": "Tomato — Late blight"
+  },
+  "10": {
+    "index": 10,
+    "class_name": "Tomato___healthy",
+    "crop": "Tomato",
+    "disease": "Healthy",
+    "is_healthy": true,
+    "display_name": "Tomato — Healthy"
+  }
+}

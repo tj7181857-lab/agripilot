@@ -1,0 +1,4434 @@
+{
+ "best": {
+  "onion:scarce": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "onion:assured": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "tomato:scarce": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.16,
+   "spray_threshold": 2.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "tomato:assured": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.16,
+   "spray_threshold": 2.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "grape:scarce": {
+   "risk_budget": 0.15,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "grape:assured": {
+   "risk_budget": 0.15,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "soybean:scarce": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 1.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "soybean:assured": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 1.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "wheat:scarce": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 1.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "wheat:assured": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 1.5,
+   "n_safety": 1.15,
+   "bio_preference": 0.35
+  },
+  "cotton:scarce": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.0,
+   "bio_preference": 0.35
+  },
+  "cotton:assured": {
+   "risk_budget": 0.07,
+   "deficit_factor": 0.0,
+   "spray_threshold": 0.8,
+   "n_safety": 1.0,
+   "bio_preference": 0.35
+  }
+ },
+ "pareto": {
+  "onion:scarce": [
+   {
+    "yield": 25.364,
+    "water_m3": 5185.779,
+    "env_cost": 5596.816,
+    "n_applied": 65.08,
+    "chem_sprays": 6.0,
+    "gross_margin": 296507.286,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5185.779,
+    "env_cost": 5596.816,
+    "n_applied": 65.08,
+    "chem_sprays": 6.0,
+    "gross_margin": 296507.286,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.336,
+    "water_m3": 5167.943,
+    "env_cost": 5821.705,
+    "n_applied": 63.709,
+    "chem_sprays": 6.25,
+    "gross_margin": 295992.169,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.454,
+    "water_m3": 5164.783,
+    "env_cost": 6104.078,
+    "n_applied": 64.168,
+    "chem_sprays": 6.75,
+    "gross_margin": 297283.756,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.454,
+    "water_m3": 5164.783,
+    "env_cost": 6104.078,
+    "n_applied": 64.168,
+    "chem_sprays": 6.75,
+    "gross_margin": 297283.756,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.033,
+    "water_m3": 5145.286,
+    "env_cost": 5184.086,
+    "n_applied": 62.233,
+    "chem_sprays": 5.25,
+    "gross_margin": 292688.837,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.195,
+    "water_m3": 5210.135,
+    "env_cost": 5515.895,
+    "n_applied": 63.084,
+    "chem_sprays": 5.75,
+    "gross_margin": 294179.018,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.383,
+    "water_m3": 5148.861,
+    "env_cost": 6101.35,
+    "n_applied": 63.853,
+    "chem_sprays": 6.75,
+    "gross_margin": 296363.877,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.192,
+    "water_m3": 5158.363,
+    "env_cost": 5282.415,
+    "n_applied": 62.315,
+    "chem_sprays": 5.5,
+    "gross_margin": 294643.035,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.192,
+    "water_m3": 5158.363,
+    "env_cost": 5282.415,
+    "n_applied": 62.315,
+    "chem_sprays": 5.5,
+    "gross_margin": 294643.035,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5150.408,
+    "env_cost": 6005.1,
+    "n_applied": 64.551,
+    "chem_sprays": 6.5,
+    "gross_margin": 295808.466,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5150.408,
+    "env_cost": 6005.1,
+    "n_applied": 64.551,
+    "chem_sprays": 6.5,
+    "gross_margin": 295808.466,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.041,
+    "water_m3": 5208.146,
+    "env_cost": 5036.435,
+    "n_applied": 62.924,
+    "chem_sprays": 5.0,
+    "gross_margin": 292600.34,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.197,
+    "water_m3": 5151.645,
+    "env_cost": 5631.578,
+    "n_applied": 63.189,
+    "chem_sprays": 6.0,
+    "gross_margin": 294484.925,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.966,
+    "water_m3": 5120.078,
+    "env_cost": 6294.383,
+    "n_applied": 63.834,
+    "chem_sprays": 7.0,
+    "gross_margin": 290852.378,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.855,
+    "water_m3": 5110.569,
+    "env_cost": 5793.925,
+    "n_applied": 63.937,
+    "chem_sprays": 6.25,
+    "gross_margin": 290109.122,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.86,
+    "water_m3": 5138.161,
+    "env_cost": 6126.765,
+    "n_applied": 64.177,
+    "chem_sprays": 6.75,
+    "gross_margin": 289614.72,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.737,
+    "water_m3": 5057.575,
+    "env_cost": 5345.402,
+    "n_applied": 63.459,
+    "chem_sprays": 5.5,
+    "gross_margin": 288676.277,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.737,
+    "water_m3": 5057.575,
+    "env_cost": 5345.402,
+    "n_applied": 63.459,
+    "chem_sprays": 5.5,
+    "gross_margin": 288676.277,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.904,
+    "water_m3": 5014.102,
+    "env_cost": 4872.366,
+    "n_applied": 60.793,
+    "chem_sprays": 4.75,
+    "gross_margin": 278163.994,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.904,
+    "water_m3": 5014.102,
+    "env_cost": 4872.366,
+    "n_applied": 60.793,
+    "chem_sprays": 4.75,
+    "gross_margin": 278163.994,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.999,
+    "water_m3": 5049.149,
+    "env_cost": 5075.78,
+    "n_applied": 61.565,
+    "chem_sprays": 5.0,
+    "gross_margin": 279183.984,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.999,
+    "water_m3": 5049.149,
+    "env_cost": 5075.78,
+    "n_applied": 61.565,
+    "chem_sprays": 5.0,
+    "gross_margin": 279183.984,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.05,
+    "water_m3": 5170.044,
+    "env_cost": 5087.015,
+    "n_applied": 60.691,
+    "chem_sprays": 5.0,
+    "gross_margin": 279567.241,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.084,
+    "water_m3": 5026.982,
+    "env_cost": 5814.608,
+    "n_applied": 63.803,
+    "chem_sprays": 6.25,
+    "gross_margin": 279741.084,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.939,
+    "water_m3": 5024.4,
+    "env_cost": 5520.055,
+    "n_applied": 62.854,
+    "chem_sprays": 5.75,
+    "gross_margin": 278147.847,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.704,
+    "water_m3": 5108.604,
+    "env_cost": 4603.836,
+    "n_applied": 60.482,
+    "chem_sprays": 4.25,
+    "gross_margin": 275597.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.479,
+    "water_m3": 4990.936,
+    "env_cost": 5543.454,
+    "n_applied": 64.52,
+    "chem_sprays": 5.75,
+    "gross_margin": 271666.944,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.479,
+    "water_m3": 4990.936,
+    "env_cost": 5543.454,
+    "n_applied": 64.52,
+    "chem_sprays": 5.75,
+    "gross_margin": 271666.944,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.353,
+    "water_m3": 5002.484,
+    "env_cost": 5394.557,
+    "n_applied": 61.12,
+    "chem_sprays": 5.5,
+    "gross_margin": 270256.404,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.353,
+    "water_m3": 5002.484,
+    "env_cost": 5394.557,
+    "n_applied": 61.12,
+    "chem_sprays": 5.5,
+    "gross_margin": 270256.404,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.245,
+    "water_m3": 5074.589,
+    "env_cost": 4606.445,
+    "n_applied": 60.311,
+    "chem_sprays": 4.25,
+    "gross_margin": 269533.959,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.245,
+    "water_m3": 5074.589,
+    "env_cost": 4606.445,
+    "n_applied": 60.311,
+    "chem_sprays": 4.25,
+    "gross_margin": 269533.959,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.047,
+    "water_m3": 5072.606,
+    "env_cost": 4759.982,
+    "n_applied": 60.0,
+    "chem_sprays": 4.5,
+    "gross_margin": 266846.443,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 22.924,
+    "water_m3": 5033.74,
+    "env_cost": 4478.663,
+    "n_applied": 60.155,
+    "chem_sprays": 4.0,
+    "gross_margin": 265238.53,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "onion:assured": [
+   {
+    "yield": 25.364,
+    "water_m3": 5185.779,
+    "env_cost": 5596.816,
+    "n_applied": 65.08,
+    "chem_sprays": 6.0,
+    "gross_margin": 296507.286,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5185.779,
+    "env_cost": 5596.816,
+    "n_applied": 65.08,
+    "chem_sprays": 6.0,
+    "gross_margin": 296507.286,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.336,
+    "water_m3": 5167.943,
+    "env_cost": 5821.705,
+    "n_applied": 63.709,
+    "chem_sprays": 6.25,
+    "gross_margin": 295992.169,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.454,
+    "water_m3": 5164.783,
+    "env_cost": 6104.078,
+    "n_applied": 64.168,
+    "chem_sprays": 6.75,
+    "gross_margin": 297283.756,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.454,
+    "water_m3": 5164.783,
+    "env_cost": 6104.078,
+    "n_applied": 64.168,
+    "chem_sprays": 6.75,
+    "gross_margin": 297283.756,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.195,
+    "water_m3": 5210.135,
+    "env_cost": 5515.895,
+    "n_applied": 63.084,
+    "chem_sprays": 5.75,
+    "gross_margin": 294179.018,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.033,
+    "water_m3": 5145.286,
+    "env_cost": 5184.086,
+    "n_applied": 62.233,
+    "chem_sprays": 5.25,
+    "gross_margin": 292688.837,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.383,
+    "water_m3": 5148.861,
+    "env_cost": 6101.35,
+    "n_applied": 63.853,
+    "chem_sprays": 6.75,
+    "gross_margin": 296363.877,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.192,
+    "water_m3": 5158.363,
+    "env_cost": 5282.415,
+    "n_applied": 62.315,
+    "chem_sprays": 5.5,
+    "gross_margin": 294643.035,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.192,
+    "water_m3": 5158.363,
+    "env_cost": 5282.415,
+    "n_applied": 62.315,
+    "chem_sprays": 5.5,
+    "gross_margin": 294643.035,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.041,
+    "water_m3": 5208.146,
+    "env_cost": 5036.435,
+    "n_applied": 62.924,
+    "chem_sprays": 5.0,
+    "gross_margin": 292600.34,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5150.408,
+    "env_cost": 6005.1,
+    "n_applied": 64.551,
+    "chem_sprays": 6.5,
+    "gross_margin": 295808.466,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.364,
+    "water_m3": 5150.408,
+    "env_cost": 6005.1,
+    "n_applied": 64.551,
+    "chem_sprays": 6.5,
+    "gross_margin": 295808.466,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 25.197,
+    "water_m3": 5151.645,
+    "env_cost": 5631.578,
+    "n_applied": 63.189,
+    "chem_sprays": 6.0,
+    "gross_margin": 294484.925,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.966,
+    "water_m3": 5120.078,
+    "env_cost": 6294.383,
+    "n_applied": 63.834,
+    "chem_sprays": 7.0,
+    "gross_margin": 290852.378,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.86,
+    "water_m3": 5138.161,
+    "env_cost": 6126.765,
+    "n_applied": 64.177,
+    "chem_sprays": 6.75,
+    "gross_margin": 289614.72,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.855,
+    "water_m3": 5110.569,
+    "env_cost": 5793.925,
+    "n_applied": 63.937,
+    "chem_sprays": 6.25,
+    "gross_margin": 290109.122,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.737,
+    "water_m3": 5057.575,
+    "env_cost": 5345.402,
+    "n_applied": 63.459,
+    "chem_sprays": 5.5,
+    "gross_margin": 288676.277,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.737,
+    "water_m3": 5057.575,
+    "env_cost": 5345.402,
+    "n_applied": 63.459,
+    "chem_sprays": 5.5,
+    "gross_margin": 288676.277,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.904,
+    "water_m3": 5014.102,
+    "env_cost": 4872.366,
+    "n_applied": 60.793,
+    "chem_sprays": 4.75,
+    "gross_margin": 278163.994,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.904,
+    "water_m3": 5014.102,
+    "env_cost": 4872.366,
+    "n_applied": 60.793,
+    "chem_sprays": 4.75,
+    "gross_margin": 278163.994,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.05,
+    "water_m3": 5170.044,
+    "env_cost": 5087.015,
+    "n_applied": 60.691,
+    "chem_sprays": 5.0,
+    "gross_margin": 279567.241,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.999,
+    "water_m3": 5049.149,
+    "env_cost": 5075.78,
+    "n_applied": 61.565,
+    "chem_sprays": 5.0,
+    "gross_margin": 279183.984,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.999,
+    "water_m3": 5049.149,
+    "env_cost": 5075.78,
+    "n_applied": 61.565,
+    "chem_sprays": 5.0,
+    "gross_margin": 279183.984,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 24.084,
+    "water_m3": 5026.982,
+    "env_cost": 5814.608,
+    "n_applied": 63.803,
+    "chem_sprays": 6.25,
+    "gross_margin": 279741.084,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.939,
+    "water_m3": 5024.4,
+    "env_cost": 5520.055,
+    "n_applied": 62.854,
+    "chem_sprays": 5.75,
+    "gross_margin": 278147.847,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.704,
+    "water_m3": 5108.604,
+    "env_cost": 4603.836,
+    "n_applied": 60.482,
+    "chem_sprays": 4.25,
+    "gross_margin": 275597.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.479,
+    "water_m3": 4990.936,
+    "env_cost": 5543.454,
+    "n_applied": 64.52,
+    "chem_sprays": 5.75,
+    "gross_margin": 271666.944,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.479,
+    "water_m3": 4990.936,
+    "env_cost": 5543.454,
+    "n_applied": 64.52,
+    "chem_sprays": 5.75,
+    "gross_margin": 271666.944,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.353,
+    "water_m3": 5002.484,
+    "env_cost": 5394.557,
+    "n_applied": 61.12,
+    "chem_sprays": 5.5,
+    "gross_margin": 270256.404,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.353,
+    "water_m3": 5002.484,
+    "env_cost": 5394.557,
+    "n_applied": 61.12,
+    "chem_sprays": 5.5,
+    "gross_margin": 270256.404,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.245,
+    "water_m3": 5074.589,
+    "env_cost": 4606.445,
+    "n_applied": 60.311,
+    "chem_sprays": 4.25,
+    "gross_margin": 269533.959,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.245,
+    "water_m3": 5074.589,
+    "env_cost": 4606.445,
+    "n_applied": 60.311,
+    "chem_sprays": 4.25,
+    "gross_margin": 269533.959,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 23.047,
+    "water_m3": 5072.606,
+    "env_cost": 4759.982,
+    "n_applied": 60.0,
+    "chem_sprays": 4.5,
+    "gross_margin": 266846.443,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 22.924,
+    "water_m3": 5033.74,
+    "env_cost": 4478.663,
+    "n_applied": 60.155,
+    "chem_sprays": 4.0,
+    "gross_margin": 265238.53,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "tomato:scarce": [
+   {
+    "yield": 45.483,
+    "water_m3": 3971.54,
+    "env_cost": 8845.641,
+    "n_applied": 109.676,
+    "chem_sprays": 6.75,
+    "gross_margin": 456930.452,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 45.302,
+    "water_m3": 3999.285,
+    "env_cost": 8785.024,
+    "n_applied": 108.739,
+    "chem_sprays": 6.75,
+    "gross_margin": 455065.329,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.847,
+    "water_m3": 3969.475,
+    "env_cost": 8473.443,
+    "n_applied": 108.36,
+    "chem_sprays": 6.25,
+    "gross_margin": 450426.214,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 45.037,
+    "water_m3": 4016.909,
+    "env_cost": 8749.208,
+    "n_applied": 108.46,
+    "chem_sprays": 6.75,
+    "gross_margin": 452043.02,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.828,
+    "water_m3": 3958.788,
+    "env_cost": 8924.975,
+    "n_applied": 109.291,
+    "chem_sprays": 7.0,
+    "gross_margin": 449863.633,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.626,
+    "water_m3": 3956.13,
+    "env_cost": 8367.093,
+    "n_applied": 109.861,
+    "chem_sprays": 6.0,
+    "gross_margin": 448155.238,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.644,
+    "water_m3": 3890.36,
+    "env_cost": 8953.513,
+    "n_applied": 104.695,
+    "chem_sprays": 7.25,
+    "gross_margin": 448140.558,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.456,
+    "water_m3": 3779.568,
+    "env_cost": 8162.045,
+    "n_applied": 110.261,
+    "chem_sprays": 5.75,
+    "gross_margin": 446988.202,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.458,
+    "water_m3": 3850.856,
+    "env_cost": 8321.666,
+    "n_applied": 110.499,
+    "chem_sprays": 6.0,
+    "gross_margin": 446674.176,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.331,
+    "water_m3": 3813.072,
+    "env_cost": 8067.91,
+    "n_applied": 110.829,
+    "chem_sprays": 5.5,
+    "gross_margin": 445281.26,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 43.994,
+    "water_m3": 3957.86,
+    "env_cost": 7997.31,
+    "n_applied": 108.559,
+    "chem_sprays": 5.5,
+    "gross_margin": 441685.192,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 43.909,
+    "water_m3": 3918.148,
+    "env_cost": 8039.195,
+    "n_applied": 109.375,
+    "chem_sprays": 5.5,
+    "gross_margin": 440608.248,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "tomato:assured": [
+   {
+    "yield": 45.483,
+    "water_m3": 3971.54,
+    "env_cost": 8845.641,
+    "n_applied": 109.676,
+    "chem_sprays": 6.75,
+    "gross_margin": 456930.452,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 45.302,
+    "water_m3": 3999.285,
+    "env_cost": 8785.024,
+    "n_applied": 108.739,
+    "chem_sprays": 6.75,
+    "gross_margin": 455065.329,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.847,
+    "water_m3": 3969.475,
+    "env_cost": 8473.443,
+    "n_applied": 108.36,
+    "chem_sprays": 6.25,
+    "gross_margin": 450426.214,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 45.037,
+    "water_m3": 4016.909,
+    "env_cost": 8749.208,
+    "n_applied": 108.46,
+    "chem_sprays": 6.75,
+    "gross_margin": 452043.02,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.828,
+    "water_m3": 3958.788,
+    "env_cost": 8924.975,
+    "n_applied": 109.291,
+    "chem_sprays": 7.0,
+    "gross_margin": 449863.633,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.626,
+    "water_m3": 3956.13,
+    "env_cost": 8367.093,
+    "n_applied": 109.861,
+    "chem_sprays": 6.0,
+    "gross_margin": 448155.238,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.644,
+    "water_m3": 3890.36,
+    "env_cost": 8953.513,
+    "n_applied": 104.695,
+    "chem_sprays": 7.25,
+    "gross_margin": 448140.558,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.456,
+    "water_m3": 3779.568,
+    "env_cost": 8162.045,
+    "n_applied": 110.261,
+    "chem_sprays": 5.75,
+    "gross_margin": 446988.202,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.458,
+    "water_m3": 3850.856,
+    "env_cost": 8321.666,
+    "n_applied": 110.499,
+    "chem_sprays": 6.0,
+    "gross_margin": 446674.176,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 43.994,
+    "water_m3": 3957.86,
+    "env_cost": 7997.31,
+    "n_applied": 108.559,
+    "chem_sprays": 5.5,
+    "gross_margin": 441685.192,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 44.331,
+    "water_m3": 3813.072,
+    "env_cost": 8067.91,
+    "n_applied": 110.829,
+    "chem_sprays": 5.5,
+    "gross_margin": 445281.26,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 43.909,
+    "water_m3": 3918.148,
+    "env_cost": 8039.195,
+    "n_applied": 109.375,
+    "chem_sprays": 5.5,
+    "gross_margin": 440608.248,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "grape:scarce": [
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "grape:assured": [
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 19.009,
+    "water_m3": 5919.167,
+    "env_cost": 7354.215,
+    "n_applied": 76.672,
+    "chem_sprays": 6.0,
+    "gross_margin": 816464.352,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.921,
+    "water_m3": 6061.276,
+    "env_cost": 7032.841,
+    "n_applied": 75.658,
+    "chem_sprays": 5.25,
+    "gross_margin": 812504.474,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.891,
+    "water_m3": 5934.167,
+    "env_cost": 7177.682,
+    "n_applied": 77.322,
+    "chem_sprays": 5.5,
+    "gross_margin": 811066.254,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.22,
+    "water_m3": 6050.442,
+    "env_cost": 6430.37,
+    "n_applied": 69.084,
+    "chem_sprays": 4.25,
+    "gross_margin": 780924.312,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 18.209,
+    "water_m3": 5889.167,
+    "env_cost": 6279.918,
+    "n_applied": 68.585,
+    "chem_sprays": 4.25,
+    "gross_margin": 781230.88,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "soybean:scarce": [
+   {
+    "yield": 2.568,
+    "water_m3": 8750.0,
+    "env_cost": 10112.466,
+    "n_applied": 51.843,
+    "chem_sprays": 5.5,
+    "gross_margin": 59231.832,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.568,
+    "water_m3": 8750.0,
+    "env_cost": 10112.466,
+    "n_applied": 51.843,
+    "chem_sprays": 5.5,
+    "gross_margin": 59231.832,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.573,
+    "water_m3": 8750.0,
+    "env_cost": 10358.163,
+    "n_applied": 52.031,
+    "chem_sprays": 6.0,
+    "gross_margin": 59234.753,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.573,
+    "water_m3": 8750.0,
+    "env_cost": 10358.163,
+    "n_applied": 52.031,
+    "chem_sprays": 6.0,
+    "gross_margin": 59234.753,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.555,
+    "water_m3": 8881.25,
+    "env_cost": 9951.71,
+    "n_applied": 52.556,
+    "chem_sprays": 5.25,
+    "gross_margin": 58780.179,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.555,
+    "water_m3": 8881.25,
+    "env_cost": 9951.71,
+    "n_applied": 52.556,
+    "chem_sprays": 5.25,
+    "gross_margin": 58780.179,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.571,
+    "water_m3": 9012.5,
+    "env_cost": 10336.523,
+    "n_applied": 50.859,
+    "chem_sprays": 6.0,
+    "gross_margin": 58682.509,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.571,
+    "water_m3": 9012.5,
+    "env_cost": 10336.523,
+    "n_applied": 50.859,
+    "chem_sprays": 6.0,
+    "gross_margin": 58682.509,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.588,
+    "water_m3": 9100.0,
+    "env_cost": 10383.904,
+    "n_applied": 51.33,
+    "chem_sprays": 6.0,
+    "gross_margin": 58521.024,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.588,
+    "water_m3": 9100.0,
+    "env_cost": 10383.904,
+    "n_applied": 51.33,
+    "chem_sprays": 6.0,
+    "gross_margin": 58521.024,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.582,
+    "water_m3": 9100.0,
+    "env_cost": 10311.705,
+    "n_applied": 51.563,
+    "chem_sprays": 5.75,
+    "gross_margin": 58564.749,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.582,
+    "water_m3": 9100.0,
+    "env_cost": 10311.705,
+    "n_applied": 51.563,
+    "chem_sprays": 5.75,
+    "gross_margin": 58564.749,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "soybean:assured": [
+   {
+    "yield": 2.568,
+    "water_m3": 8750.0,
+    "env_cost": 10112.466,
+    "n_applied": 51.843,
+    "chem_sprays": 5.5,
+    "gross_margin": 59231.832,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.568,
+    "water_m3": 8750.0,
+    "env_cost": 10112.466,
+    "n_applied": 51.843,
+    "chem_sprays": 5.5,
+    "gross_margin": 59231.832,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.573,
+    "water_m3": 8750.0,
+    "env_cost": 10358.163,
+    "n_applied": 52.031,
+    "chem_sprays": 6.0,
+    "gross_margin": 59234.753,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.573,
+    "water_m3": 8750.0,
+    "env_cost": 10358.163,
+    "n_applied": 52.031,
+    "chem_sprays": 6.0,
+    "gross_margin": 59234.753,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.576,
+    "water_m3": 8793.75,
+    "env_cost": 10655.869,
+    "n_applied": 51.78,
+    "chem_sprays": 6.25,
+    "gross_margin": 58889.583,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.555,
+    "water_m3": 8881.25,
+    "env_cost": 9951.71,
+    "n_applied": 52.556,
+    "chem_sprays": 5.25,
+    "gross_margin": 58780.179,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.555,
+    "water_m3": 8881.25,
+    "env_cost": 9951.71,
+    "n_applied": 52.556,
+    "chem_sprays": 5.25,
+    "gross_margin": 58780.179,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.571,
+    "water_m3": 9012.5,
+    "env_cost": 10336.523,
+    "n_applied": 50.859,
+    "chem_sprays": 6.0,
+    "gross_margin": 58682.509,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.571,
+    "water_m3": 9012.5,
+    "env_cost": 10336.523,
+    "n_applied": 50.859,
+    "chem_sprays": 6.0,
+    "gross_margin": 58682.509,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.588,
+    "water_m3": 9100.0,
+    "env_cost": 10383.904,
+    "n_applied": 51.33,
+    "chem_sprays": 6.0,
+    "gross_margin": 58521.024,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.588,
+    "water_m3": 9100.0,
+    "env_cost": 10383.904,
+    "n_applied": 51.33,
+    "chem_sprays": 6.0,
+    "gross_margin": 58521.024,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.582,
+    "water_m3": 9100.0,
+    "env_cost": 10311.705,
+    "n_applied": 51.563,
+    "chem_sprays": 5.75,
+    "gross_margin": 58564.749,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 2.582,
+    "water_m3": 9100.0,
+    "env_cost": 10311.705,
+    "n_applied": 51.563,
+    "chem_sprays": 5.75,
+    "gross_margin": 58564.749,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "wheat:scarce": [
+   {
+    "yield": 4.979,
+    "water_m3": 8881.25,
+    "env_cost": 5733.255,
+    "n_applied": 84.915,
+    "chem_sprays": 6.25,
+    "gross_margin": 62775.345,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.979,
+    "water_m3": 8881.25,
+    "env_cost": 5733.255,
+    "n_applied": 84.915,
+    "chem_sprays": 6.25,
+    "gross_margin": 62775.345,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.83,
+    "water_m3": 9143.75,
+    "env_cost": 5509.398,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59398.478,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.83,
+    "water_m3": 9143.75,
+    "env_cost": 5509.398,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59398.478,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "wheat:assured": [
+   {
+    "yield": 4.979,
+    "water_m3": 8881.25,
+    "env_cost": 5733.255,
+    "n_applied": 84.915,
+    "chem_sprays": 6.25,
+    "gross_margin": 62775.345,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.979,
+    "water_m3": 8881.25,
+    "env_cost": 5733.255,
+    "n_applied": 84.915,
+    "chem_sprays": 6.25,
+    "gross_margin": 62775.345,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 5.007,
+    "water_m3": 9056.25,
+    "env_cost": 6317.624,
+    "n_applied": 86.549,
+    "chem_sprays": 7.0,
+    "gross_margin": 61601.239,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.825,
+    "water_m3": 9143.75,
+    "env_cost": 5483.148,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59508.475,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.83,
+    "water_m3": 9143.75,
+    "env_cost": 5509.398,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59398.478,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 4.83,
+    "water_m3": 9143.75,
+    "env_cost": 5509.398,
+    "n_applied": 78.174,
+    "chem_sprays": 6.0,
+    "gross_margin": 59398.478,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "cotton:scarce": [
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   }
+  ],
+  "cotton:assured": [
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 11987.5,
+    "env_cost": 11672.578,
+    "n_applied": 62.699,
+    "chem_sprays": 8.0,
+    "gross_margin": 21231.234,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.508,
+    "water_m3": 12031.25,
+    "env_cost": 11683.435,
+    "n_applied": 62.771,
+    "chem_sprays": 8.0,
+    "gross_margin": 21082.888,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12162.5,
+    "env_cost": 11049.407,
+    "n_applied": 65.62,
+    "chem_sprays": 7.0,
+    "gross_margin": 20092.425,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.489,
+    "water_m3": 12206.25,
+    "env_cost": 11060.628,
+    "n_applied": 65.693,
+    "chem_sprays": 7.0,
+    "gross_margin": 19943.189,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.07,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12468.75,
+    "env_cost": 12138.512,
+    "n_applied": 63.432,
+    "chem_sprays": 8.5,
+    "gross_margin": 19657.806,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.459,
+    "water_m3": 11943.75,
+    "env_cost": 11333.418,
+    "n_applied": 58.316,
+    "chem_sprays": 7.5,
+    "gross_margin": 18822.692,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 1.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.0,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.08,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.513,
+    "water_m3": 12512.5,
+    "env_cost": 12149.378,
+    "n_applied": 63.502,
+    "chem_sprays": 8.5,
+    "gross_margin": 19508.576,
+    "params": {
+     "risk_budget": 0.26,
+     "deficit_factor": 0.16,
+     "spray_threshold": 0.8,
+     "n_safety": 1.15,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.0,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.08,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   },
+   {
+    "yield": 1.45,
+    "water_m3": 11943.75,
+    "env_cost": 11256.132,
+    "n_applied": 58.222,
+    "chem_sprays": 7.5,
+    "gross_margin": 18469.635,
+    "params": {
+     "risk_budget": 0.15,
+     "deficit_factor": 0.16,
+     "spray_threshold": 2.5,
+     "n_safety": 1.0,
+     "bio_preference": 0.35
+    }
+   }
+  ]
+ }
+}

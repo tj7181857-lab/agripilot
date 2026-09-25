@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1f5c2b">
+<title>Set up your farm · AgriPilot</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell auth-shell-register">
+  <section class="auth-brand-panel">
+    <a class="auth-brand" href="/" aria-label="AgriPilot home"><span class="auth-mark">A</span><span>AgriPilot<small>Farm decision assistant</small></span></a>
+      <div class="auth-intro"><span class="auth-eyebrow">YOUR FARM PROFILE</span><h1>Tell us about<br>your farm.</h1><p>These details are saved to your account’s farm profile. No technical soil or sensor readings are required here.</p></div>
+    <div class="auth-brand-foot">Your profile is private to your farmer account.</div>
+  </section>
+  <section class="auth-form-panel">
+    <form class="auth-card auth-card-register" id="farm-setup-form" novalidate>
+      <div class="auth-mobile-brand"><span class="auth-mark">A</span> AgriPilot</div>
+      <span class="auth-eyebrow">FIRST-TIME SETUP</span><h2 data-i18n="Set up your farm">Set up your farm</h2><p class="auth-subtitle">Enter the farm details you know. You can edit your profile later.</p>
+      <div class="auth-grid">
+        <div><label for="name" data-i18n="Farm name">Farm name</label><input id="name" name="name" required maxlength="120"></div>
+        <div><label for="location" data-i18n="Location / village">Location / village</label><input id="location" name="location" required maxlength="160"></div>
+        <div><label for="district" data-i18n="District">District</label><input id="district" name="district" required maxlength="100"></div>
+        <div><label for="state" data-i18n="State">State</label><select id="state" name="state" required><option value="" data-i18n="Select state">Select state</option><option>Andhra Pradesh</option><option>Bihar</option><option>Gujarat</option><option>Karnataka</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>Other</option></select></div>
+        <div><label for="area_acres" data-i18n="Farm area (acres)">Farm area (acres)</label><input id="area_acres" name="area_acres" type="number" min="0.01" step="any" required></div>
+        <div><label for="crop" data-i18n="Current crop">Current crop</label><input id="crop" name="crop" required maxlength="100" placeholder="Enter your current crop"></div>
+        <div><label for="soil_type" data-i18n="Soil type">Soil type</label><select id="soil_type" name="soil_type" required><option value="" data-i18n="Select soil type">Select soil type</option><option value="clay" data-i18n="Clay">Clay</option><option value="clay_loam" data-i18n="Clay loam">Clay loam</option><option value="loam" data-i18n="Loam">Loam</option><option value="sandy" data-i18n="Sandy">Sandy</option><option value="sandy_loam" data-i18n="Sandy loam">Sandy loam</option><option value="silt" data-i18n="Silt">Silt</option><option value="other" data-i18n="Other / unsure">Other / unsure</option></select></div>
+        <div><label for="irrigation_system" data-i18n="Irrigation">Irrigation</label><select id="irrigation_system" name="irrigation_system" required><option value="" data-i18n="Select irrigation">Select irrigation</option><option value="drip" data-i18n="Drip">Drip</option><option value="sprinkler" data-i18n="Sprinkler">Sprinkler</option><option value="flood" data-i18n="Flood / surface">Flood / surface</option><option value="rainfed" data-i18n="Rainfed">Rainfed</option><option value="other" data-i18n="Other / unsure">Other / unsure</option></select></div>
+      </div>
+      <p class="auth-error" id="farm-setup-error" role="alert" aria-live="polite"></p>
+      <button class="auth-primary" type="submit" data-i18n="Save farm details">Save farm details</button>
+      <p class="auth-switch"><button class="auth-logout" type="button" id="farm-setup-logout" data-i18n="Log out">Log out</button></p>
+    </form>
+  </section>
+</main>
+<script src="i18n.js" defer></script>
+<script src="setup_farm.js" defer></script>
+</body></html>

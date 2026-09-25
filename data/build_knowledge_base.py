@@ -1,0 +1,718 @@
+"""
+Builds the authentic Indian Agricultural Multilingual Knowledge Base:
+- Grounded in ICAR, MPKV Rahuri, and KVK agricultural extension recommendations.
+- Trilingual support: English (en), Hindi (hi), Marathi (mr).
+- Covers plant diseases, symptoms, precautions, treatments, prevention, and crop agronomy.
+"""
+import json
+import os
+
+knowledge = {
+    "metadata": {
+        "version": "2.0.0",
+        "source": "ICAR (Indian Council of Agricultural Research) & MPKV Rahuri Extension Advisories",
+        "languages": ["en", "hi", "mr"],
+        "scope": "AgriPilot Multilingual Agricultural Knowledge Base"
+    },
+    "diseases": {
+        "Tomato___Early_blight": {
+            "crop_en": "Tomato", "crop_hi": "टमाटर", "crop_mr": "टोमॅटो",
+            "disease_en": "Early Blight", "disease_hi": "अगेती झुलसा (अर्ली ब्लाइट)", "disease_mr": "लवकर येणारा करपा (अर्ली ब्लाइट)",
+            "scientific_name": "Alternaria solani",
+            "pathogen_type": "Fungal",
+            "season": "Kharif / Rabi",
+            "typical_severity": "Moderate to Severe",
+            "favorable_conditions": "Warm temperatures (24-29°C) with high relative humidity (>80%) and prolonged leaf wetness.",
+            "symptoms": {
+                "en": [
+                    "Small, brown-to-black spots on older lower leaves first.",
+                    "Concentric rings forming a characteristic target-board appearance.",
+                    "Surrounding leaf tissue turns yellow (chlorosis), leading to premature leaf drop.",
+                    "Dark, sunken leathery cankers on stems and sunken lesions near the fruit calyx."
+                ],
+                "hi": [
+                    "शुरुआत में पौधे की निचली व पुरानी पत्तियों पर गहरे भूरे से काले रंग के छोटे धब्बे।",
+                    "धब्बों के अंदर संकेंद्री छल्ले (टारगेट बोर्ड जैसे चक्र) बनते हैं।",
+                    "धब्बों के चारों ओर की पत्ती पीली पड़ जाती है और समय से पहले पत्तियां गिर जाती हैं।",
+                    "तने और फलों पर डंठल के पास काले, धंसे हुए कड़े धब्बे बन जाते हैं।"
+                ],
+                "mr": [
+                    "सुरुवातीला झाडाच्या खालच्या जुन्या पानांवर बारीक तपकिरी ते काळे ठिपके पडतात.",
+                    "ठिपक्यांवर गोलाकार कड्यांचे थर (टार्गेट बोर्डसारखे वलय) स्पष्ट दिसतात.",
+                    "ठिपक्यांभोवती पान पिवळे पडून कालांतराने सुकते आणि गळते.",
+                    "खोडावर आणि फळांच्या देठाजवळ खोलगट काळे चट्टे पडतात."
+                ]
+            },
+            "precautions": {
+                "en": [
+                    "Avoid overhead sprinkler irrigation to keep foliage dry.",
+                    "Maintain adequate plant spacing (60 x 45 cm) for proper air circulation.",
+                    "Prune lower infected leaves using sterilized shears and destroy them away from the field.",
+                    "Sanitize farming tools after working in affected rows."
+                ],
+                "hi": [
+                    "पौधों के ऊपर से फव्वारा सिंचाई न करें ताकि पत्तियां गीली न रहें।",
+                    "हवा के संचलन के लिए उचित दूरी (60 x 45 सेमी) बनाए रखें।",
+                    "निचली संक्रमित पत्तियों को साफ कैंची से काटकर खेत से दूर जला या दबा दें।",
+                    "संक्रमित पौधों पर कार्य करने के बाद कृषि औजारों को साफ करें।"
+                ],
+                "mr": [
+                    "तुषार सिंचनाने पाणी देणे टाळा जेणेकरून झाडांची पाने ओली राहणार नाहीत.",
+                    "झाडांमध्ये हवा खेळती राहण्यासाठी योग्य अंतर (६० x ४५ सें.मी.) ठेवा.",
+                    "खालची प्रादुर्भाव झालेली पाने कापून शेताबाहेर नष्ट करा.",
+                    "रोगट झाडांवर काम केल्यानंतर अवजारे निर्जंतुक करा."
+                ]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Foliar spray of Mancozeb 75% WP @ 2.5 g/L water OR Chlorothalonil 75% WP @ 2 g/L. For advanced infection, spray Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1 ml/L water.",
+                    "hi": "मेंकोजेब 75% WP (2.5 ग्राम/लीटर पानी) या क्लोरोथैलोनिल 75% WP (2 ग्राम/लीटर) का छिड़काव करें। गंभीर प्रकोप में एज़ोक्सीस्ट्रोबिन 18.2% + डिफेनोकोनाज़ोल 11.4% SC (1 मिली/लीटर पानी) छिड़कें।",
+                    "mr": "मॅन्कोझेब ७५% डब्ल्यूपी (२.५ ग्रॅम/लिटर पाणी) किंवा क्लोरोथॅलोनिल ७५% डब्ल्यूपी (२ ग्रॅम/लिटर) फवारावे. प्रादुर्भाव जास्त असल्यास ॲझॉक्सीस्ट्रॉबिन १८.२% + डायफेनोकोनॅझोल ११.४% एससी (१ मिली/लिटर) फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Foliar application of Trichoderma viride or Pseudomonas fluorescens @ 5 g/L water with 10 g jaggery. Spray Neem oil (10,000 ppm) @ 2 ml/L water as an early preventative.",
+                    "hi": "ट्राइकोडर्मा विरिडी या स्यूडोमोनास फ्लोरोसेंस (5 ग्राम/लीटर) में थोड़ा गुड़ मिलाकर छिड़काव करें। प्रारंभिक रोकथाम के लिए नीम का तेल (10,000 ppm) 2 मिली/लीटर पानी में छिड़कें।",
+                    "mr": "ट्रायकोडर्मा व्हिरिडी किंवा सुडोमोनास फ्लोरोसन्स (५ ग्रॅम/लिटर पाणी) गुळासोबत फवारावे. सुरुवातीच्या प्रतिबंधासाठी १०,००० पीपीएम निंबोळी अर्क (२ मिली/लिटर) फवारावा."
+                }
+            },
+            "prevention": {
+                "en": [
+                    "Adopt a 3-year crop rotation with non-solanaceous crops (e.g., maize, pulses).",
+                    "Use certified disease-resistant hybrid seeds.",
+                    "Seed treatment with Thiram or Captan @ 3 g/kg seed before nursery sowing.",
+                    "Apply organic mulch (straw or silver-black polythene) to prevent soil-borne spore splash."
+                ],
+                "hi": [
+                    "टमाटर, आलू, मिर्च छोड़कर अन्य फसलों (मक्का, दलहन) के साथ 3 साल का फसल चक्र अपनाएं।",
+                    "प्रमाणित रोगरोधी बीजों का प्रयोग करें।",
+                    "बुवाई से पहले थीरम या कैप्टन (3 ग्राम/किग्रा बीज) से बीज उपचार करें।",
+                    "मिट्टी से बीजाणुओं के छींटे रोकने के लिए पलवार (मल्चिंग) का प्रयोग करें।"
+                ],
+                "mr": [
+                    "टोमॅटो किंवा मिरचीनंतर तृणधान्ये किंवा कडधान्यांची ३ वर्षांची फेरपालट करा.",
+                    "प्रमाणित आणि रोगप्रतिकारक बियाण्यांचा वापर करा.",
+                    "पेरणीपूर्वी थायरम किंवा कॅप्टन (३ ग्रॅम/किलो बियाणे) बीजप्रक्रिया करा.",
+                    "मातीतील बुरशीचे थेंब पानांवर उडू नयेत म्हणून मल्चिंगचा वापर करा."
+                ]
+            },
+            "water_requirement": {
+                "en": "Maintain root-zone soil moisture at 65-75% field capacity. Use drip irrigation early in the morning. Avoid stagnant water in furrows.",
+                "hi": "जड़ क्षेत्र में 65-75% नमी बनाए रखें। सुबह के समय ड्रिप से पानी दें। खेत में पानी रुकने न दें।",
+                "mr": "मुळांच्या कार्यक्षेत्रात ६५-७५% ओलावा टिकवून ठेवा. सकाळी ठिबक सिंचनाने पाणी द्या. वाफ्यांमध्ये पाणी साचू देऊ नका."
+            }
+        },
+        "Tomato___Late_blight": {
+            "crop_en": "Tomato", "crop_hi": "टमाटर", "crop_mr": "टोमॅटो",
+            "disease_en": "Late Blight", "disease_hi": "पछेती झुलसा (लेट ब्लाइट)", "disease_mr": "उशिरा येणारा करपा (लेट ब्लाइट)",
+            "scientific_name": "Phytophthora infestans",
+            "pathogen_type": "Oomycete (Fungal-like)",
+            "season": "Rabi / Winter",
+            "typical_severity": "High to Severe",
+            "favorable_conditions": "Cool temperatures (12-20°C) with high humidity (>90%), morning fogs, and continuous rain.",
+            "symptoms": {
+                "en": [
+                    "Large, water-soaked irregular lesions on leaves that rapidly turn purplish-brown.",
+                    "White cottony downy fungal growth on the undersides of leaves during humid mornings.",
+                    "Rapid collapse and blackened appearance of the entire plant canopy ('frost damage' look).",
+                    "Greasy, dark brown blotches on green fruit that remain firm but inedible."
+                ],
+                "hi": [
+                    "पत्तियों पर बड़े, पानी से भीगे हुए अनियमित धब्बे जो तेजी से भूरे-बैंगनी हो जाते हैं।",
+                    "सुबह की नमी में पत्तियों की निचली सतह पर सफेद रुई जैसा कवक जाल दिखाई देता है।",
+                    "पूरा पौधा कुछ ही दिनों में झुलसकर काला पड़ जाता है जैसे पाला लग गया हो।",
+                    "हरे टमाटरों पर सख्त, गहरे भूरे तेलीय धब्बे उभर आते हैं।"
+                ],
+                "mr": [
+                    "पानांवर पाणी साचल्यासारखे मोठे काळपट-तपकिरी अनियमित चट्टे उमटतात.",
+                    "दमट हवामानात पानांच्या खालच्या बाजूला पांढरी बुरशी वाढलेली दिसते.",
+                    "अवघ्या काही दिवसांत संपूर्ण झाड जळून गेल्यासारखे काळे पडते.",
+                    "हिरव्या फळांवर टणक, काळपट-तपकिरी डाग पडतात."
+                ]
+            },
+            "precautions": {
+                "en": [
+                    "Daily crop scouting during foggy winter mornings is essential.",
+                    "Stop overhead watering immediately upon first notice.",
+                    "Remove and bury severely infected plants immediately in lime pits."
+                ],
+                "hi": [
+                    "सर्दियों की कोहरे भरी सुबह में खेत का दैनिक निरीक्षण करें।",
+                    "रोग के पहले लक्षण दिखते ही ऊपर से पानी देना तुरंत बंद करें।",
+                    "गंभीर रूप से ग्रसित पौधों को उखाड़कर गड्ढे में चूना डालकर दबा दें।"
+                ],
+                "mr": [
+                    "थंडीच्या दिवसांत दररोज शेताची पाहणी करा.",
+                    "लक्षणे दिसताच पाटाने किंवा वरून पाणी देणे ताबडतोब थांबवा.",
+                    "तीव्र प्रादुर्भाव झालेली झाडे उपटून चुन्याच्या खड्ड्यात पुरा."
+                ]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Systemic spray of Metalaxyl 8% + Mancozeb 64% WP @ 2.5 g/L water OR Cymoxanil 8% + Mancozeb 64% WP @ 2 g/L OR Dimethomorph 50% WP @ 1 g/L water.",
+                    "hi": "मेटालेक्सिल 8% + मेंकोजेब 64% WP (2.5 ग्राम/लीटर पानी) या साइमोक्सानिल 8% + मेंकोजेब 64% WP (2 ग्राम/लीटर) का तुरंत छिड़काव करें।",
+                    "mr": "मेटॅलॅक्सिल ८% + मॅन्कोझेब ६४% डब्ल्यूपी (२.५ ग्रॅम/लिटर) किंवा सायमॉक्सॅनिल ८% + मॅन्कोझेब ६४% डब्ल्यूपी (२ ग्रॅम/लिटर) त्वरित फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Spray copper oxychloride @ 2.5 g/L or Bordeaux mixture (1%) as a preventive protective barrier.",
+                    "hi": "रोकथाम के लिए कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) या 1% बोर्डो मिश्रण का छिड़काव करें।",
+                    "mr": "प्रतिबंधात्मक उपाय म्हणून कॉपर ऑक्सिक्लोराईड (२.५ ग्रॅम/लिटर) किंवा १% बोर्डो मिश्रणाची फवारणी करावी."
+                }
+            },
+            "prevention": {
+                "en": [
+                    "Do not plant tomatoes adjacent to potato fields.",
+                    "Use drip lines with sub-surface emitters.",
+                    "Apply preventive contact fungicides before cold foggy fronts."
+                ],
+                "hi": [
+                    "आलू के खेतों के पास टमाटर की बुवाई न करें।",
+                    "ड्रिप सिंचाई प्रणाली का ही उपयोग करें।",
+                    "कोहरा और ठंड शुरू होने से पहले ही संपर्क कवकनाशी का छिड़काव करें।"
+                ],
+                "mr": [
+                    "बटाट्याच्या शेताशेजारी टोमॅटोची लागवड करू नका.",
+                    "ठिबक सिंचनाचा वापर करा.",
+                    "धुके आणि थंडी पडण्यापूर्वीच प्रतिबंधात्मक स्पर्शजन्य बुरशीनाशक फवारा."
+                ]
+            },
+            "water_requirement": {
+                "en": "Reduce irrigation volume during overcast and foggy days. Avoid damp soil surfaces.",
+                "hi": "बादल और कोहरे वाले दिनों में सिंचाई घटाएं। मिट्टी को ज्यादा गीला न रहने दें।",
+                "mr": "ढगाळ आणि धुक्याच्या दिवसांत पाण्याचे प्रमाण कमी करा. जमिनीचा पृष्ठभाग जास्त काळ ओलसर ठेवू नका."
+            }
+        },
+        "Tomato___Bacterial_spot": {
+            "crop_en": "Tomato", "crop_hi": "टमाटर", "crop_mr": "टोमॅटो",
+            "disease_en": "Bacterial Spot", "disease_hi": "जीवाणु धब्बा रोग (बैक्टीरियल स्पॉट)", "disease_mr": "जिवाणूजन्य ठिपके (बॅक्टेरियल स्पॉट)",
+            "scientific_name": "Xanthomonas campestris pv. vesicatoria",
+            "pathogen_type": "Bacterial",
+            "season": "Kharif / Rainy Season",
+            "typical_severity": "Moderate",
+            "favorable_conditions": "Warm, rainy weather (24-30°C) with driving winds that splash bacteria between leaves.",
+            "symptoms": {
+                "en": [
+                    "Small, dark, greasy water-soaked spots on leaves (<3 mm diameter).",
+                    "Spots become angular with a distinct yellow halo around the edges.",
+                    "Centres of old lesions dry out and tear, creating a ragged appearance.",
+                    "Raised blister-like scabby spots on green fruits."
+                ],
+                "hi": [
+                    "पत्तियों पर छोटे, गहरे, तेलीय पानी-सोखे धब्बे (3 मिमी से छोटे)।",
+                    "धब्बे कोणीय हो जाते हैं और उनके चारों तरफ पीला घेरा बन जाता है।",
+                    "पुराने धब्बों के बीच का भाग सूखकर फट जाता है।",
+                    "फलों पर खुरदुरे, उभरे हुए फफोले जैसे काले चकत्ते दिखाई देते हैं।"
+                ],
+                "mr": [
+                    "पानांवर लहान, तेलकट व काळपट ठिपके पडतात.",
+                    "ठिपक्यांच्या भोवती स्पष्ट पिवळसर वलय दिसते.",
+                    "जुने ठिपके मधून सुकतात आणि पाने फाटल्यासारखी दिसतात.",
+                    "हिरव्या फळांवर खडबडीत, खपलीसारखे काळे डाग येतात."
+                ]
+            },
+            "precautions": {
+                "en": [
+                    "Do not handle or prune plants while the foliage is wet.",
+                    "Rogue out infected seedlings in the nursery before transplanting."
+                ],
+                "hi": [
+                    "गीले पौधों पर निराई-गुड़ाई या कटाई-छंटाई न करें।",
+                    "रोपवाटिका में लक्षण दिखने वाले पौधों को रोपाई से पहले निकाल दें।"
+                ],
+                "mr": [
+                    "पाने ओली असताना छाटणी किंवा खुरपणी करू नका.",
+                    "रोपवाटिकेत प्रादुर्भाव झालेली रोपे लागवडीपूर्वीच नष्ट करा."
+                ]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Spray Copper Hydroxide 53.8% DF @ 2 g/L mixed with Streptocycline @ 0.1 g/L (1 g in 10 L water). Repeat after 10 days if rainy weather persists.",
+                    "hi": "कॉपर हाइड्रॉक्साइड 53.8% DF (2 ग्राम/लीटर) के साथ स्ट्रेप्टोसाइक्लिन (1 ग्राम प्रति 10 लीटर पानी) मिलाकर छिड़कें।",
+                    "mr": "कॉपर हायड्रॉक्साईड ५३.८% डीएफ (२ ग्रॅम/लिटर) सोबत स्ट्रेप्टोसायक्लिन (१ ग्रॅम प्रति १० लिटर पाणी) मिसळून फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Spray Bacillus subtilis @ 5 g/L water or Panchagavya (3%) at 15-day intervals.",
+                    "hi": "बैसिलस सबटिलिस (5 ग्राम/लीटर) या 3% पंचगव्य का 15 दिन के अंतराल पर छिड़काव करें।",
+                    "mr": "बॅसिलस सबटिलिस (५ ग्रॅम/लिटर) किंवा ३% पंचगव्याची १५ दिवसांच्या अंतराने फवारणी करावी."
+                }
+            },
+            "prevention": {
+                "en": [
+                    "Hot water seed treatment at 50°C for 25 minutes before sowing.",
+                    "Rotate with non-host crops for at least two years."
+                ],
+                "hi": [
+                    "बुवाई से पहले बीज को 50°C गर्म पानी में 25 मिनट तक उपचारित करें।",
+                    "दो साल तक टमाटर या मिर्च की जगह दूसरी फसलें लगाएं।"
+                ],
+                "mr": [
+                    "पेरणीपूर्वी बियाण्यांवर ५०° से. तापमानाच्या कोमट पाण्यात २५ मिनिटे प्रक्रिया करा.",
+                    "किमान दोन वर्षे फेरपालट करा."
+                ]
+            },
+            "water_requirement": {
+                "en": "Strictly use drip irrigation. Avoid splash irrigation that spreads bacterial exudate.",
+                "hi": "केवल ड्रिप सिंचाई का उपयोग करें ताकि पानी के छींटों से जीवाणु न फैलें।",
+                "mr": "फक्त ठिबक सिंचन वापरा जेणेकरून पाण्याच्या उडणाऱ्या थेंबांमुळे जिवाणूंचा प्रसार होणार नाही."
+            }
+        },
+        "Tomato___healthy": {
+            "crop_en": "Tomato", "crop_hi": "टमाटर", "crop_mr": "टोमॅटो",
+            "disease_en": "Healthy Plant", "disease_hi": "स्वस्थ पौधा", "disease_mr": "निरोगी झाड",
+            "scientific_name": "Solanum lycopersicum",
+            "pathogen_type": "None",
+            "season": "Kharif / Rabi",
+            "typical_severity": "None",
+            "favorable_conditions": "Optimal sunlight, balanced NPK nutrition, well-drained loamy soil, good air circulation.",
+            "symptoms": {
+                "en": ["Vibrant deep green foliage with uniform leaf surface and no necrotic spots.", "Firm, upright stems and vigorous flower/fruit setting."],
+                "hi": ["पत्तियां चमकदार गहरे हरे रंग की और पूरी तरह बेदाग हैं।", "मजबूत सीधा तना और सामान्य फूल-फल विकास।"],
+                "mr": ["पाने तजेलदार हिरवीगार असून कोणताही डाग किंवा चट्टा नाही.", "खोडाची वाढ मजबूत आणि फुले-फळे निरोगी आहेत."]
+            },
+            "precautions": {
+                "en": ["Continue regular weekly monitoring and balanced fertigation."],
+                "hi": ["नियमित साप्ताहिक निरीक्षण और संतुलित पोषण जारी रखें।"],
+                "mr": ["दर आठवड्याला नियमित पाहणी आणि संतुलित खत व्यवस्थापन चालू ठेवा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "No chemical spray required. Maintain scheduled 19:19:19 fertigation splits.",
+                    "hi": "किसी कीटनाशक की आवश्यकता नहीं है। 19:19:19 घुलनशील खाद का संतुलित प्रयोग करें।",
+                    "mr": "कोणत्याही रासायनिक फवारणीची गरज नाही. १९:१९:१९ विद्राव्य खताचा योग्य डोस द्यावा."
+                },
+                "organic_biological_management": {
+                    "en": "Apply neem cake to the soil @ 250 kg/ha and maintain organic compost.",
+                    "hi": "मिट्टी में 250 किग्रा/हेक्टेयर नीम की खली और जैविक खाद डालें।",
+                    "mr": "जमिनीत २५० किलो/हेक्टर निंबोळी पेंड आणि शेणखताचा वापर करा."
+                }
+            },
+            "prevention": {
+                "en": ["Keep weeds cleared along field bunds and maintain drip lines."],
+                "hi": ["मेड़ों से खरपतवार साफ रखें और ड्रिप लाइनों की सफाई रखें।"],
+                "mr": ["बांधावरील तण काढून टाका आणि ठिबक सिंचन नळ्या स्वच्छ ठेवा."]
+            },
+            "water_requirement": {
+                "en": "Deliver 3-4 mm water per day via drip, scaling up to 5-6 mm during fruit sizing.",
+                "hi": "ड्रिप द्वारा प्रतिदिन 3-4 मिमी पानी दें, फल बनते समय 5-6 मिमी तक बढ़ाएं।",
+                "mr": "दररोज ठिबकने ३-४ मिमी पाणी द्या, फळे भरताना ५-६ मिमीपर्यंत वाढवा."
+            }
+        },
+        "Grape___Black_rot": {
+            "crop_en": "Grape", "crop_hi": "अंगूर", "crop_mr": "द्राक्ष",
+            "disease_en": "Black Rot", "disease_hi": "काला सड़न रोग (ब्लैक रॉट)", "disease_mr": "काळी कूज (ब्लॅक रॉट)",
+            "scientific_name": "Guignardia bidwellii",
+            "pathogen_type": "Fungal",
+            "season": "Monsoon / Warm Humid Season",
+            "typical_severity": "High",
+            "favorable_conditions": "Warm, humid weather with frequent rainfall (21-32°C). Spores require 6-7 hours of leaf wetness to infect.",
+            "symptoms": {
+                "en": [
+                    "Small, circular reddish-brown spots on upper leaf surfaces.",
+                    "Spots expand and develop dark borders with minute black fruiting bodies (pycnidia) arranged in rings.",
+                    "Infected berries turn brown, soften, then shrivel into hard, black, wrinkled mummies."
+                ],
+                "hi": [
+                    "पत्तियों की ऊपरी सतह पर छोटे, गोल लाल-भूरे रंग के धब्बे।",
+                    "धब्बे बड़े होकर काले किनारों वाले हो जाते हैं और उनके अंदर छोटे काले दानेदार उभार दिखते हैं।",
+                    "अंगूर के दाने भूरे होकर सिकुड़ जाते हैं और सख्त काले ममीकृत हो जाते हैं।"
+                ],
+                "mr": [
+                    "पानांच्या वरच्या बाजूवर लहान, गोलाकार तांबूस-तपकिरी ठिपके पडतात.",
+                    "ठिपके पसरतात आणि त्यांच्या कडा काळ्या पडून मध्यभागी बारीक काळे दाणे दिसतात.",
+                    "द्राक्षाचे मणी तपकिरी पडून सुरकुततात आणि टणक काळे बनतात."
+                ]
+            },
+            "precautions": {
+                "en": ["Canopy thinning to allow direct sunlight penetration onto grape bunches.", "Remove and destroy all mummified berries from the vine and vineyard floor."],
+                "hi": ["छतरी (कैनोपी) की छंटाई करें ताकि गुच्छों तक धूप और हवा पहुंच सके।", "बेल और जमीन पर गिरे सभी सूखे ममीकृत अंगूरों को इकट्ठा करके जलाएं।"],
+                "mr": ["घड आणि पानांपर्यंत सूर्यप्रकाश पोहोचण्यासाठी शेंड्यांची आणि पानांची विरळणी करा.", "सुकलेले आणि रोगट मणी बागेबाहेर काढून नष्ट करा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Spray Myclobutanil 10% WP @ 0.5 g/L OR Kresoxim-methyl 44.3% SC @ 0.7 ml/L OR Mancozeb 75% WP @ 2.5 g/L. Comply with pre-harvest intervals (PHI).",
+                    "hi": "माइक्लोबुटानिल 10% WP (0.5 ग्राम/लीटर) या क्रेसोक्सिम-मिथाइल 44.3% SC (0.7 मिली/लीटर) या मेंकोजेब (2.5 ग्राम/लीटर) का छिड़काव करें।",
+                    "mr": "मायक्लोब्युटॅनिल १०% डब्ल्यूपी (०.५ ग्रॅम/लिटर) किंवा क्रेसॉक्सिम-मिथाईल (०.७ मिली/लिटर) किंवा मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारावे. काढणीपूर्व मर्यादा (PHI) पाळा."
+                },
+                "organic_biological_management": {
+                    "en": "Apply sulfur dust (80% WDG) @ 2 g/L before flowering (avoid during hot days >32°C).",
+                    "hi": "फूल आने से पहले सल्फर 80% WDG (2 ग्राम/लीटर) का छिड़काव करें (32°C से अधिक गर्मी में न डालें)।",
+                    "mr": "फुलोऱ्यापूर्वी विद्राव्य गंधक (२ ग्रॅम/लिटर) फवारावे (३२° से. पेक्षा जास्त तापमानात फवारणी टाळा)."
+                }
+            },
+            "prevention": {
+                "en": ["Prune vines during dormancy and destroy all dried cane trimmings.", "Begin protective spray program at early bud break."],
+                "hi": ["सुप्तावस्था में छंटाई के बाद सभी सूखी टहनियों को नष्ट करें।", "कलियों के फूटते ही सुरक्षात्मक छिड़काव शुरू करें।"],
+                "mr": ["छाटणीनंतर सर्व सुकलेल्या काड्या गोळा करून नष्ट करा.", "कोंब फुटतानाच प्रतिबंधात्मक फवारणी सुरू करा."]
+            },
+            "water_requirement": {
+                "en": "Irrigate via drip only under the trellises. Maintain soil water tension at 30-40 kPa.",
+                "hi": "केवल ड्रिप से जड़ों में पानी दें। मिट्टी में 30-40 kPa तनाव बनाए रखें।",
+                "mr": "फक्त ठिबक सिंचनाने मुळांना पाणी द्या. ओलावा ३०-४० केपीए मर्यादेत ठेवा."
+            }
+        },
+        "Grape___Esca_(Black_Measles)": {
+            "crop_en": "Grape", "crop_hi": "अंगूर", "crop_mr": "द्राक्ष",
+            "disease_en": "Esca / Black Measles", "disease_hi": "एस्का / ब्लैक मीजल्स", "disease_mr": "एस्का / कांजण्या रोग (ब्लॅक मिझल्स)",
+            "scientific_name": "Phaeomoniella chlamydospora & Fomitiporia mediterranea",
+            "pathogen_type": "Fungal Complex (Wood-decay)",
+            "season": "Summer / Post-monsoon",
+            "typical_severity": "High (Chronic)",
+            "favorable_conditions": "Older vines (>8-10 years), severe pruning wounds, hot dry summer winds following wet springs.",
+            "symptoms": {
+                "en": [
+                    "Characteristic 'tiger-stripe' pattern on leaves with chlorotic yellow and dead brown stripes between veins.",
+                    "Dark purple to black measles-like spots scattered on berry skin.",
+                    "Internal wood shows dark brown to black vascular streaking when cut in cross-section."
+                ],
+                "hi": [
+                    "पत्तियों पर नसों के बीच पीली और भूरी धारियों वाला विशिष्ट 'बाघ की धारी (टाइगर स्ट्राइप)' जैसा पैटर्न।",
+                    "अंगूर के दानों पर चेचक जैसे गहरे बैंगनी-काले छोटे धब्बे।",
+                    "तने को काटने पर अंदर की लकड़ी में गहरे भूरे-काले रेशे दिखते हैं।"
+                ],
+                "mr": [
+                    "पानांच्या शिरांच्या दरम्यान पिवळे आणि तपकिरी पट्टे पडून 'वाघाच्या अंगावरील पट्ट्यांसारखा' (टायगर स्ट्राइप) आकार दिसतो.",
+                    "द्राक्षाच्या मण्यांवर काळ्या-जांभळ्या रंगाचे कांजण्यांसारखे बारीक ठिपके पडतात.",
+                    "खोडाचा छेद घेतल्यास आत लाकडात काळे-तपकिरी पट्टे दिसतात."
+                ]
+            },
+            "precautions": {
+                "en": ["Disinfect pruning shears with 10% sodium hypochlorite between cuts.", "Seal large pruning wounds immediately with fungicidal wound paste."],
+                "hi": ["छंटाई कैंची को 10% ब्लीच से साफ करते रहें।", "कटाई वाले घावों पर तुरंत कवकनाशी पेस्ट लगाएं।"],
+                "mr": ["छाटणीची कात्री वेळोवेळी निर्जंतुक करा.", "मोठ्या छाटणीच्या जखमांवर बोर्डो पेस्ट किंवा बुरशीनाशक मलम लावा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Apply Thiophanate Methyl 70% WP wound paste on cut surfaces. Drench vine root zones with Fosetyl-Al @ 2.5 g/L during active sap flow.",
+                    "hi": "कटाई वाले तनों पर थायोफैनेट मिथाइल 70% WP पेस्ट लगाएं। जड़ों में फोसेटाइल-एल (2.5 ग्राम/लीटर) की ड्रेंचिंग करें।",
+                    "mr": "कापलेल्या फांद्यांवर थायोफॅनेट मिथाईल पेस्ट लावा. मुळांना फॉसेटिल-अल (२.५ ग्रॅम/लिटर) ची आळवणी करा."
+                },
+                "organic_biological_management": {
+                    "en": "Soil drenching and stem brushing with Trichoderma asperellum formulation @ 10 g/L.",
+                    "hi": "ट्राइकोडर्मा एस्परेलम (10 ग्राम/लीटर) का तने पर लेप लगाएं और जड़ों में डालें।",
+                    "mr": "ट्रायकोडर्मा अस्परेलम (१० ग्रॅम/लिटर) खोडाला लावा आणि मुळांजवळ आळवणी करा."
+                }
+            },
+            "prevention": {
+                "en": ["Avoid pruning during wet or rainy days.", "Double-pruning method: leave a stub and make final cuts during dry weather."],
+                "hi": ["बारिश वाले दिनों में छंटाई बिल्कुल न करें।", "सूखे मौसम में ही अंतिम छंटाई करें।"],
+                "mr": ["पावसाळी हवेत छाटणी करू नका.", "कोरड्या हवामानातच अचूक छाटणी करा."]
+            },
+            "water_requirement": {
+                "en": "Avoid moisture stress during peak summer which accelerates apoplexy collapse.",
+                "hi": "गर्मियों में पानी की अचानक कमी न होने दें जिससे पौधा अचानक न सूखे।",
+                "mr": "उन्हाळ्यात पाण्याची तीव्र टंचाई होऊ देऊ नका ज्यामुळे झाड अकस्मात वाळणार नाही."
+            }
+        },
+        "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+            "crop_en": "Grape", "crop_hi": "अंगूर", "crop_mr": "द्राक्ष",
+            "disease_en": "Leaf Blight / Isariopsis Spot", "disease_hi": "पत्ती झुलसा (इसारियोप्सिस स्पॉट)", "disease_mr": "पानावरील करपा (इसारिओप्सिस ठिपके)",
+            "scientific_name": "Pseudocercospora vitis (Isariopsis clavispora)",
+            "pathogen_type": "Fungal",
+            "season": "Post-monsoon / Autumn",
+            "typical_severity": "Moderate",
+            "favorable_conditions": "Warm, humid weather after rains (25-30°C) with declining vine vigor.",
+            "symptoms": {
+                "en": [
+                    "Irregular, dark brown to dull black angular spots on leaves, constrained by veins.",
+                    "Lower leaf surface exhibits greyish-black velvety sooty mold-like fungal spore masses.",
+                    "Severe infection causes premature defoliation, exposing berry clusters to sunburn."
+                ],
+                "hi": [
+                    "पत्तियों पर नसों से घिरे अनियमित, गहरे भूरे से काले कोणीय धब्बे।",
+                    "पत्ती की निचली सतह पर मखमली धूसर-काले बीजाणु दिखाई देते हैं।",
+                    "पत्तियां जल्दी झड़ जाती हैं जिससे अंगूर के गुच्छों पर धूप का कुप्रभाव पड़ता है।"
+                ],
+                "mr": [
+                    "पानांवर शिरांमुळे मर्यादित राहिलेले अनियमित काळपट-तपकिरी कोनीय ठिपके पडतात.",
+                    "पानाच्या खालच्या बाजूला मखमली काळसर बुरशीचा थर दिसतो.",
+                    "जास्त प्रादुर्भावात पाने लवकर गळतात आणि घडांवर थेट कडक ऊन पडते."
+                ]
+            },
+            "precautions": {
+                "en": ["Collect and burn fallen leaves after harvest.", "Ensure canopy aeration."],
+                "hi": ["कटाई के बाद गिरी हुई संक्रमित पत्तियों को जला दें।", "पौधों के बीच हवा का आवागमन सुनिश्चित करें।"],
+                "mr": ["गळलेली पाने गोळा करून जाळून टाका.", "झाडात हवा खेळती ठेवा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Foliar spray of Carbendazim 12% + Mancozeb 63% WP @ 2 g/L OR Azoxystrobin 23% SC @ 1 ml/L water.",
+                    "hi": "कार्बेन्डाजिम 12% + मेंकोजेब 63% WP (2 ग्राम/लीटर) या एज़ोक्सीस्ट्रोबिन (1 मिली/लीटर) का छिड़काव करें।",
+                    "mr": "कार्बेन्डाझिम १२% + मॅन्कोझेब ६३% डब्ल्यूपी (२ ग्रॅम/लिटर) किंवा ॲझॉक्सीस्ट्रॉबिन (१ मिली/लिटर) फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Spray Copper Sulfate + Lime (Bordeaux mixture 0.5-1%) post-monsoon.",
+                    "hi": "मानसून के बाद 1% बोर्डो मिश्रण का छिड़काव करें।",
+                    "mr": "पावसाळ्यानंतर ०.५ ते १% बोर्डो मिश्रणाची फवारणी करावी."
+                }
+            },
+            "prevention": {
+                "en": ["Balanced potassium and phosphorus nutrition to strengthen leaf epidermis."],
+                "hi": ["पोटैशियम और फास्फोरस का संतुलित प्रयोग करें ताकि पत्तियां मजबूत रहें।"],
+                "mr": ["पाने कणखर राहण्यासाठी पालाश आणि स्फुरद खतांचा योग्य वापर करा."]
+            },
+            "water_requirement": {
+                "en": "Normal drip irrigation schedule; avoid pooling water under the vines.",
+                "hi": "सामान्य ड्रिप सिंचाई; बेलों के नीचे पानी जमा न होने दें।",
+                "mr": "नियमित ठिबक सिंचन; झाडाखाली पाणी साचू देऊ नका."
+            }
+        },
+        "Grape___healthy": {
+            "crop_en": "Grape", "crop_hi": "अंगूर", "crop_mr": "द्राक्ष",
+            "disease_en": "Healthy Vine", "disease_hi": "स्वस्थ बेल", "disease_mr": "निरोगी वेल",
+            "scientific_name": "Vitis vinifera",
+            "pathogen_type": "None",
+            "season": "Rabi / Annual",
+            "typical_severity": "None",
+            "favorable_conditions": "Sunny weather, well-managed canopy, precise fertigation, effective IPM scouting.",
+            "symptoms": {
+                "en": ["Crisp, deep-green foliage, active shoot growth, spotless grape berries."],
+                "hi": ["पत्तियां साफ और गहरे हरे रंग की, नई शाखाओं की अच्छी बढ़वार, बेदाग अंगूर के गुच्छे।"],
+                "mr": ["पाने तजेलदार हिरवी, नवीन फुटींची जोमदार वाढ आणि मण्यांवर कसलाही डाग नाही."]
+            },
+            "precautions": {
+                "en": ["Maintain regular monitoring for downy/powdery mildew triggers."],
+                "hi": ["पाउडरी या डाउनी मिल्ड्यू के मौसम में नियमित निगरानी रखें।"],
+                "mr": ["भुरी व केवडा रोगाच्या अनुकूल हवामानात नियमित पाहणी ठेवा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "No curative spray needed. Continue scheduled micronutrient and calcium sprays.",
+                    "hi": "किसी रासायनिक उपचार की जरूरत नहीं। सूक्ष्म पोषक तत्वों और कैल्शियम का नियमित छिड़काव करें।",
+                    "mr": "उपचारात्मक फवारणीची गरज नाही. कॅल्शियम आणि सूक्ष्म अन्नद्रव्यांचे नियमित नियोजन ठेवा."
+                },
+                "organic_biological_management": {
+                    "en": "Apply seaweed extract @ 2 ml/L for balanced vegetative and reproductive balance.",
+                    "hi": "पौधे के संपूर्ण स्वास्थ्य के लिए सीवीड अर्क (2 मिली/लीटर) छिड़कें।",
+                    "mr": "वेलीच्या चांगल्या वाढीसाठी सीवीड अर्काची (२ मिली/लिटर) फवारणी करा."
+                }
+            },
+            "prevention": {
+                "en": ["Maintain shoot positioning and weed-free vineyard rows."],
+                "hi": ["शाखाओं को तारों पर व्यवस्थित रखें और खरपतवार नियंत्रण करें।"],
+                "mr": ["काड्या तारांवर योग्य रीतीने बांधा आणि तण नियंत्रण ठेवा."]
+            },
+            "water_requirement": {
+                "en": "Regulated deficit irrigation (RDI) of 18-25 liters/vine/day based on pan evaporation.",
+                "hi": "वाष्पीकरण दर के अनुसार प्रति बेल 18-25 लीटर पानी ड्रिप से दें।",
+                "mr": "बाष्पीभवनाच्या दरानुसार प्रति वेल १८-२५ लिटर पाणी ठिबकद्वारे द्या."
+            }
+        },
+        "Potato___Early_blight": {
+            "crop_en": "Potato", "crop_hi": "आलू", "crop_mr": "बटाटा",
+            "disease_en": "Early Blight", "disease_hi": "अगेती झुलसा", "disease_mr": "लवकर येणारा करपा",
+            "scientific_name": "Alternaria solani",
+            "pathogen_type": "Fungal",
+            "season": "Rabi / Winter",
+            "typical_severity": "Moderate",
+            "favorable_conditions": "Warm, dry weather interspersed with dew or light showers (22-28°C).",
+            "symptoms": {
+                "en": ["Brown concentric target-like spots on lower foliage.", "Premature senility of potato foliage, reducing tuber bulking."],
+                "hi": ["निचली पत्तियों पर भूरे छल्लेदार धब्बे।", "पत्तियां समय से पहले सूख जाती हैं जिससे कंद का आकार छोटा रह जाता है।"],
+                "mr": ["खालच्या पानांवर गोलाकार वलयांकित तपकिरी ठिपके.", "पाने अकाली वाळून बटाट्याचा आकार लहान राहतो."]
+            },
+            "precautions": {
+                "en": ["Irrigate during early mornings to dry foliage quickly."],
+                "hi": ["सुबह जल्दी सिंचाई करें ताकि धूप से पत्तियां सूख जाएं।"],
+                "mr": ["सकाळी लवकर पाणी द्या जेणेकरून पाने लवकर सुकतील."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Spray Mancozeb 75% WP @ 2.5 g/L or Propineb 70% WP @ 2 g/L.",
+                    "hi": "मेंकोजेब (2.5 ग्राम/लीटर) या प्रोपिनेब (2 ग्राम/लीटर) का छिड़काव करें।",
+                    "mr": "मॅन्कोझेब (२.५ ग्रॅम/लिटर) किंवा प्रोपिनेब (२ ग्रॅम/लिटर) फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Trichoderma viride spray @ 5 g/L.",
+                    "hi": "ट्राइकोडर्मा विरिडी (5 ग्राम/लीटर) छिड़कें।",
+                    "mr": "ट्रायकोडर्मा व्हिरिडी (५ ग्रॅम/लिटर) फवारावे."
+                }
+            },
+            "prevention": {
+                "en": ["Plant certified disease-free seed tubers.", "Follow 2-year crop rotation."],
+                "hi": ["प्रमाणित बीज कंदों का उपयोग करें।", "दो वर्षीय फसल चक्र अपनाएं।"],
+                "mr": ["प्रमाणित बेणे वापरा.", "२ वर्षांचे पीक फेरपालट करा."]
+            },
+            "water_requirement": {
+                "en": "Keep ridge soil evenly moist without overwatering furrow bottoms.",
+                "hi": "मेड़ों में समान नमी रखें, थाले में जलभराव न होने दें।",
+                "mr": "वरंब्यामध्ये योग्य ओलावा ठेवा, पाणी साचू देऊ नका."
+            }
+        },
+        "Potato___Late_blight": {
+            "crop_en": "Potato", "crop_hi": "आलू", "crop_mr": "बटाटा",
+            "disease_en": "Late Blight", "disease_hi": "पछेती झुलसा", "disease_mr": "उशिरा येणारा करपा",
+            "scientific_name": "Phytophthora infestans",
+            "pathogen_type": "Oomycete",
+            "season": "Rabi / Winter",
+            "typical_severity": "High to Severe",
+            "favorable_conditions": "High humidity (>90%) with cool temperature (10-18°C) and cloudy/foggy skies.",
+            "symptoms": {
+                "en": ["Water-soaked dark lesions on leaf margins and tips expanding rapidly.", "White mold on underside of leaves in humid mornings.", "Brown dry rot of tubers inside the soil."],
+                "hi": ["पत्तियों के किनारों पर काले-भूरे भीगे हुए धब्बे जो तेजी से फैलते हैं।", "पत्तियों के नीचे सफेद कवक।", "जमीन के अंदर आलू में सड़न।"],
+                "mr": ["पानांच्या कडांवर काळपट-तपकिरी ओले डाग जे वेगाने वाढतात.", "पानांमागे पांढरी बुरशी.", "बटाट्याला आतून सड लागते."]
+            },
+            "precautions": {
+                "en": ["Immediate scouting after rain/fog events.", "Earthing-up to cover shallow tubers."],
+                "hi": ["कोहरे के बाद तुरंत खेत देखें।", "कंदों को मिट्टी से अच्छी तरह ढकें।"],
+                "mr": ["धुक्यानंतर शेताची त्वरित पाहणी करा.", "बटाट्याला चांगली मातीची भर लावा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "Spray Cymoxanil 8% + Mancozeb 64% WP @ 2.5 g/L or Dimethomorph @ 1.5 g/L.",
+                    "hi": "साइमोक्सानिल + मेंकोजेब (2.5 ग्राम/लीटर) का छिड़काव करें।",
+                    "mr": "सायमॉक्सॅनिल + मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारावे."
+                },
+                "organic_biological_management": {
+                    "en": "Bordeaux mixture (1%) preventive spray.",
+                    "hi": "1% बोर्डो मिश्रण का छिड़काव करें।",
+                    "mr": "१% बोर्डो मिश्रणाची फवारणी करा."
+                }
+            },
+            "prevention": {
+                "en": ["Burn infected foliage before harvest to protect tubers."],
+                "hi": ["खुदाई से 10 दिन पहले संक्रमित बेलें काटकर नष्ट करें।"],
+                "mr": ["काढणीपूर्वी रोगट पाने कापून नष्ट करा."]
+            },
+            "water_requirement": {
+                "en": "Avoid irrigation during foggy overcast periods.",
+                "hi": "धुंध और कोहरे के दौरान पानी न दें।",
+                "mr": "धुक्याच्या दिवसांत पाणी देणे टाळा."
+            }
+        },
+        "Potato___healthy": {
+            "crop_en": "Potato", "crop_hi": "आलू", "crop_mr": "बटाटा",
+            "disease_en": "Healthy Crop", "disease_hi": "स्वस्थ फसल", "disease_mr": "निरोगी पीक",
+            "scientific_name": "Solanum tuberosum",
+            "pathogen_type": "None",
+            "season": "Rabi",
+            "typical_severity": "None",
+            "favorable_conditions": "Cool sunny days, well-drained sandy loam soil, balanced potassium nutrition.",
+            "symptoms": {
+                "en": ["Dense dark green canopy, robust stems, healthy tuber development."],
+                "hi": ["घना हरा पौधा, मजबूत तना और कंदों का सुचारू विकास।"],
+                "mr": ["दाट हिरवेगार झाड, मजबूत खोड आणि बटाट्याची चांगली पोसणी."]
+            },
+            "precautions": {
+                "en": ["Monitor for aphid vectors to prevent virus transmission."],
+                "hi": ["माहू कीटों की निगरानी रखें ताकि विषाणु रोग न फैले।"],
+                "mr": ["मावा किडींवर लक्ष ठेवा."]
+            },
+            "treatment": {
+                "chemical_management": {
+                    "en": "No spray required.",
+                    "hi": "छिड़काव की आवश्यकता नहीं है।",
+                    "mr": "फवारणीची गरज नाही."
+                },
+                "organic_biological_management": {
+                    "en": "Neem oil preventive spray.",
+                    "hi": "नीम तेल का छिड़काव करें।",
+                    "mr": "निंबोळी अर्क वापरा."
+                }
+            },
+            "prevention": {
+                "en": ["Timely dehaulming 10 days before digging."],
+                "hi": ["खुदाई से पहले समय पर डंठल काटें।"],
+                "mr": ["वेळेवर बटाट्याचा पाला कापा."]
+            },
+            "water_requirement": {
+                "en": "Maintain light, frequent irrigations at 5-7 day intervals.",
+                "hi": "5-7 दिन के अंतर पर हल्की सिंचाई दें।",
+                "mr": "५-७ दिवसांच्या अंतराने हलके पाणी द्या."
+            }
+        }
+    },
+    "crops_agronomy": {
+        "rice": {
+            "name_en": "Rice", "name_hi": "धान (चावल)", "name_mr": "भात",
+            "ideal_soil": "Clayey or loamy soils with high water retention capacity",
+            "npk_ratio": "100:50:50 kg/ha",
+            "temp_range": "20-35°C", "humidity_range": "70-90%", "rainfall_range": "150-300 mm", "ph_range": "5.5-7.0",
+            "care_en": "Ensure 2-5 cm standing water during tillering and panicle initiation. Top dress nitrogen in three splits.",
+            "care_hi": "कल्ले फूटते समय और बाली आते समय खेत में 2-5 सेमी पानी बनाए रखें। यूरिया को तीन बार में दें।",
+            "care_mr": "फुटवे येताना आणि लोंबी भरताना शेतात २-५ सें.मी. पाणी ठेवा. युरियाचे तीन समान हप्ते द्या."
+        },
+        "maize": {
+            "name_en": "Maize", "name_hi": "मक्का", "name_mr": "मका",
+            "ideal_soil": "Well-drained deep loamy soil rich in organic matter",
+            "npk_ratio": "120:60:40 kg/ha",
+            "temp_range": "18-30°C", "humidity_range": "55-75%", "rainfall_range": "60-100 mm", "ph_range": "6.0-7.2",
+            "care_en": "Critical irrigation stages: knee-high, tasseling, and grain filling. Avoid water-logging.",
+            "care_hi": "घुटने की ऊंचाई, नर मंजरी और दाना भरते समय सिंचाई अनिवार्य है। खेत में पानी न रुकने दें।",
+            "care_mr": "मका गुडघाभर वाढताना, तुरा येताना आणि दाणे भरताना पाणी देणे आवश्यक आहे. पाणी साचू देऊ नका."
+        },
+        "chickpea": {
+            "name_en": "Chickpea", "name_hi": "चना", "name_mr": "हरभरा",
+            "ideal_soil": "Deep black cotton or medium-heavy soils with good internal drainage",
+            "npk_ratio": "20:50:20 kg/ha",
+            "temp_range": "15-25°C", "humidity_range": "40-60%", "rainfall_range": "35-70 mm", "ph_range": "6.0-7.8",
+            "care_en": "Do not irrigate during flowering to prevent flower drop. Give one light irrigation at pod development.",
+            "care_hi": "फूल आने पर सिंचाई न करें वरना फूल झड़ जाएंगे। दाना बनते समय एक हल्की सिंचाई दें।",
+            "care_mr": "फुलोऱ्यात पाणी देणे टाळा जेणेकरून फूलगळ होणार नाही. घाटे भरताना एक हलके पाणी द्या."
+        },
+        "cotton": {
+            "name_en": "Cotton", "name_hi": "कपास", "name_mr": "कापूस",
+            "ideal_soil": "Deep black cotton soils (regur) with high clay content",
+            "npk_ratio": "100:50:50 kg/ha",
+            "temp_range": "22-35°C", "humidity_range": "50-80%", "rainfall_range": "60-110 mm", "ph_range": "6.5-8.0",
+            "care_en": "Nipping of apical shoot at 75-80 days. Install pheromone traps for pink bollworm management.",
+            "care_hi": "75-80 दिन पर शीर्ष शाखाओं की तुड़ाई (निप्पिंग) करें। गुलाबी सुंडी के लिए फेरोमोन ट्रैप लगाएं।",
+            "care_mr": "७५-८० दिवसांनी मुख्य शेंडा खुडावा. गुलाबी बोंडअळीच्या नियंत्रणासाठी कामगंध सापळे लावा."
+        },
+        "tomato": {
+            "name_en": "Tomato", "name_hi": "टमाटर", "name_mr": "टोमॅटो",
+            "ideal_soil": "Well-drained sandy loam or clay loam with high organic matter",
+            "npk_ratio": "150:75:75 kg/ha",
+            "temp_range": "18-30°C", "humidity_range": "60-85%", "rainfall_range": "50-100 mm", "ph_range": "6.0-7.0",
+            "care_en": "Stake plants with bamboo supports. Regular pruning of suckers and balanced calcium fertigation.",
+            "care_hi": "पौधों को बांस और तार से सहारा दें। अनावश्यक शाखाओं की छंटाई करें और कैल्शियम खाद दें।",
+            "care_mr": "टोमॅटोला बांबू आणि तारेने आधार द्या. बगलफुटींची छाटणी करा आणि कॅल्शियमयुक्त खत द्या."
+        },
+        "grapes": {
+            "name_en": "Grapes", "name_hi": "अंगूर", "name_mr": "द्राक्ष",
+            "ideal_soil": "Well-drained gravelly loam or sandy loam with good subsurface drainage",
+            "npk_ratio": "125:60:150 kg/ha",
+            "temp_range": "15-35°C", "humidity_range": "50-80%", "rainfall_range": "40-80 mm", "ph_range": "6.5-7.5",
+            "care_en": "Maintain trellis canopy training. Timely foundation and fruit pruning. Regular berry thinning.",
+            "care_hi": "बेलों को तार मंडप पर चढ़ाएं। समय पर अप्रैल और अक्टूबर छंटाई करें। मणियों की विरळणी करें।",
+            "care_mr": "मंडप पद्धतीने वेलीचे नियोजन करा. वेळेवर खरड आणि गोड छाटणी करा. मण्यांची योग्य विरळणी ठेवा."
+        },
+        "onion": {
+            "name_en": "Onion", "name_hi": "प्याज", "name_mr": "कांदा",
+            "ideal_soil": "Friable sandy loam or silt loam rich in organic matter",
+            "npk_ratio": "100:50:50 kg/ha",
+            "temp_range": "13-28°C", "humidity_range": "50-70%", "rainfall_range": "35-75 mm", "ph_range": "6.0-7.5",
+            "care_en": "Stop irrigation 10-15 days before harvesting to ensure proper curing and bulb storage quality.",
+            "care_hi": "खुदाई से 10-15 दिन पहले सिंचाई पूरी तरह बंद कर दें ताकि प्याज की भंडारण क्षमता बनी रहे।",
+            "care_mr": "काढणीपूर्वी १०-१५ दिवस पाणी देणे पूर्ण बंद करा जेणेकरून कांद्याची साठवणूक क्षमता टिकून राहील."
+        },
+        "soybean": {
+            "name_en": "Soybean", "name_hi": "सोयाबीन", "name_mr": "सोयाबीन",
+            "ideal_soil": "Well-drained fertile loamy soils with good organic matter",
+            "npk_ratio": "30:60:40 kg/ha",
+            "temp_range": "20-32°C", "humidity_range": "60-80%", "rainfall_range": "60-120 mm", "ph_range": "6.0-7.5",
+            "care_en": "Critical irrigation at pod initiation and seed filling. Seed inoculation with Rhizobium culture.",
+            "care_hi": "फलियां बनते और दाना भरते समय नमी बनाए रखें। बुवाई से पहले राइजोबियम से बीज उपचार करें।",
+            "care_mr": "शेंगा भरताना आणि दाणा भरताना पाणी आवश्यक आहे. पेरणीपूर्वी रायझोबियम जीवाणू संवर्धकाची बीजप्रक्रिया करा."
+        },
+        "wheat": {
+            "name_en": "Wheat", "name_hi": "गेहूं", "name_mr": "गहू",
+            "ideal_soil": "Well-drained deep clay loam or silt loam",
+            "npk_ratio": "120:60:40 kg/ha",
+            "temp_range": "12-25°C", "humidity_range": "40-60%", "rainfall_range": "25-50 mm", "ph_range": "6.0-7.5",
+            "care_en": "Crown root initiation (CRI) at 21 days after sowing is the most critical irrigation stage.",
+            "care_hi": "बुवाई के 21 दिन बाद ताज जड़ (सीआरआई) अवस्था में पहली सिंचाई अत्यंत महत्वपूर्ण है।",
+            "care_mr": "पेरणीनंतर २१ दिवसांनी मुकुटमुळे फुटताना (CRI) पहिले पाणी देणे अत्यंत महत्त्वाचे आहे."
+        }
+    }
+}
+
+def main():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    out_path = os.path.join(base_dir, "agri_knowledge_multilingual.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(knowledge, f, ensure_ascii=False, indent=2)
+    print(f"Successfully generated: {out_path}")
+    print(f"Diseases catalogued: {len(knowledge['diseases'])}")
+    print(f"Agronomic crops catalogued: {len(knowledge['crops_agronomy'])}")
+
+if __name__ == "__main__":
+    main()

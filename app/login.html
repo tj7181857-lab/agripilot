@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1f5c2b">
+<title>Sign in · AgriPilot</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+<main class="auth-shell">
+  <section class="auth-brand-panel">
+    <a class="auth-brand" href="/" aria-label="AgriPilot home"><span class="auth-mark">A</span><span>AgriPilot<small>Farm decision assistant</small></span></a>
+    <div class="auth-intro"><span class="auth-eyebrow">GROW WITH CONFIDENCE</span><h1>Good decisions<br>start in the field.</h1><p>Sign in to see your farm records, crop guidance, and advisory history.</p></div>
+    <div class="auth-brand-foot">Practical farm support, grounded in your records.</div>
+  </section>
+  <section class="auth-form-panel">
+    <form class="auth-card" id="auth-form" data-kind="login" novalidate>
+      <div class="auth-mobile-brand"><span class="auth-mark">A</span> AgriPilot</div>
+      <span class="auth-eyebrow">WELCOME BACK</span><h2>Sign in to your account</h2><p class="auth-subtitle">Use your username or email and password.</p>
+      <label for="username">Username or email</label><input id="username" name="username" type="text" autocomplete="username" required maxlength="120" placeholder="you@example.com">
+      <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+      <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+      <button class="auth-primary" type="submit">Sign in</button>
+      <p class="auth-switch">New to AgriPilot? <a href="/register">Create a farmer account</a></p>
+      <p class="auth-switch"><a href="/analyst/login">Are you an analyst? Analyst Login</a></p>
+      <p class="auth-demo-note">Existing demonstration accounts are preserved. Ask the project operator to enable login access for a legacy account.</p>
+    </form>
+  </section>
+</main>
+<script src="auth.js" defer></script>
+</body></html>

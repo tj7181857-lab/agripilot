@@ -1,0 +1,35 @@
+tuning policy parameters per crop x water-scarcity tier ...
+  tuned onion    scarce   -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned onion    assured  -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned tomato   scarce   -> {'risk_budget': 0.07, 'deficit_factor': 0.16, 'spray_threshold': 2.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned tomato   assured  -> {'risk_budget': 0.07, 'deficit_factor': 0.16, 'spray_threshold': 2.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned grape    scarce   -> {'risk_budget': 0.15, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned grape    assured  -> {'risk_budget': 0.15, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned soybean  scarce   -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 1.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned soybean  assured  -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 1.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned wheat    scarce   -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 1.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned wheat    assured  -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 1.5, 'n_safety': 1.15, 'bio_preference': 0.35}
+  tuned cotton   scarce   -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.0, 'bio_preference': 0.35}
+  tuned cotton   assured  -> {'risk_budget': 0.07, 'deficit_factor': 0.0, 'spray_threshold': 0.8, 'n_safety': 1.0, 'bio_preference': 0.35}
+running pilot: 60 farms x 2 years x 2 seasons x 3 policies ...
+{
+ "n_farms": 60,
+ "n_farm_seasons": 240,
+ "yield_gain_vs_farmer_pct": 0.280033554395897,
+ "yield_gain_vs_agronomist_pct": 3.925933175272249,
+ "water_saving_pct": 29.34733195303916,
+ "water_productivity_gain_pct": 47.58698901203614,
+ "nitrogen_reduction_pct": 51.46170270072991,
+ "chem_spray_reduction_pct": 57.50420494561488,
+ "pesticide_load_reduction_pct": 44.772861230380855,
+ "n_leaching_reduction_pct": 78.82251901474501,
+ "runoff_reduction_mm": 3.9455691139268123,
+ "env_cost_reduction_pct": 59.43426789837083,
+ "biodiversity_index_gain_pct": 37.01161246515514,
+ "gross_margin_gain_pct": 39.88680739771906,
+ "gross_margin_gain_inr_per_ha": 76539.9376843984,
+ "roi_on_agent_cost": 69.58176153127128,
+ "mean_adoption_rate": 0.628246970836906,
+ "mean_final_trust": 0.9432635374818511,
+ "stress_days_delta": 0.3125
+}

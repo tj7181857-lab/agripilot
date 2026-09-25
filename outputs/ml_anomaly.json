@@ -1,0 +1,295 @@
+{
+ "method": "IsolationForest, per-farm, on (rain, crop water use, irrigation, depletion ratio, stress-threshold ratio, pest pressure)",
+ "contamination": 0.05,
+ "farms": {
+  "F001": {
+   "crop": "tomato",
+   "n_days": 145,
+   "n_flagged": 8,
+   "flagged_days": [
+    {
+     "day": 19,
+     "score": 0.637,
+     "rain": 32.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 49,
+     "score": 0.63,
+     "rain": 19.4,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 10,
+     "score": 0.624,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 79,
+     "score": 0.621,
+     "rain": 40.3,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 4,
+     "score": 0.605,
+     "rain": 10.5,
+     "irrigation": 4.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 140,
+     "score": 0.6,
+     "rain": 20.4,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.586,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.53
+    },
+    {
+     "day": 69,
+     "score": 0.571,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    }
+   ]
+  },
+  "F014": {
+   "crop": "onion",
+   "n_days": 150,
+   "n_flagged": 8,
+   "flagged_days": [
+    {
+     "day": 5,
+     "score": 0.75,
+     "rain": 23.4,
+     "irrigation": 11.8,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 6,
+     "score": 0.661,
+     "rain": 3.4,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 18,
+     "score": 0.607,
+     "rain": 4.3,
+     "irrigation": 4.0,
+     "depletion_ratio": 0.09
+    },
+    {
+     "day": 33,
+     "score": 0.602,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.31
+    },
+    {
+     "day": 57,
+     "score": 0.585,
+     "rain": 3.4,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.28
+    },
+    {
+     "day": 36,
+     "score": 0.567,
+     "rain": 0.0,
+     "irrigation": 10.9,
+     "depletion_ratio": 0.28
+    },
+    {
+     "day": 13,
+     "score": 0.562,
+     "rain": 0.0,
+     "irrigation": 14.6,
+     "depletion_ratio": 0.1
+    },
+    {
+     "day": 7,
+     "score": 0.561,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.08
+    }
+   ]
+  },
+  "F027": {
+   "crop": "grape",
+   "n_days": 205,
+   "n_flagged": 11,
+   "flagged_days": [
+    {
+     "day": 17,
+     "score": 0.768,
+     "rain": 35.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 200,
+     "score": 0.671,
+     "rain": 3.3,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.47
+    },
+    {
+     "day": 5,
+     "score": 0.669,
+     "rain": 28.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 0,
+     "score": 0.664,
+     "rain": 15.8,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 109,
+     "score": 0.643,
+     "rain": 3.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.32
+    },
+    {
+     "day": 24,
+     "score": 0.628,
+     "rain": 7.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.611,
+     "rain": 5.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 6,
+     "score": 0.604,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 125,
+     "score": 0.592,
+     "rain": 13.1,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.36
+    },
+    {
+     "day": 21,
+     "score": 0.59,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 138,
+     "score": 0.579,
+     "rain": 5.8,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.4
+    }
+   ]
+  },
+  "F038": {
+   "crop": "cotton",
+   "n_days": 195,
+   "n_flagged": 10,
+   "flagged_days": [
+    {
+     "day": 32,
+     "score": 0.655,
+     "rain": 37.1,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 94,
+     "score": 0.651,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 64,
+     "score": 0.63,
+     "rain": 33.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 82,
+     "score": 0.622,
+     "rain": 15.3,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 146,
+     "score": 0.598,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.2
+    },
+    {
+     "day": 4,
+     "score": 0.597,
+     "rain": 16.6,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 71,
+     "score": 0.596,
+     "rain": 5.3,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 165,
+     "score": 0.593,
+     "rain": 23.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.18
+    },
+    {
+     "day": 35,
+     "score": 0.589,
+     "rain": 31.7,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.583,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    }
+   ]
+  }
+ },
+ "total_days_scored": 695,
+ "total_flagged": 37
+}
