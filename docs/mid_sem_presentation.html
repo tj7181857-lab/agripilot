@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriPilot - Mid-Semester Project Presentation</title>
+  <style>
+    :root {
+      --primary: #1b4332;
+      --primary-light: #2d6a4f;
+      --accent: #40916c;
+      --accent-soft: #52b788;
+      --light-green: #d8f3dc;
+      --bg-light: #f4f7f4;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --border: #d1e7dd;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: #0b1f17;
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Presentation Header Toolbar */
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(11, 31, 23, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 1000;
+      color: #fff;
+    }
+
+    .toolbar-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--light-green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toolbar-title span {
+      background: rgba(82, 183, 136, 0.2);
+      color: #74c69d;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(82, 183, 136, 0.4);
+      font-weight: 500;
+    }
+
+    .toolbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background: rgba(82, 183, 136, 0.3);
+      border-color: var(--accent-soft);
+      color: #d8f3dc;
+    }
+
+    .btn-primary {
+      background: var(--primary-light);
+      border-color: var(--accent-soft);
+      color: #fff;
+    }
+
+    .slide-counter {
+      font-size: 13px;
+      font-weight: 600;
+      color: #b7e4c7;
+      min-width: 90px;
+      text-align: center;
+    }
+
+    /* Presentation Deck Stage */
+    .deck-container {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      margin: 72px auto 24px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(82, 183, 136, 0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 44px 56px 40px;
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      border-bottom: 2px solid var(--light-green);
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .slide-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .slide-number-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    /* Slide Content Layouts */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+
+    .card h4 {
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #d8e2dc;
+      padding-bottom: 6px;
+    }
+
+    ul.clean-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul.clean-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    ul.clean-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table th {
+      background: #eaf5ee;
+      color: var(--primary);
+      padding: 10px 12px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #edf2f0;
+      color: #334155;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr.highlight {
+      background: #f0fdf4;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Badges & Callouts */
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-green { background: #d1e7dd; color: #0f5132; }
+    .badge-blue { background: #cfe2ff; color: #084298; }
+    .badge-amber { background: #fff3cd; color: #664d03; }
+
+    .callout {
+      background: #fdfdfd;
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      border-top: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .callout.warning {
+      border-left-color: #d97706;
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    /* Architecture / Flow diagrams */
+    .flow-box {
+      background: #ffffff;
+      border: 1px dashed var(--accent);
+      border-radius: 6px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #1e293b;
+      white-space: pre;
+      line-height: 1.35;
+      overflow-x: auto;
+    }
+
+    /* Title Slide Specific */
+    .title-slide-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 20px;
+    }
+
+    .project-logo-badge {
+      background: #e8f5e9;
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--accent-soft);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .title-main {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .title-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+
+    .meta-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 28px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 36px;
+      text-align: left;
+      font-size: 14px;
+      max-width: 650px;
+      width: 100%;
+    }
+
+    .meta-item strong {
+      color: var(--primary);
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    /* Speaker Notes Drawer */
+    .notes-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #11281e;
+      color: #e2e8f0;
+      border-top: 2px solid var(--accent);
+      padding: 16px 28px;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .notes-drawer.open {
+      transform: translateY(0);
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #74c69d;
+      letter-spacing: 1px;
+    }
+
+    .notes-text {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #d1d5db;
+      font-style: italic;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff !important;
+        padding: 0 !important;
+      }
+      .toolbar, .notes-drawer {
+        display: none !important;
+      }
+      .deck-container {
+        max-width: 100% !important;
+        aspect-ratio: auto !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        border: none !important;
+      }
+      .slide {
+        display: flex !important;
+        position: relative !important;
+        opacity: 1 !important;
+        page-break-after: always !important;
+        height: 100vh !important;
+        padding: 40px !important;
+        border-bottom: 2px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar -->
+  <header class="toolbar">
+    <div class="toolbar-title">
+      AgriPilot <span>Mid-Sem Presentation</span>
+    </div>
+    <div class="toolbar-controls">
+      <span class="slide-counter" id="slideIndicator">Slide 1 / 10</span>
+      <button class="btn" onclick="prevSlide()" title="Previous Slide (Left Arrow)">◀ Prev</button>
+      <button class="btn" onclick="nextSlide()" title="Next Slide (Right Arrow)">Next ▶</button>
+      <button class="btn" id="notesToggleBtn" onclick="toggleNotes()" title="Toggle Speaker Notes (S key)">🎙 Notes (S)</button>
+      <button class="btn btn-primary" onclick="window.print()" title="Print / Save PDF (Ctrl+P)">🖨 Print / PDF</button>
+    </div>
+  </header>
+
+  <!-- Slide Deck Presentation Stage -->
+  <main class="deck-container">
+
+    <!-- SLIDE 1: TITLE -->
+    <section class="slide active" id="slide-1">
+      <div class="title-slide-content">
+        <div class="project-logo-badge">B.Tech Artificial Intelligence & Data Science · Mid-Sem Project</div>
+        <h1 class="title-main">AgriPilot</h1>
+        <p class="title-subtitle">AI-Powered Multilingual Crop Health & Farm Advisory System</p>
+
+        <div class="meta-box">
+          <div class="meta-item">
+            <strong>Student Presenter</strong>
+            Tushar Manohar Jadhav
+          </div>
+          <div class="meta-item">
+            <strong>Institution</strong>
+            Vishwakarma Institute of Technology (VIT Pune)
+          </div>
+          <div class="meta-item">
+            <strong>Department & Program</strong>
+            Dept. of AI & DS, B.Tech Program
+          </div>
+          <div class="meta-item">
+            <strong>Evaluation Stage</strong>
+            Mid-Semester Technical Evaluation (2025–26)
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+          Core ML Pipeline: Tabular Crop Recommendation + MobileNetV2 Disease Detection + Grad-CAM Visual Explainability
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: PROBLEM STATEMENT -->
+    <section class="slide" id="slide-2">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Problem Analysis</div>
+          <h2 class="slide-title">Problem Statement & Practical Agriculture Context</h2>
+        </div>
+        <span class="slide-number-badge">Slide 02</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Ground-Level Challenges in Indian Farming</h4>
+            <ul class="clean-list">
+              <li><strong>Empirical vs. Scientific Sowing:</strong> Farmers predominantly select crops based on tradition rather than analytical matching with soil minerals (N, P, K, pH) and rainfall patterns.</li>
+              <li><strong>Delayed Disease Diagnosis:</strong> Plant pathology expertise is scarce in rural clusters. Delayed diagnosis often leads to crop loss or indiscriminate chemical spraying.</li>
+              <li><strong>Digital Language Barrier:</strong> Standard advisory tools and agricultural databases are primarily in English, excluding non-English-literate farmers.</li>
+              <li><strong>Fragmented Record-Keeping:</strong> Farm history (soil reports, previous crop yields, disease outbreaks) is maintained informally, leading to lost context across seasons.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>The Machine Learning Integration Gap</h4>
+            <ul class="clean-list">
+              <li><strong>Standalone Black-Box Models:</strong> Existing computer vision models output a raw disease label without visual evidence, hindering farmer confidence and field verification.</li>
+              <li><strong>Disconnected Soil & Vision Pipelines:</strong> Most tools address either soil or leaf photos independently without linking them to an integrated farm management profile.</li>
+              <li><strong>Requirement for Real-World Feasibility:</strong> Models must be lightweight enough to perform sub-second inference without expensive cloud hardware.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Formal Mid-Sem Problem Statement:</strong>
+          "To design and evaluate an accessible machine learning system that provides scientific crop recommendation from soil-weather data, interpretable leaf disease classification via Grad-CAM, and persistent, multilingual farm record management for individual farmers."
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: OBJECTIVES -->
+    <section class="slide" id="slide-3">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Project Scope</div>
+          <h2 class="slide-title">Project Objectives: ML vs. Application Systems</h2>
+        </div>
+        <span class="slide-number-badge">Slide 03</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Machine Learning Objectives</h4>
+            <ul class="clean-list">
+              <li><strong>Soil-Centric Crop Recommendation:</strong> Benchmark Decision Tree, Random Forest, and Gradient Boosting algorithms on 7 soil & climate parameters across 22 crop classes.</li>
+              <li><strong>Deep Disease Classification:</strong> Build and fine-tune a convolutional transfer learning pipeline (MobileNetV2) for crop leaf disease detection.</li>
+              <li><strong>Interpretability via Grad-CAM:</strong> Implement Gradient-weighted Class Activation Mapping to visually highlight disease lesions on leaf images.</li>
+              <li><strong>Model Artifact Persistence:</strong> Serialize and bundle models (<code style="background:#e2e8f0;padding:1px 4px;border-radius:3px;">.joblib</code>, <code style="background:#e2e8f0;padding:1px 4px;border-radius:3px;">.keras</code>) and offline evaluation metrics for instant inference.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Application & System Objectives</h4>
+            <ul class="clean-list">
+              <li><strong>Isolated Multi-User Profiles:</strong> Enforce session authorization in SQLite so each farmer exclusively manages their own farm plots, crop cycles, and scan history.</li>
+              <li><strong>Tri-Lingual Localization:</strong> Provide native interface and advisory support in English, Hindi (हिंदी), and Marathi (मराठी).</li>
+              <li><strong>Analyst Dashboard:</strong> Provide a dedicated analyst view exposing project dataset aggregates, confusion matrices, and saved ML metrics.</li>
+              <li><strong>Contextual Farm Advisory:</strong> Provide actionable recommendations using weather context without ever fabricating missing laboratory soil values.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background:#f8f9fa; border:1px solid var(--border); border-radius:6px; padding:10px 16px; font-size:13px; display:flex; justify-content:space-around;">
+          <span>✓ Supervised Crop Modeling</span>
+          <span>✓ Transfer Learning Vision</span>
+          <span>✓ Grad-CAM Visual Heatmaps</span>
+          <span>✓ SQLite Data Isolation</span>
+          <span>✓ Tri-Lingual Support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: SYSTEM ARCHITECTURE -->
+    <section class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">System Design</div>
+          <h2 class="slide-title">End-to-End System Architecture & Data Flow</h2>
+        </div>
+        <span class="slide-number-badge">Slide 04</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="flow-box">
++---------------------------------------------------------------------------------------------------------+
+|                                           ROLE & CLIENT LAYER                                           |
+|       [ Farmer Interface (Mobile / Web) ]                                [ Analyst / Agronomist ]       |
++---------------------------------------------------------------------------------------------------------+
+                                                     |
+                                                     v
++---------------------------------------------------------------------------------------------------------+
+|                                    FLASK APPLICATION & ROUTER LAYER                                     |
+|   - Session-based User Auth (Werkzeug password hashing)      - Multilingual Controller (EN / HI / MR)   |
+|   - Access Enforcement: Farmer Dashboard (/dashboard)   vs.   Analyst Portal (/analyst/dashboard)      |
++---------------------------------------------------------------------------------------------------------+
+                |                                            |                           |
+                v                                            v                           v
++-------------------------------+            +-------------------------------+   +-------------------+
+|      CROP RECOMMENDER         |            |      LEAF DISEASE SCANNER     |   |   FARM RECORDS    |
++-------------------------------+            +-------------------------------+   +-------------------+
+| * 7-Feature Validator         |            | * Image Resize (224x224 RGB)  |   | * Farm Profile    |
+|   (N, P, K, pH, Rain, Temp)   |            | * MobileNetV2 Inference       |   | * Plot Ownership  |
+| * Pre-trained Joblib Ensemble |            | * Grad-CAM Heatmap Generation |   | * Seasonal Advice |
+| * Ranked Class Probabilities  |            |   (Target Layer: 'Conv_1')    |   | * Weather Context |
++-------------------------------+            +-------------------------------+   +-------------------+
+                |                                            |                           |
+                +---------------------+----------------------+                           |
+                                      |                                                  |
+                                      v                                                  v
++---------------------------------------------------------------------------------------------------------+
+|                                     PERSISTENCE & ARTIFACT LAYER                                        |
+|   SQLite DB: `users`, `farms`, `farm_crops`, `recommendations`, `disease_scans`                        |
+|   Model Artifacts: `crop_recommender_bundle.joblib`, `disease_model.keras`                             |
+|   Evaluation Data: `crop_model_comparison.json`, `disease_model_metrics.json`                           |
++---------------------------------------------------------------------------------------------------------+
+        </div>
+
+        <div class="grid-3" style="font-size:13px;">
+          <div class="card" style="padding:10px 14px;">
+            <strong>1. Role Separation:</strong> Distinct endpoints for farmers and analysts; strict data boundaries prevent leakages.
+          </div>
+          <div class="card" style="padding:10px 14px;">
+            <strong>2. Decoupled Inference:</strong> Models run from serialized bundles in memory, eliminating retraining lag during HTTP calls.
+          </div>
+          <div class="card" style="padding:10px 14px;">
+            <strong>3. Interpretability Hook:</strong> Grad-CAM gradients extracted in parallel with prediction for immediate visual feedback.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: DATASETS AND PREPROCESSING -->
+    <section class="slide" id="slide-5">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Data Engineering</div>
+          <h2 class="slide-title">Datasets & Preprocessing Pipelines</h2>
+        </div>
+        <span class="slide-number-badge">Slide 05</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Dataset 1: Crop Recommendation (Tabular)</h4>
+            <ul class="clean-list">
+              <li><strong>Sample Volume:</strong> 2,200 verified agricultural data points.</li>
+              <li><strong>Split:</strong> 1,760 train samples (80%) : 440 test samples (20%).</li>
+              <li><strong>7 Input Features:</strong>
+                <br>• Soil: Nitrogen ($N$), Phosphorus ($P$), Potassium ($K$)
+                <br>• Climatic: Temperature, Relative Humidity, Rainfall
+                <br>• Chemical: Soil pH level
+              </li>
+              <li><strong>22 Target Crop Classes:</strong> Rice, Maize, Chickpea, Kidneybeans, Pigeonpeas, Mothbeans, Mungbean, Blackgram, Lentil, Pomegranate, Banana, Mango, Grapes, Watermelon, Muskmelon, Apple, Orange, Papaya, Coconut, Cotton, Jute, Coffee.</li>
+              <li><strong>Preprocessing:</strong> Range checks, null imputation check, stratified train/test split (<code style="background:#e2e8f0;padding:1px 3px;">seed=42</code>).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Dataset 2: Crop Leaf Pathology (Vision)</h4>
+            <ul class="clean-list">
+              <li><strong>Image Modality:</strong> Standardized RGB leaf photos ($224 \times 224 \times 3$).</li>
+              <li><strong>Sample Volume:</strong> 330 curated images across held-out splits.</li>
+              <li><strong>Split:</strong> 264 train images (80%) : 66 held-out test images (20%).</li>
+              <li><strong>11 Classes Across 3 Supported Crops:</strong>
+                <br>• <strong>Grape:</strong> Black rot, Esca (Black Measles), Leaf blight, Healthy
+                <br>• <strong>Potato:</strong> Early blight, Late blight, Healthy
+                <br>• <strong>Tomato:</strong> Bacterial spot, Early blight, Late blight, Healthy
+              </li>
+              <li><strong>Preprocessing:</strong> Mini-batch tensor loading, pixel rescaling to $[0, 1]$, and bilinear interpolation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout warning" style="font-size:12.5px;">
+          <strong>Dataset Scope Boundary:</strong> System predictions are strictly bounded by these 22 crop types and 11 pathology classes. Out-of-scope crops and diseases cannot be recognized at this stage.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: MACHINE LEARNING METHODOLOGY -->
+    <section class="slide" id="slide-6">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Methodology</div>
+          <h2 class="slide-title">Machine Learning Methodology & Pipelines</h2>
+        </div>
+        <span class="slide-number-badge">Slide 06</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Component A: Soil-Climate Crop Modeling</h4>
+            <div class="flow-box" style="margin-bottom:10px;font-size:11px;">
+[7 Features (N, P, K, Temp, Humidity, pH, Rain)]
+   ↓
+[Feature Validation & Range Verification]
+   ↓
+[Multi-Algorithm Benchmarking]
+├── Decision Tree (Iterative Split)
+├── Random Forest (Ensemble Bagging)
+└── Gradient Boosting (Sequential Boosting)
+   ↓
+[Hyperparameter Tuning & Stratified Evaluation]
+   ↓
+[Saved Joblib Bundle: Scaler + Best Estimator]
+            </div>
+            <ul class="clean-list" style="font-size:13px;">
+              <li>Evaluated 3 tree-based algorithms against class imbalance and non-linear feature interactions.</li>
+              <li>Stored feature importance profiles showing relative influence of rainfall and moisture.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Component B: Vision & Grad-CAM Pipeline</h4>
+            <div class="flow-box" style="margin-bottom:10px;font-size:11px;">
+[Leaf Photo Upload (JPG/PNG)]
+   ↓
+[Resize to 224x224x3 & Rescale [0, 1]]
+   ↓
+[MobileNetV2 Backbone (Pre-trained ImageNet)]
+   ↓
+[Global Average Pooling + Softmax Output (11 Classes)]
+   ↓
+[Backprop Gradients to Final Conv Layer ('Conv_1')]
+   ↓
+[Compute Neuron Importance & Generate Grad-CAM Heatmap]
+   ↓
+[Overlay Heatmap on Leaf Photo + Disease Prediction]
+            </div>
+            <ul class="clean-list" style="font-size:13px;">
+              <li>MobileNetV2 enables sub-second classification suitable for resource-constrained deployments.</li>
+              <li>Grad-CAM provides visual justification by highlighting damaged lesion boundaries.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: CURRENT EVALUATION & RESULTS -->
+    <section class="slide" id="slide-7">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Experimental Results</div>
+          <h2 class="slide-title">Current Model Evaluation & Benchmark Metrics</h2>
+        </div>
+        <span class="slide-number-badge">Slide 07</span>
+      </div>
+
+      <div class="slide-body">
+        <div>
+          <h4 style="color:var(--primary);margin-bottom:8px;font-size:14px;">1. Crop Recommendation: Model Comparison ($N = 440$ Held-Out Test Samples)</h4>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Model Architecture</th>
+                <th>Accuracy</th>
+                <th>Macro Precision</th>
+                <th>Macro Recall</th>
+                <th>Macro F1</th>
+                <th>Train Time</th>
+                <th>Inference Time</th>
+                <th>Top Feature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Decision Tree</td>
+                <td>97.95%</td>
+                <td>98.10%</td>
+                <td>97.95%</td>
+                <td>97.94%</td>
+                <td>0.010 s</td>
+                <td>0.0008 s</td>
+                <td>Rainfall (30.4%)</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>Random Forest (Selected)</strong></td>
+                <td><strong>99.55%</strong></td>
+                <td><strong>99.57%</strong></td>
+                <td><strong>99.55%</strong></td>
+                <td><strong>99.55%</strong></td>
+                <td><strong>0.223 s</strong></td>
+                <td><strong>0.1052 s</strong></td>
+                <td><strong>Humidity (22.8%)</strong></td>
+              </tr>
+              <tr>
+                <td>Gradient Boosting</td>
+                <td>99.09%</td>
+                <td>99.15%</td>
+                <td>99.09%</td>
+                <td>99.09%</td>
+                <td>11.069 s</td>
+                <td>0.0183 s</td>
+                <td>Humidity (24.1%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h4 style="color:var(--primary);margin-bottom:8px;font-size:14px;">2. Leaf Disease Classification ($N = 66$ Held-Out Images, MobileNetV2)</h4>
+          <div class="grid-3">
+            <div class="card" style="text-align:center;">
+              <div style="font-size:24px;font-weight:700;color:var(--primary);">58 / 66</div>
+              <div style="font-size:13px;color:var(--text-muted);">Correct Test Predictions</div>
+              <span class="badge badge-green" style="margin-top:6px;">87.88% Accuracy</span>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:24px;font-weight:700;color:var(--accent);">87.97%</div>
+              <div style="font-size:13px;color:var(--text-muted);">Macro F1-Score</div>
+              <span class="badge badge-blue" style="margin-top:6px;">Balanced Per-Class Score</span>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:24px;font-weight:700;color:var(--primary-light);">89.73%</div>
+              <div style="font-size:13px;color:var(--text-muted);">Macro Precision</div>
+              <span class="badge badge-amber" style="margin-top:6px;">Recall: 87.88%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warning" style="font-size:12.5px;">
+          <strong>Mid-Sem Verification Note:</strong> Metrics reflect evaluation on the designated held-out split. They do not constitute guaranteed field performance under variable natural lighting or unseen crop types.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: APPLICATION WORKFLOW & FARMER INTERFACE -->
+    <section class="slide" id="slide-8">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">System Implementation</div>
+          <h2 class="slide-title">Application Workflow & Farmer Usability</h2>
+        </div>
+        <span class="slide-number-badge">Slide 08</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Farmer Interaction Journey</h4>
+            <div class="flow-box" style="font-size:11px;line-height:1.4;">
+[New Farmer]                               [Returning Farmer]
+      ↓                                           ↓
+[Register & Select Language]              [Authenticate Login]
+      ↓                                           ↓
+[Farm Setup: Area, Soil Type, Irrigation] [Load Farm Profile & Past Logs]
+      ↓                                           ↓
+------------------ CHOOSE ADVISORY SERVICE ------------------
+      ↓                                           ↓
+[Crop Recommendation]                     [Leaf Disease Scanner]
+- Input available soil test data          - Upload leaf image
+- Missing N-P-K handled transparently     - MobileNetV2 prediction
+- Top ranked crop recommendation          - Grad-CAM heatmap visualization
+      ↓                                           ↓
+----------------- PERSIST TO SQLITE DATABASE -----------------
+      ↓
+[Farmer History Portal: View Own Past Scans & Seasonal Advice]
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Farmer-Centric Engineering Principles</h4>
+            <ul class="clean-list">
+              <li><strong>No Artificial Soil Chemistry:</strong> If a farmer lacks a laboratory soil test report, the system does not invent artificial N-P-K numbers; it flags missing data transparently.</li>
+              <li><strong>Strict Tenant Isolation:</strong> User sessions enforce foreign-key boundaries in SQLite (<code style="background:#e2e8f0;padding:1px 3px;">user_id</code> matching). A farmer never accesses another farmer's plots or scan history.</li>
+              <li><strong>Tri-Lingual Localization:</strong> Dynamic translation of advisory content into English, Hindi (हिंदी), and Marathi (मराठी) to bridge rural literacy gaps.</li>
+              <li><strong>Contextual Weather Integration:</strong> Sowing advisories leverage local climatic conditions alongside pure machine learning classification.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: LIMITATIONS & CHALLENGES -->
+    <section class="slide" id="slide-9">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Critical Appraisal</div>
+          <h2 class="slide-title">Current Limitations & Technical Challenges</h2>
+        </div>
+        <span class="slide-number-badge">Slide 09</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <h4>1. Domain Shift in Field Photography</h4>
+            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:8px;">Held-out benchmark accuracy (87.88%) degrades under uncontrolled field conditions: direct solar glare, shadows, muddy leaf residues, and low-resolution phone cameras.</p>
+            <h4>2. Bounded Crop & Pathology Taxonomy</h4>
+            <p style="font-size:13.5px;color:var(--text-muted);">The vision model recognizes exactly 11 states across 3 crops (Grape, Potato, Tomato). Crucial regional crops (Cotton, Sugarcane, Soybean) are not yet represented.</p>
+          </div>
+
+          <div class="card">
+            <h4>3. Lack of Out-of-Distribution (OOD) Gating</h4>
+            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:8px;">Uploading an arbitrary non-leaf image (soil, background, non-crop objects) produces a forced classification among the 11 classes rather than a graceful rejection.</p>
+            <h4>4. Manual Soil Data Entry Friction</h4>
+            <p style="font-size:13.5px;color:var(--text-muted);">Farmers without digital soil cards must manually transcribe numerical N-P-K parameters; automated OCR extraction from photographed cards is not yet built.</p>
+          </div>
+        </div>
+
+        <div class="callout" style="border-left-color:var(--primary);background:#f1f5f2;">
+          <strong>Mid-Semester Reflection:</strong> "These limitations reflect authentic developmental milestones in an engineering project. Recognizing these failure modes provides the concrete technical requirements for our end-semester completion."
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: FUTURE WORK & END-SEM PLAN -->
+    <section class="slide" id="slide-10">
+      <div class="slide-header">
+        <div>
+          <div class="slide-category">Roadmap</div>
+          <h2 class="slide-title">Future Work & End-Semester Project Roadmap</h2>
+        </div>
+        <span class="slide-number-badge">Slide 10</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card">
+            <h4>Phase 1: Robustness & Data</h4>
+            <ul class="clean-list" style="font-size:13px;">
+              <li><strong>Field Data Expansion:</strong> Augment image dataset with unconstrained field photos showing complex backgrounds and varied lighting.</li>
+              <li><strong>Synthetic Augmentations:</strong> Apply contrast jitter, motion blur, and perspective transforms during retraining.</li>
+              <li><strong>Expand Crop Scope:</strong> Add regional staple crops (Cotton, Rice, Soybean).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Phase 2: OOD & Automation</h4>
+            <ul class="clean-list" style="font-size:13px;">
+              <li><strong>OOD Novelty Filter:</strong> Implement softmax thresholding and background rejection to filter invalid uploads.</li>
+              <li><strong>Soil Card OCR:</strong> Build an automated parsing pipeline (Tesseract/EasyOCR) to read physical Soil Health Cards.</li>
+              <li><strong>Model Quantization:</strong> Convert weights to TFLite for fast edge mobile deployment.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>Phase 3: Advisory & Pilot</h4>
+            <ul class="clean-list" style="font-size:13px;">
+              <li><strong>Agricultural Knowledge Base:</strong> Deepen contextual guidance with local agro-advisory guidelines.</li>
+              <li><strong>Enhanced Dialect Support:</strong> Refine Marathi and Hindi agricultural terminologies.</li>
+              <li><strong>Pilot Usability Testing:</strong> Conduct field validation with local farming samples in Maharashtra.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="background:#eaf5ee;border-color:var(--accent);">
+          <strong>Current Project Status:</strong> "Core machine learning pipelines (tabular crop recommendation + MobileNetV2 disease detection + Grad-CAM) and multi-tenant web application are functional. Further robustness, OOD validation, and usability improvements are scheduled for the end-semester release."
+        </div>
+
+        <div style="text-align:center;padding:8px 0;font-size:14px;font-weight:600;color:var(--primary);">
+          Thank You! · Questions & Technical Discussion
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Speaker Notes Drawer -->
+  <aside class="notes-drawer" id="notesDrawer">
+    <div class="notes-header">
+      <span id="notesSlideTitle">Speaker Notes · Slide 1</span>
+      <span style="cursor:pointer;color:#9ca3af;" onclick="toggleNotes()">✕ Close</span>
+    </div>
+    <div class="notes-text" id="notesContent">
+      Loading speaker notes...
+    </div>
+  </aside>
+
+  <script>
+    const speakerNotes = [
+      // Slide 1
+      "Good morning, respected evaluators. My name is Tushar Manohar Jadhav, presenting our B.Tech mid-semester machine learning project in AI and Data Science at VIT Pune, titled 'AgriPilot – AI-Powered Multilingual Crop Health & Farm Advisory System'. AgriPilot is an applied ML framework aimed at helping smallholder farmers select optimal crops and detect leaf diseases. At this mid-sem milestone, we have implemented our core tabular and vision pipelines, integrated Grad-CAM explainability, and built a working multilingual web application with isolated SQLite farm records.",
+
+      // Slide 2
+      "In practical agriculture, smallholder farmers often make cropping and chemical spray decisions based on habit or hearsay rather than soil chemistry and leaf pathology. When diseases strike, expert agronomists are often inaccessible, leading to delayed or improper pesticide application. Furthermore, existing digital tools are often English-centric and present predictions as black boxes. AgriPilot addresses this by uniting data-backed crop recommendation, interpretable leaf disease classification using Grad-CAM, and a multilingual, profile-isolated web application.",
+
+      // Slide 3
+      "We have clearly split our objectives into Machine Learning goals and Application goals. On the ML side, we benchmarked tree-based algorithms for 7-feature crop recommendation and built a MobileNetV2 transfer learning pipeline with Grad-CAM visual heatmaps. On the software side, our focus is strict farm-level data isolation in SQLite, dynamic tri-lingual support across English, Hindi, and Marathi, and an analyst view for inspecting offline evaluation artifacts.",
+
+      // Slide 4
+      "This slide presents the end-to-end architecture of AgriPilot. We separate the Farmer role from the Analyst role. When a farmer interacts with the system, their authenticated session ensures all recommendations and leaf scans are stored strictly under their own user ID. When an image is uploaded, it is preprocessed and passed to MobileNetV2, where convolutional gradients from 'Conv_1' produce a Grad-CAM heatmap overlay. All models are cached in memory for sub-second inference, and analysts access dedicated metrics dashboards.",
+
+      // Slide 5
+      "We use genuine agricultural datasets. For crop recommendation, we use 2,200 records spanning 7 continuous features: Nitrogen, Phosphorus, Potassium, Temperature, Humidity, Soil pH, and Rainfall across 22 crops, split 80:20 into 1,760 train and 440 test samples. For leaf disease detection, our mid-sem dataset contains 330 curated images across 11 classes for Grape, Potato, and Tomato, split into 264 training and 66 held-out test images. We explicitly note that our disease detection capability is currently bounded by these 11 classes.",
+
+      // Slide 6
+      "Our ML methodology contains two distinct pipelines. Pipeline A evaluates Decision Tree, Random Forest, and Gradient Boosting on tabular soil data, saving the best ensemble into a joblib bundle. Pipeline B uses MobileNetV2 pre-trained on ImageNet. Rather than outputting just a label, we compute the gradients of the predicted class score relative to the feature maps of 'Conv_1'. This produces a spatial Grad-CAM attention heatmap that highlights the actual diseased lesions on the leaf, giving the farmer visual verification.",
+
+      // Slide 7
+      "Here are our actual evaluation metrics from the saved project artifacts. On 440 held-out test samples for crop recommendation, Random Forest achieved an accuracy of 99.55% and an F1-score of 99.55%, outperforming Decision Tree at 97.95% and Gradient Boosting at 99.09%. For leaf disease classification on 66 held-out test images, MobileNetV2 achieved 58 correct predictions, giving an accuracy of 87.88% and a macro F1 of 87.97%. We emphasize that these numbers reflect our held-out test split and do not represent a guarantee on arbitrary field images.",
+
+      // Slide 8
+      "In the live application, a new farmer registers, chooses their language, and enters basic farm details. Returning farmers immediately see their saved farm profile and historical records. A key design choice is that we never fabricate soil test numbers if a farmer does not know them; we provide transparent advice instead of guessing chemical values. Every scan and recommendation is securely logged in SQLite under that farmer's private history.",
+
+      // Slide 9
+      "As an honest mid-semester evaluation, we have identified five critical technical challenges. First, our disease model is limited to 11 classes across 3 crops. Second, benchmark test accuracy does not account for field domain shift—like shadows, dirt, and varied lighting. Third, our system currently lacks out-of-distribution rejection, so uploading a non-leaf photo forces a prediction. Fourth, manual soil data entry remains a friction point, and fifth, our advisory assistant is currently template-based.",
+
+      // Slide 10
+      "This roadmap defines our trajectory for the final semester. In Phase 1, we will gather challenging field photographs and apply data augmentations to increase robustness. In Phase 2, we will implement an Out-of-Distribution filter to reject invalid images and build an OCR pipeline to automatically read physical Soil Health Cards. In Phase 3, we will add regional staple crops like Cotton and Sugarcane and conduct field usability trials. In summary, our core ML and application foundations are working, and we have a clear engineering plan for the final semester. Thank you."
+    ];
+
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((slide, idx) => {
+        slide.classList.toggle('active', idx + 1 === currentSlide);
+      });
+
+      document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('notesSlideTitle').innerText = `Speaker Notes · Slide ${currentSlide}`;
+      document.getElementById('notesContent').innerText = speakerNotes[currentSlide - 1];
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleNotes() {
+      const drawer = document.getElementById('notesDrawer');
+      const btn = document.getElementById('notesToggleBtn');
+      drawer.classList.toggle('open');
+      if (drawer.classList.contains('open')) {
+        btn.style.background = 'var(--accent-soft)';
+        btn.style.color = '#0b1f17';
+      } else {
+        btn.style.background = '';
+        btn.style.color = '';
+      }
+    }
+
+    // Keyboard Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        toggleNotes();
+      } else if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    });
+
+    // Initialize
+    showSlide(1);
+  </script>
+</body>
+</html>
