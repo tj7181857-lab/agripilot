@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AgriPilot &mdash; शेत सल्ला</title>
+<style>
+:root{
+  --ink:#16241d; --ink-soft:#4a5b51; --paper:#f3f2ea; --card:#ffffff;
+  --water:#1d6b86; --leaf:#3f7a37; --soil:#8a5a3b; --alert:#bf4520;
+  --rule:#d8d7c9; --shadow:0 1px 0 var(--rule);
+}
+:root:not([data-theme=light]){}
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme=light]){--ink:#e9ece3;--ink-soft:#9dab9c;--paper:#101511;--card:#19211b;--rule:#2c352d;--water:#5fb6d1;--leaf:#7cc06e;--soil:#c08f68;--alert:#f08055;}
+}
+:root[data-theme=dark]{--ink:#e9ece3;--ink-soft:#9dab9c;--paper:#101511;--card:#19211b;--rule:#2c352d;--water:#5fb6d1;--leaf:#7cc06e;--soil:#c08f68;--alert:#f08055;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+ font-size:17px;line-height:1.5;-webkit-text-size-adjust:100%}
+.wrap{max-width:430px;margin:0 auto;padding:0 14px 90px}
+header{padding:16px 0 10px;border-bottom:2px solid var(--ink)}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.brand b{font-size:20px;letter-spacing:-.01em}
+.brand span{font-size:13px;color:var(--ink-soft)}
+.meta{font-size:13px;color:var(--ink-soft);margin-top:4px}
+
+/* hero: the day's action, the one loud thing in the whole design */
+.today{margin:14px 0 0;background:var(--card);border:2px solid var(--ink);border-radius:2px}
+.today .band{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.today .band .day{font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-soft)}
+.today .verb{padding:14px;display:flex;gap:14px;align-items:flex-start}
+.today .glyph{font-size:40px;line-height:1}
+.today h1{margin:0;font-size:26px;line-height:1.15;letter-spacing:-.02em}
+.today p{margin:8px 0 0;font-size:16px}
+.confi{display:inline-block;margin-top:10px;font-size:12px;padding:3px 8px;border:1px solid var(--rule);border-radius:99px;color:var(--ink-soft)}
+.acts{display:flex;border-top:1px solid var(--rule)}
+.acts button{flex:1;border:0;padding:15px 8px;font:inherit;font-size:16px;background:transparent;color:var(--ink);cursor:pointer}
+.acts button+button{border-left:1px solid var(--rule)}
+.acts button.yes{background:var(--leaf);color:#fff;font-weight:600}
+.acts button:focus-visible{outline:3px solid var(--water);outline-offset:-3px}
+.done{padding:12px 14px;font-size:15px;color:var(--leaf);display:none}
+
+h2{font-size:14px;font-weight:600;margin:26px 0 8px;color:var(--ink-soft)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.cell{background:var(--card);padding:10px 12px}
+.cell .n{font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.cell .l{font-size:12px;color:var(--ink-soft)}
+.cell .d{font-size:12px;color:var(--leaf)}
+.cell .d.bad{color:var(--alert)}
+
+.moist{background:var(--card);border:1px solid var(--rule);padding:12px}
+.bar{height:26px;background:linear-gradient(90deg,var(--water),#9cc9d6);position:relative;border:1px solid var(--rule)}
+.bar i{position:absolute;top:-6px;bottom:-6px;width:3px;background:var(--ink)}
+.bar u{position:absolute;top:0;bottom:0;right:0;background:var(--paper);opacity:.85}
+.scale{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);margin-top:4px}
+
+svg{display:block;width:100%;height:auto}
+.chartbox{background:var(--card);border:1px solid var(--rule);padding:10px 8px 4px;overflow-x:auto}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--ink-soft);padding:6px 4px 0;flex-wrap:wrap}
+.legend b{display:inline-block;width:10px;height:10px;margin-right:4px;vertical-align:-1px}
+
+.log{border:1px solid var(--rule);background:var(--card)}
+.row{padding:10px 12px;border-bottom:1px solid var(--rule);display:flex;gap:10px;font-size:14px}
+.row:last-child{border-bottom:0}
+.row .g{font-size:18px}
+.row .t{flex:1}
+.row .s{font-size:11px;color:var(--ink-soft);white-space:nowrap}
+.row.rej .t{opacity:.55;text-decoration:line-through}
+
+.sms{font-family:ui-monospace,"Cascadia Mono",Menlo,monospace;font-size:13px;background:var(--card);
+ border:1px dashed var(--soil);padding:10px 12px;white-space:pre-wrap;word-break:break-word}
+.tabs{display:flex;gap:0;margin:26px 0 0;border-bottom:2px solid var(--ink)}
+.tabs button{flex:1;background:transparent;border:0;padding:11px 6px;font:inherit;font-size:15px;color:var(--ink-soft);cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--ink);font-weight:600;box-shadow:inset 0 -3px 0 var(--leaf)}
+.pane{display:none}.pane.on{display:block}
+footer{margin-top:28px;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:12px}
+.kb{font-size:11px;color:var(--ink-soft);text-align:right;padding-top:6px}
+@media (prefers-reduced-motion:no-preference){.today{transition:border-color .2s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><b>AgriPilot</b><span id="fmeta"></span></div>
+  <div class="meta" id="fsub"></div>
+</header>
+
+<div class="today" id="today"></div>
+
+<div class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-p="p1">आज</button>
+  <button role="tab" aria-selected="false" data-p="p2">हंगाम</button>
+  <button role="tab" aria-selected="false" data-p="p3">नोंदी</button>
+</div>
+
+<div class="pane on" id="p1">
+  <h2>जमिनीतील ओलावा</h2>
+  <div class="moist">
+    <div class="bar"><u id="dep"></u><i id="mark"></i></div>
+    <div class="scale"><span>भरलेले</span><span id="rawlbl">ताण सुरू</span><span>कोरडे</span></div>
+    <p style="margin:10px 0 0;font-size:14px" id="mtxt"></p>
+  </div>
+  <h2>पुढील ७ दिवस</h2>
+  <div class="chartbox"><svg id="plan" viewBox="0 0 360 120" role="img" aria-label="सात दिवसांचा आराखडा"></svg></div>
+  <h2>SMS आवृत्ती (१६० अक्षरे)</h2>
+  <div class="sms" id="sms"></div>
+</div>
+
+<div class="pane" id="p2">
+  <h2>आजपर्यंत — तुमच्या नेहमीच्या पद्धतीशी तुलना</h2>
+  <div class="grid" id="kpi"></div>
+  <h2>पाणी आणि ताण</h2>
+  <div class="chartbox"><svg id="season" viewBox="0 0 360 170" role="img" aria-label="हंगामातील पाणी"></svg>
+    <div class="legend"><span><b style="background:var(--water)"></b>सिंचन</span>
+      <span><b style="background:#9cc9d6"></b>पाऊस</span>
+      <span><b style="background:var(--soil)"></b>ओलावा घट</span>
+      <span><b style="background:var(--alert)"></b>ताण मर्यादा</span></div></div>
+  <h2>निविष्ठा वापर</h2>
+  <div class="chartbox"><svg id="inputs" viewBox="0 0 360 130" role="img" aria-label="निविष्ठा तुलना"></svg></div>
+</div>
+
+<div class="pane" id="p3">
+  <h2>सल्ल्यांची नोंद</h2>
+  <div class="log" id="log"></div>
+  <div class="kb" id="weight"></div>
+</div>
+
+<footer>
+  AgriPilot हे सल्ला देणारे साधन आहे. अंतिम निर्णय शेतकऱ्याचा.<br>
+  <span id="src"></span>
+</footer>
+</div>
+
+<script id="d" type="application/json">{"trace":[{"day":0,"rain":6.1,"etc":1.94,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":7.1,"taw":23.6,"irrigation":9.7,"n":0.0,"spray":""},{"day":1,"rain":0.0,"etc":2.75,"ks":1.0,"dr":2.8,"dr_hat":4.5,"raw":7.4,"taw":24.8,"irrigation":0.0,"n":0.0,"spray":""},{"day":2,"rain":15.1,"etc":1.83,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":7.8,"taw":25.9,"irrigation":4.0,"n":0.0,"spray":""},{"day":3,"rain":0.0,"etc":2.48,"ks":1.0,"dr":2.5,"dr_hat":3.8,"raw":8.1,"taw":27.0,"irrigation":0.0,"n":0.0,"spray":""},{"day":4,"rain":0.0,"etc":2.76,"ks":1.0,"dr":1.5,"dr_hat":2.7,"raw":8.4,"taw":28.1,"irrigation":4.2,"n":0.0,"spray":""},{"day":5,"rain":0.0,"etc":2.73,"ks":1.0,"dr":0.6,"dr_hat":2.9,"raw":8.8,"taw":29.3,"irrigation":4.0,"n":0.0,"spray":""},{"day":6,"rain":1.5,"etc":1.68,"ks":1.0,"dr":0.8,"dr_hat":3.5,"raw":9.1,"taw":30.4,"irrigation":0.0,"n":0.0,"spray":""},{"day":7,"rain":10.0,"etc":1.97,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":9.5,"taw":31.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":8,"rain":16.4,"etc":1.91,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":9.8,"taw":32.6,"irrigation":0.0,"n":0.0,"spray":""},{"day":9,"rain":14.1,"etc":1.89,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":10.1,"taw":33.8,"irrigation":0.0,"n":0.0,"spray":""},{"day":10,"rain":0.0,"etc":2.89,"ks":1.0,"dr":2.9,"dr_hat":4.4,"raw":10.5,"taw":34.9,"irrigation":0.0,"n":0.0,"spray":""},{"day":11,"rain":0.0,"etc":2.98,"ks":1.0,"dr":5.9,"dr_hat":9.1,"raw":10.8,"taw":36.0,"irrigation":0.0,"n":0.0,"spray":""},{"day":12,"rain":0.0,"etc":3.16,"ks":1.0,"dr":9.0,"dr_hat":13.3,"raw":11.1,"taw":37.1,"irrigation":0.0,"n":0.0,"spray":""},{"day":13,"rain":0.0,"etc":2.88,"ks":1.0,"dr":1.2,"dr_hat":6.1,"raw":11.5,"taw":38.3,"irrigation":11.9,"n":0.0,"spray":""},{"day":14,"rain":0.0,"etc":2.93,"ks":1.0,"dr":0.5,"dr_hat":5.1,"raw":11.8,"taw":39.4,"irrigation":4.0,"n":0.0,"spray":""},{"day":15,"rain":0.0,"etc":2.95,"ks":1.0,"dr":3.5,"dr_hat":8.2,"raw":12.2,"taw":40.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":16,"rain":0.0,"etc":2.89,"ks":1.0,"dr":6.4,"dr_hat":10.0,"raw":12.5,"taw":41.6,"irrigation":0.0,"n":0.0,"spray":""},{"day":17,"rain":0.0,"etc":2.88,"ks":1.0,"dr":9.2,"dr_hat":13.3,"raw":12.8,"taw":42.8,"irrigation":0.0,"n":0.0,"spray":""},{"day":18,"rain":0.0,"etc":2.98,"ks":1.0,"dr":2.4,"dr_hat":6.3,"raw":13.2,"taw":43.9,"irrigation":10.9,"n":0.0,"spray":""},{"day":19,"rain":0.0,"etc":2.84,"ks":1.0,"dr":5.3,"dr_hat":9.0,"raw":13.5,"taw":45.0,"irrigation":0.0,"n":0.0,"spray":""},{"day":20,"rain":11.1,"etc":1.84,"ks":1.0,"dr":0.0,"dr_hat":0.0,"raw":13.8,"taw":46.1,"irrigation":0.0,"n":0.0,"spray":""},{"day":21,"rain":0.0,"etc":2.87,"ks":1.0,"dr":2.9,"dr_hat":3.9,"raw":14.2,"taw":47.3,"irrigation":0.0,"n":0.0,"spray":"biological"},{"day":22,"rain":0.0,"etc":3.08,"ks":1.0,"dr":5.9,"dr_hat":8.0,"raw":14.5,"taw":48.4,"irrigation":0.0,"n":0.0,"spray":""},{"day":23,"rain":0.0,"etc":3.46,"ks":1.0,"dr":9.4,"dr_hat":12.1,"raw":14.9,"taw":49.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":24,"rain":0.0,"etc":3.31,"ks":1.0,"dr":12.7,"dr_hat":15.7,"raw":15.2,"taw":50.6,"irrigation":0.0,"n":0.0,"spray":""},{"day":25,"rain":0.0,"etc":3.16,"ks":1.0,"dr":8.2,"dr_hat":11.4,"raw":15.5,"taw":51.8,"irrigation":8.6,"n":0.0,"spray":""},{"day":26,"rain":0.0,"etc":3.2,"ks":1.0,"dr":11.4,"dr_hat":15.2,"raw":15.9,"taw":52.9,"irrigation":0.0,"n":0.0,"spray":""},{"day":27,"rain":0.0,"etc":3.21,"ks":1.0,"dr":14.6,"dr_hat":20.1,"raw":16.2,"taw":54.0,"irrigation":0.0,"n":0.0,"spray":""},{"day":28,"rain":0.0,"etc":3.02,"ks":1.0,"dr":8.9,"dr_hat":12.9,"raw":16.5,"taw":55.1,"irrigation":9.7,"n":0.0,"spray":"chemical"},{"day":29,"rain":0.0,"etc":2.91,"ks":1.0,"dr":8.2,"dr_hat":13.8,"raw":16.9,"taw":56.3,"irrigation":4.0,"n":0.0,"spray":""},{"day":30,"rain":0.0,"etc":2.97,"ks":1.0,"dr":11.2,"dr_hat":14.6,"raw":17.2,"taw":57.4,"irrigation":0.0,"n":0.0,"spray":""},{"day":31,"rain":0.0,"etc":3.1,"ks":1.0,"dr":14.3,"dr_hat":19.3,"raw":17.6,"taw":58.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":32,"rain":0.0,"etc":3.17,"ks":1.0,"dr":8.8,"dr_hat":12.9,"raw":17.9,"taw":59.6,"irrigation":9.6,"n":0.0,"spray":""},{"day":33,"rain":0.0,"etc":3.03,"ks":1.0,"dr":8.3,"dr_hat":12.1,"raw":18.2,"taw":60.8,"irrigation":4.0,"n":0.0,"spray":""},{"day":34,"rain":0.0,"etc":3.27,"ks":1.0,"dr":11.5,"dr_hat":16.4,"raw":18.6,"taw":61.9,"irrigation":0.0,"n":0.0,"spray":""},{"day":35,"rain":0.0,"etc":3.14,"ks":1.0,"dr":14.7,"dr_hat":22.2,"raw":18.9,"taw":63.0,"irrigation":0.0,"n":0.0,"spray":"chemical"},{"day":36,"rain":0.0,"etc":3.54,"ks":1.0,"dr":9.0,"dr_hat":14.3,"raw":19.2,"taw":64.1,"irrigation":10.2,"n":0.0,"spray":""},{"day":37,"rain":0.0,"etc":3.56,"ks":1.0,"dr":12.6,"dr_hat":18.4,"raw":19.6,"taw":65.3,"irrigation":0.0,"n":0.0,"spray":""},{"day":38,"rain":0.0,"etc":3.53,"ks":1.0,"dr":12.5,"dr_hat":17.5,"raw":19.9,"taw":66.4,"irrigation":4.0,"n":0.0,"spray":""},{"day":39,"rain":0.0,"etc":3.9,"ks":1.0,"dr":12.8,"dr_hat":17.5,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":40,"rain":0.0,"etc":3.89,"ks":1.0,"dr":16.7,"dr_hat":22.9,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":41,"rain":0.0,"etc":3.69,"ks":1.0,"dr":2.2,"dr_hat":10.5,"raw":20.3,"taw":67.5,"irrigation":20.2,"n":0.0,"spray":""},{"day":42,"rain":0.0,"etc":3.44,"ks":1.0,"dr":5.6,"dr_hat":13.1,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"biological"},{"day":43,"rain":0.0,"etc":3.29,"ks":1.0,"dr":8.9,"dr_hat":15.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":44,"rain":0.0,"etc":3.43,"ks":1.0,"dr":4.9,"dr_hat":10.7,"raw":20.3,"taw":67.5,"irrigation":8.2,"n":0.0,"spray":""},{"day":45,"rain":0.0,"etc":3.48,"ks":1.0,"dr":4.8,"dr_hat":13.4,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":46,"rain":0.0,"etc":3.49,"ks":1.0,"dr":8.3,"dr_hat":16.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":8.0,"spray":""},{"day":47,"rain":0.0,"etc":3.37,"ks":1.0,"dr":4.1,"dr_hat":11.7,"raw":20.3,"taw":67.5,"irrigation":8.5,"n":0.0,"spray":""},{"day":48,"rain":0.0,"etc":3.48,"ks":1.0,"dr":7.6,"dr_hat":13.1,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":49,"rain":0.0,"etc":3.49,"ks":1.0,"dr":11.0,"dr_hat":16.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"chemical"},{"day":50,"rain":0.0,"etc":3.64,"ks":1.0,"dr":14.7,"dr_hat":21.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":51,"rain":0.0,"etc":3.34,"ks":1.0,"dr":8.9,"dr_hat":14.4,"raw":20.3,"taw":67.5,"irrigation":10.1,"n":0.0,"spray":""},{"day":52,"rain":0.0,"etc":3.62,"ks":1.0,"dr":8.9,"dr_hat":15.7,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":53,"rain":0.0,"etc":3.82,"ks":1.0,"dr":9.1,"dr_hat":16.4,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":54,"rain":0.6,"etc":2.71,"ks":1.0,"dr":11.2,"dr_hat":16.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":55,"rain":0.0,"etc":3.13,"ks":1.0,"dr":10.8,"dr_hat":15.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":16.3,"spray":""},{"day":56,"rain":0.0,"etc":3.56,"ks":1.0,"dr":14.3,"dr_hat":19.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"chemical"},{"day":57,"rain":0.0,"etc":3.94,"ks":1.0,"dr":9.4,"dr_hat":14.6,"raw":20.3,"taw":67.5,"irrigation":9.9,"n":0.0,"spray":""},{"day":58,"rain":0.0,"etc":3.83,"ks":1.0,"dr":9.6,"dr_hat":14.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":59,"rain":0.0,"etc":3.84,"ks":1.0,"dr":13.5,"dr_hat":21.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":60,"rain":0.0,"etc":3.71,"ks":1.0,"dr":1.2,"dr_hat":10.4,"raw":20.3,"taw":67.5,"irrigation":17.7,"n":0.0,"spray":""},{"day":61,"rain":0.0,"etc":3.69,"ks":1.0,"dr":4.9,"dr_hat":13.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":62,"rain":0.0,"etc":3.41,"ks":1.0,"dr":8.3,"dr_hat":16.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":63,"rain":0.0,"etc":3.42,"ks":1.0,"dr":11.8,"dr_hat":21.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":64,"rain":0.0,"etc":3.51,"ks":1.0,"dr":6.1,"dr_hat":14.9,"raw":20.3,"taw":67.5,"irrigation":10.1,"n":18.4,"spray":""},{"day":65,"rain":0.0,"etc":3.45,"ks":1.0,"dr":9.6,"dr_hat":16.3,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"biological"},{"day":66,"rain":0.0,"etc":3.76,"ks":1.0,"dr":4.2,"dr_hat":15.1,"raw":20.3,"taw":67.5,"irrigation":10.1,"n":0.0,"spray":""},{"day":67,"rain":0.0,"etc":3.75,"ks":1.0,"dr":8.0,"dr_hat":17.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":68,"rain":0.0,"etc":3.35,"ks":1.0,"dr":11.3,"dr_hat":19.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":69,"rain":0.0,"etc":3.65,"ks":1.0,"dr":6.3,"dr_hat":14.1,"raw":20.3,"taw":67.5,"irrigation":9.7,"n":0.0,"spray":""},{"day":70,"rain":0.0,"etc":3.63,"ks":1.0,"dr":9.9,"dr_hat":16.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":71,"rain":0.0,"etc":3.55,"ks":1.0,"dr":13.5,"dr_hat":19.6,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":72,"rain":0.0,"etc":3.65,"ks":1.0,"dr":17.1,"dr_hat":22.9,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":73,"rain":0.0,"etc":4.0,"ks":1.0,"dr":10.5,"dr_hat":17.2,"raw":20.3,"taw":67.5,"irrigation":11.8,"n":0.0,"spray":"biological"},{"day":74,"rain":0.0,"etc":3.62,"ks":1.0,"dr":14.1,"dr_hat":22.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":15.7,"spray":""},{"day":75,"rain":0.0,"etc":3.35,"ks":1.0,"dr":8.0,"dr_hat":15.1,"raw":20.3,"taw":67.5,"irrigation":10.6,"n":0.0,"spray":""},{"day":76,"rain":0.0,"etc":3.19,"ks":1.0,"dr":11.2,"dr_hat":18.6,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":77,"rain":0.0,"etc":3.0,"ks":1.0,"dr":10.6,"dr_hat":17.4,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":78,"rain":0.0,"etc":2.82,"ks":1.0,"dr":9.8,"dr_hat":13.7,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":79,"rain":0.0,"etc":2.95,"ks":1.0,"dr":9.1,"dr_hat":15.0,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":80,"rain":0.0,"etc":2.95,"ks":1.0,"dr":8.5,"dr_hat":14.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":"biological"},{"day":81,"rain":0.0,"etc":2.96,"ks":1.0,"dr":11.4,"dr_hat":16.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":82,"rain":0.0,"etc":3.4,"ks":1.0,"dr":14.8,"dr_hat":18.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":83,"rain":0.0,"etc":3.51,"ks":1.0,"dr":18.3,"dr_hat":24.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":8.6,"spray":""},{"day":84,"rain":0.0,"etc":3.38,"ks":1.0,"dr":11.0,"dr_hat":16.9,"raw":20.3,"taw":67.5,"irrigation":11.9,"n":0.0,"spray":""},{"day":85,"rain":0.0,"etc":3.24,"ks":1.0,"dr":10.7,"dr_hat":16.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":86,"rain":0.0,"etc":3.47,"ks":1.0,"dr":10.5,"dr_hat":17.0,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":87,"rain":0.0,"etc":3.63,"ks":1.0,"dr":14.2,"dr_hat":20.1,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"chemical"},{"day":88,"rain":0.0,"etc":3.34,"ks":1.0,"dr":7.8,"dr_hat":15.8,"raw":20.3,"taw":67.5,"irrigation":10.8,"n":0.0,"spray":""},{"day":89,"rain":0.0,"etc":3.56,"ks":1.0,"dr":11.3,"dr_hat":17.6,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":90,"rain":0.0,"etc":3.45,"ks":1.0,"dr":14.8,"dr_hat":19.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":91,"rain":0.0,"etc":3.2,"ks":1.0,"dr":18.0,"dr_hat":23.6,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":92,"rain":0.0,"etc":3.26,"ks":1.0,"dr":10.5,"dr_hat":17.2,"raw":20.3,"taw":67.5,"irrigation":11.9,"n":0.0,"spray":""},{"day":93,"rain":2.5,"etc":2.16,"ks":1.0,"dr":10.1,"dr_hat":16.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":94,"rain":0.0,"etc":3.23,"ks":1.0,"dr":9.8,"dr_hat":17.2,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":8.0,"spray":"biological"},{"day":95,"rain":0.0,"etc":3.25,"ks":1.0,"dr":9.4,"dr_hat":15.3,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":96,"rain":0.0,"etc":3.89,"ks":1.0,"dr":9.7,"dr_hat":15.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":97,"rain":0.0,"etc":4.07,"ks":1.0,"dr":10.2,"dr_hat":15.3,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":98,"rain":0.0,"etc":4.37,"ks":1.0,"dr":10.9,"dr_hat":16.8,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":99,"rain":0.0,"etc":4.45,"ks":1.0,"dr":7.3,"dr_hat":13.0,"raw":20.3,"taw":67.5,"irrigation":9.0,"n":0.0,"spray":""},{"day":100,"rain":0.0,"etc":4.13,"ks":1.0,"dr":7.8,"dr_hat":16.3,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":101,"rain":0.0,"etc":3.94,"ks":1.0,"dr":8.2,"dr_hat":17.3,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":102,"rain":0.0,"etc":3.6,"ks":1.0,"dr":11.8,"dr_hat":20.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":103,"rain":0.0,"etc":3.74,"ks":1.0,"dr":11.9,"dr_hat":20.0,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":"biological"},{"day":104,"rain":0.0,"etc":4.15,"ks":1.0,"dr":16.1,"dr_hat":25.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":105,"rain":0.0,"etc":3.54,"ks":1.0,"dr":9.4,"dr_hat":16.3,"raw":20.3,"taw":67.5,"irrigation":11.4,"n":0.0,"spray":""},{"day":106,"rain":0.0,"etc":3.47,"ks":1.0,"dr":9.2,"dr_hat":17.2,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":107,"rain":0.0,"etc":3.89,"ks":1.0,"dr":13.1,"dr_hat":20.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":108,"rain":0.0,"etc":4.13,"ks":1.0,"dr":17.2,"dr_hat":23.9,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":109,"rain":0.0,"etc":4.07,"ks":1.0,"dr":21.3,"dr_hat":27.6,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":110,"rain":0.0,"etc":4.16,"ks":0.978,"dr":6.2,"dr_hat":11.7,"raw":20.3,"taw":67.5,"irrigation":21.3,"n":0.0,"spray":"chemical"},{"day":111,"rain":0.0,"etc":4.57,"ks":1.0,"dr":7.1,"dr_hat":13.5,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":112,"rain":0.0,"etc":4.82,"ks":1.0,"dr":12.0,"dr_hat":18.7,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":113,"rain":0.0,"etc":4.7,"ks":1.0,"dr":3.0,"dr_hat":9.8,"raw":20.3,"taw":67.5,"irrigation":15.2,"n":0.0,"spray":""},{"day":114,"rain":0.0,"etc":4.97,"ks":1.0,"dr":4.4,"dr_hat":11.5,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":115,"rain":0.0,"etc":4.78,"ks":1.0,"dr":2.7,"dr_hat":10.0,"raw":20.3,"taw":67.5,"irrigation":7.2,"n":0.0,"spray":""},{"day":116,"rain":0.0,"etc":4.4,"ks":1.0,"dr":1.1,"dr_hat":9.5,"raw":20.3,"taw":67.5,"irrigation":6.7,"n":0.0,"spray":""},{"day":117,"rain":0.0,"etc":4.16,"ks":1.0,"dr":5.3,"dr_hat":9.1,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"chemical"},{"day":118,"rain":0.0,"etc":4.69,"ks":1.0,"dr":6.4,"dr_hat":14.0,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":119,"rain":0.0,"etc":4.57,"ks":1.0,"dr":11.0,"dr_hat":17.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":120,"rain":0.0,"etc":4.19,"ks":1.0,"dr":6.5,"dr_hat":14.3,"raw":20.3,"taw":67.5,"irrigation":9.6,"n":0.0,"spray":""},{"day":121,"rain":0.0,"etc":4.02,"ks":1.0,"dr":10.5,"dr_hat":18.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":122,"rain":0.0,"etc":4.13,"ks":1.0,"dr":6.1,"dr_hat":14.3,"raw":20.3,"taw":67.5,"irrigation":9.5,"n":0.0,"spray":""},{"day":123,"rain":0.0,"etc":3.84,"ks":1.0,"dr":9.9,"dr_hat":18.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":124,"rain":0.0,"etc":4.13,"ks":1.0,"dr":14.1,"dr_hat":21.4,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":"biological"},{"day":125,"rain":0.0,"etc":4.1,"ks":1.0,"dr":8.7,"dr_hat":15.7,"raw":20.3,"taw":67.5,"irrigation":10.5,"n":0.0,"spray":""},{"day":126,"rain":0.0,"etc":4.02,"ks":1.0,"dr":9.2,"dr_hat":16.2,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":127,"rain":0.0,"etc":3.88,"ks":1.0,"dr":13.0,"dr_hat":17.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":128,"rain":0.0,"etc":3.8,"ks":1.0,"dr":7.2,"dr_hat":15.4,"raw":20.3,"taw":67.5,"irrigation":10.7,"n":0.0,"spray":""},{"day":129,"rain":0.0,"etc":3.95,"ks":1.0,"dr":7.6,"dr_hat":15.7,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":130,"rain":0.0,"etc":3.77,"ks":1.0,"dr":11.3,"dr_hat":20.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":131,"rain":0.0,"etc":3.8,"ks":1.0,"dr":5.6,"dr_hat":15.3,"raw":20.3,"taw":67.5,"irrigation":10.6,"n":0.0,"spray":"biological"},{"day":132,"rain":0.0,"etc":4.07,"ks":1.0,"dr":6.0,"dr_hat":13.3,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":133,"rain":0.0,"etc":4.11,"ks":1.0,"dr":6.6,"dr_hat":13.4,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":134,"rain":0.0,"etc":4.2,"ks":1.0,"dr":10.8,"dr_hat":18.8,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":135,"rain":0.0,"etc":3.85,"ks":1.0,"dr":14.6,"dr_hat":22.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":136,"rain":0.0,"etc":4.34,"ks":1.0,"dr":8.5,"dr_hat":17.6,"raw":20.3,"taw":67.5,"irrigation":11.6,"n":0.0,"spray":""},{"day":137,"rain":0.0,"etc":4.2,"ks":1.0,"dr":9.1,"dr_hat":18.6,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""},{"day":138,"rain":0.0,"etc":3.96,"ks":1.0,"dr":9.5,"dr_hat":20.2,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":"biological"},{"day":139,"rain":0.0,"etc":3.7,"ks":1.0,"dr":4.3,"dr_hat":14.6,"raw":20.3,"taw":67.5,"irrigation":9.9,"n":0.0,"spray":""},{"day":140,"rain":0.0,"etc":3.95,"ks":1.0,"dr":8.3,"dr_hat":16.1,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":141,"rain":0.0,"etc":3.86,"ks":1.0,"dr":12.1,"dr_hat":21.5,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":142,"rain":0.0,"etc":3.77,"ks":1.0,"dr":6.9,"dr_hat":14.2,"raw":20.3,"taw":67.5,"irrigation":10.0,"n":0.0,"spray":""},{"day":143,"rain":2.6,"etc":2.5,"ks":1.0,"dr":6.8,"dr_hat":12.2,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":144,"rain":0.0,"etc":3.81,"ks":1.0,"dr":10.7,"dr_hat":17.7,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":145,"rain":0.0,"etc":3.34,"ks":1.0,"dr":5.8,"dr_hat":12.3,"raw":20.3,"taw":67.5,"irrigation":9.1,"n":0.0,"spray":"biological"},{"day":146,"rain":0.0,"etc":4.08,"ks":1.0,"dr":9.9,"dr_hat":16.0,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":147,"rain":0.0,"etc":3.83,"ks":1.0,"dr":13.7,"dr_hat":21.3,"raw":20.3,"taw":67.5,"irrigation":0.0,"n":0.0,"spray":""},{"day":148,"rain":0.0,"etc":3.74,"ks":1.0,"dr":7.8,"dr_hat":15.8,"raw":20.3,"taw":67.5,"irrigation":10.8,"n":0.0,"spray":""},{"day":149,"rain":0.0,"etc":3.8,"ks":1.0,"dr":8.0,"dr_hat":15.9,"raw":20.3,"taw":67.5,"irrigation":4.0,"n":0.0,"spray":""}],"audit":[{"day":66,"status":"rejected","args":{"kind":"no_spray","message":"फवारणीची गरज नाही. thrips चा दाब आर्थिक मर्यादेखाली आहे; आत्ता फवारणी केल्यास 1350 रुपये विनाकारण खर्च होतील.","confidence":0.75}},{"day":67,"status":"executed","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 15 मिमी पाणी (527 रुपये) वाचते.","confidence":0.81}},{"day":68,"status":"rejected","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 17 मिमी पाणी (605 रुपये) वाचते.","confidence":0.81}},{"day":69,"status":"executed","args":{"kind":"irrigate","message":"आज 9 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 6% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":70,"status":"executed","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 2 दिवस पुरेल एवढा ओलावा आहे. यामुळे 13 मिमी पाणी (465 रुपये) वाचते.","confidence":0.81}},{"day":71,"status":"executed","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 17 मिमी पाणी (584 रुपये) वाचते.","confidence":0.81}},{"day":72,"status":"rejected","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 7% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 6% उत्पादन घटू शकते.","confidence":0.81}},{"day":72,"status":"rejected","args":{"kind":"spray","message":"48 तासांत thrips साठी जैविक फवारणी करा. किडीचा दाब मध्यम असून वाढत आहे; फवारणी न केल्यास सुमारे 6364 रुपयांचे नुकसान, फवारणीचा खर्च 900 रुपये.","confidence":0.95}},{"day":73,"status":"executed","args":{"kind":"irrigate","message":"आज 11 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 6% उत्पादन घटू शकते.","confidence":0.81}},{"day":73,"status":"rejected","args":{"kind":"fertilise","message":"पुढील पाण्याबरोबर 14 किलो नत्र/हेक्टर (31 किलो युरिया) द्या. पुढील 12 दिवसांत पिकाला सर्वाधिक नत्र लागते; जमिनीत 12 किलोची कमतरता आहे.","confidence":0.8}},{"day":73,"status":"executed","args":{"kind":"spray","message":"48 तासांत thrips साठी जैविक फवारणी करा. किडीचा दाब मध्यम असून वाढत आहे; फवारणी न केल्यास सुमारे 7046 रुपयांचे नुकसान, फवारणीचा खर्च 900 रुपये.","confidence":0.95}},{"day":74,"status":"rejected","args":{"kind":"irrigate","message":"आज 9 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 8% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":74,"status":"executed","args":{"kind":"fertilise","message":"पुढील पाण्याबरोबर 15 किलो नत्र/हेक्टर (34 किलो युरिया) द्या. पुढील 12 दिवसांत पिकाला सर्वाधिक नत्र लागते; जमिनीत 13 किलोची कमतरता आहे.","confidence":0.8}},{"day":75,"status":"executed","args":{"kind":"irrigate","message":"आज 10 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":76,"status":"rejected","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 16 मिमी पाणी (568 रुपये) वाचते.","confidence":0.81}},{"day":77,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 10% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":78,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 29% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":78,"status":"executed","args":{"kind":"no_spray","message":"फवारणीची गरज नाही. thrips चा दाब आर्थिक मर्यादेखाली आहे; आत्ता फवारणी केल्यास 1350 रुपये विनाकारण खर्च होतील.","confidence":0.75}},{"day":79,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 25% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":80,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 25% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":80,"status":"executed","args":{"kind":"spray","message":"48 तासांत thrips साठी जैविक फवारणी करा. किडीचा दाब मध्यम असून वाढत आहे; फवारणी न केल्यास सुमारे 3371 रुपयांचे नुकसान, फवारणीचा खर्च 900 रुपये.","confidence":0.95}},{"day":81,"status":"executed","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 2 दिवस पुरेल एवढा ओलावा आहे. यामुळे 16 मिमी पाणी (546 रुपये) वाचते.","confidence":0.81}},{"day":82,"status":"executed","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 17 मिमी पाणी (599 रुपये) वाचते.","confidence":0.81}},{"day":83,"status":"rejected","args":{"kind":"irrigate","message":"आज 10 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":83,"status":"executed","args":{"kind":"fertilise","message":"पुढील पाण्याबरोबर 8 किलो नत्र/हेक्टर (18 किलो युरिया) द्या. पुढील 12 दिवसांत पिकाला सर्वाधिक नत्र लागते; जमिनीत 7 किलोची कमतरता आहे.","confidence":0.8}},{"day":84,"status":"executed","args":{"kind":"irrigate","message":"आज 11 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 5% उत्पादन घटू शकते.","confidence":0.81}},{"day":84,"status":"executed","args":{"kind":"no_spray","message":"फवारणीची गरज नाही. thrips चा दाब आर्थिक मर्यादेखाली आहे; आत्ता फवारणी केल्यास 1350 रुपये विनाकारण खर्च होतील.","confidence":0.75}},{"day":85,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 13% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":86,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 13% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 6% उत्पादन घटू शकते.","confidence":0.81}},{"day":87,"status":"rejected","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 17 मिमी पाणी (610 रुपये) वाचते.","confidence":0.81}},{"day":87,"status":"executed","args":{"kind":"spray","message":"48 तासांत thrips साठी रासायनिक फवारणी करा. किडीचा दाब मध्यम असून वाढत आहे; फवारणी न केल्यास सुमारे 6387 रुपयांचे नुकसान, फवारणीचा खर्च 1350 रुपये.","confidence":0.95}},{"day":88,"status":"executed","args":{"kind":"irrigate","message":"आज 10 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":89,"status":"rejected","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 15 मिमी पाणी (520 रुपये) वाचते.","confidence":0.81}},{"day":90,"status":"rejected","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 17% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":90,"status":"executed","args":{"kind":"no_spray","message":"फवारणीची गरज नाही. thrips चा दाब आर्थिक मर्यादेखाली आहे; आत्ता फवारणी केल्यास 1350 रुपये विनाकारण खर्च होतील.","confidence":0.75}},{"day":91,"status":"rejected","args":{"kind":"irrigate","message":"आज 10 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":92,"status":"executed","args":{"kind":"irrigate","message":"आज 11 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 0% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 6% उत्पादन घटू शकते.","confidence":0.81}},{"day":93,"status":"rejected","args":{"kind":"skip_irrigation","message":"आज पाणी देण्याची गरज नाही. ४८ तासांत १० मिमी पावसाची 0% शक्यता आणि मुळांच्या भागात 1 दिवस पुरेल एवढा ओलावा आहे. यामुळे 19 मिमी पाणी (670 रुपये) वाचते.","confidence":0.81}},{"day":93,"status":"rejected","args":{"kind":"fertilise","message":"पुढील पाण्याबरोबर 8 किलो नत्र/हेक्टर (17 किलो युरिया) द्या. पुढील 12 दिवसांत पिकाला सर्वाधिक नत्र लागते; जमिनीत 4 किलोची कमतरता आहे.","confidence":0.8}},{"day":94,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 14% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":94,"status":"executed","args":{"kind":"fertilise","message":"पुढील पाण्याबरोबर 8 किलो नत्र/हेक्टर (17 किलो युरिया) द्या. पुढील 12 दिवसांत पिकाला सर्वाधिक नत्र लागते; जमिनीत 4 किलोची कमतरता आहे.","confidence":0.8}},{"day":94,"status":"executed","args":{"kind":"spray","message":"48 तासांत thrips साठी जैविक फवारणी करा. किडीचा दाब मध्यम असून वाढत आहे; फवारणी न केल्यास सुमारे 4529 रुपयांचे नुकसान, फवारणीचा खर्च 900 रुपये.","confidence":0.95}},{"day":95,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 18% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 2% उत्पादन घटू शकते.","confidence":0.81}},{"day":96,"status":"executed","args":{"kind":"irrigate","message":"आज 4 मिमी पाणी द्या (पहाटे). जमिनीतील ओलावा सुरक्षित पातळीच्या 26% आहे आणि पावसाची शक्यता फक्त 0%. पाणी न दिल्यास सुमारे 6% उत्पादन घटू शकते.","confidence":0.81}},{"day":96,"status":"executed","args":{"kind":"no_spray","message":"फवारणीची गरज नाही. thrips चा दाब आर्थिक मर्यादेखाली आहे; आत्ता फवारणी केल्यास 1350 रुपये विनाकारण खर्च होतील.","confidence":0.75}}],"farm":{"id":"F017","village":"Dindori","crop":"onion","area_ha":1.2,"soil":"loam","system":"drip","lang":"mr"},"agent":{"yield_t_ha":29.12946967050743,"irrigation_mm":557.0474530363148,"n_applied":75.00851678194476,"chem_sprays":7.0,"bio_sprays":11.0,"gross_margin":344992.98016193917,"water_productivity_kg_m3":5.229261800180681,"n_leached":3.8388092940684095,"adoption_rate":0.6666666666666666,"final_trust":0.98,"stress_days":0.0,"cost":48254.860389911104,"revenue":393247.84055185027},"baseline":{"yield_t_ha":27.074066692468833,"irrigation_mm":600.0,"n_applied":154.0,"chem_sprays":11.0,"bio_sprays":0.0,"gross_margin":251093.9202786634,"water_productivity_kg_m3":4.5123444487448054,"n_leached":20.708440062471826,"stress_days":1.0,"cost":41306.0,"revenue":292399.9202786634},"summary":{"n_farms":60,"n_farm_seasons":240,"yield_gain_vs_farmer_pct":1.2013254973184957,"yield_gain_vs_agronomist_pct":4.972378148534385,"water_saving_pct":28.53246575335095,"water_productivity_gain_pct":47.25178169879737,"nitrogen_reduction_pct":51.110329482011856,"chem_spray_reduction_pct":56.37934083726544,"pesticide_load_reduction_pct":43.77445634946876,"n_leaching_reduction_pct":78.6572654845903,"runoff_reduction_mm":3.937830805580845,"env_cost_reduction_pct":58.921021576232015,"biodiversity_index_gain_pct":36.529029229913064,"gross_margin_gain_pct":91.87245904778784,"gross_margin_gain_inr_per_ha":80880.08210526194,"roi_on_agent_cost":73.52734736841995,"mean_adoption_rate":0.632156584269729,"mean_final_trust":0.9463528931444777,"stress_days_delta":-0.36666666666666664}}</script>
+<script>
+const D=JSON.parse(document.getElementById('d').textContent);
+const T=D.trace, A=D.audit, F=D.farm;
+const CROP={onion:'कांदा',grape:'द्राक्ष',tomato:'टोमॅटो',wheat:'गहू',soybean:'सोयाबीन',cotton:'कापूस'};
+const today=Math.min(96,T.length-8);            // demo "current day" of the season
+const t=T[today];
+
+document.getElementById('fmeta').textContent=F.id+' · '+F.village;
+document.getElementById('fsub').textContent=CROP[F.crop]+' · '+F.area_ha+' हेक्टर · ठिबक · लागवडीनंतर '+today+' दिवस';
+
+/* ---------- hero: today's single most important action ---------- */
+const todayCalls=A.filter(a=>a.day===today);
+const pick=todayCalls.find(a=>['irrigate','skip_irrigation'].includes(a.args.kind))||todayCalls[0]
+ ||{args:{kind:'skip_irrigation',message:'आज विशेष काही नाही.',confidence:.8},status:'executed'};
+const GL={irrigate:'💧',skip_irrigation:'🚫',fertilise:'🌱',defer_fertiliser:'⏸',spray:'🐛',no_spray:'✅'};
+const VERB={irrigate:'पाणी द्या',skip_irrigation:'आज पाणी नको',fertilise:'खत द्या',
+ defer_fertiliser:'खत थांबवा',spray:'फवारणी करा',no_spray:'फवारणी नको'};
+const conf=Math.round((pick.args.confidence||.8)*100);
+document.getElementById('today').innerHTML=
+ '<div class="band"><span class="day">दिवस '+today+'</span><span class="day" style="margin-left:auto">'
+ +(t.rain>0?('पाऊस '+t.rain+' मिमी'):'कोरडे')+' · ET '+t.etc+' मिमी</span></div>'
+ +'<div class="verb"><div class="glyph">'+(GL[pick.args.kind]||'🌾')+'</div><div>'
+ +'<h1>'+(VERB[pick.args.kind]||'सल्ला')+'</h1><p>'+pick.args.message+'</p>'
+ +'<span class="confi">खात्री '+conf+'%</span></div></div>'
+ +'<div class="acts"><button class="yes" id="ok">केले</button><button id="no">नाही करणार</button></div>'
+ +'<div class="done" id="done"></div>';
+function answer(txt){document.querySelector('.acts').style.display='none';
+ const d=document.getElementById('done');d.style.display='block';d.textContent=txt;}
+document.getElementById('ok').onclick=()=>answer('✓ नोंद झाली. उद्या पुन्हा तपासले जाईल.');
+document.getElementById('no').onclick=()=>answer('नोंद झाली. कारण विचारून पुढील सल्ले बदलले जातील.');
+
+/* ---------- soil moisture gauge ---------- */
+const depl=Math.min(100,100*t.dr/t.taw), rawp=100*t.raw/t.taw;
+document.getElementById('dep').style.width=depl+'%';
+document.getElementById('mark').style.left=rawp+'%';
+document.getElementById('mtxt').textContent=
+ 'मुळांच्या भागात '+Math.round(t.taw-t.dr)+' मिमी पाणी शिल्लक ('+Math.round(100-depl)+'%). '
+ +'ताण सुरू होण्याची मर्यादा '+Math.round(t.raw)+' मिमी घट. सेन्सर अंदाज '+t.dr_hat+' मिमी.';
+
+/* ---------- 7-day plan ---------- */
+(function(){const s=document.getElementById('plan'),W=360,H=120,n=7;const days=T.slice(today,today+n);
+ const mx=Math.max(12,...days.map(d=>Math.max(d.rain,d.irrigation)));let h='';
+ days.forEach((d,i)=>{const x=14+i*48;
+  const hr=d.rain/mx*62, hi=d.irrigation/mx*62;
+  h+='<rect x="'+x+'" y="'+(86-hr)+'" width="16" height="'+hr+'" fill="#9cc9d6"/>';
+  h+='<rect x="'+(x+18)+'" y="'+(86-hi)+'" width="16" height="'+hi+'" fill="var(--water)"/>';
+  h+='<text x="'+(x+17)+'" y="100" font-size="10" text-anchor="middle" fill="var(--ink-soft)">दि '+(today+i)+'</text>';
+  if(d.irrigation>0)h+='<text x="'+(x+17)+'" y="112" font-size="10" text-anchor="middle" fill="var(--water)">'+Math.round(d.irrigation)+'</text>';});
+ h+='<line x1="8" y1="86" x2="352" y2="86" stroke="var(--rule)"/>';
+ s.innerHTML=h;})();
+
+/* ---------- SMS preview ---------- */
+document.getElementById('sms').textContent=(GL[pick.args.kind]||'')+' '+pick.args.message.slice(0,150);
+
+/* ---------- KPI cells ---------- */
+const a=D.agent,b=D.baseline;
+const pct=(x,y)=>Math.round((x/y-1)*100);
+const cells=[['उत्पादन',a.yield_t_ha.toFixed(1)+' टन/हे',pct(a.yield_t_ha,b.yield_t_ha)],
+ ['सिंचन',Math.round(a.irrigation_mm)+' मिमी',-pct(a.irrigation_mm,b.irrigation_mm)],
+ ['नत्र',Math.round(a.n_applied)+' किलो/हे',-pct(a.n_applied,b.n_applied)],
+ ['रासायनिक फवारण्या',a.chem_sprays+' (+ '+a.bio_sprays+' जैविक)',-pct(a.chem_sprays,b.chem_sprays)],
+ ['पाणी उत्पादकता',a.water_productivity_kg_m3.toFixed(2)+' किलो/घमी',pct(a.water_productivity_kg_m3,b.water_productivity_kg_m3)],
+ ['निव्वळ नफा','₹'+Math.round(a.gross_margin).toLocaleString('en-IN'),pct(a.gross_margin,b.gross_margin)]];
+document.getElementById('kpi').innerHTML=cells.map(c=>
+ '<div class="cell"><div class="n">'+c[1]+'</div><div class="l">'+c[0]+'</div>'
+ +'<div class="d'+(c[2]<0?' bad':'')+'">'+(c[2]>0?'+':'')+c[2]+'% नेहमीच्या पद्धतीपेक्षा</div></div>').join('');
+
+/* ---------- season chart ---------- */
+(function(){const s=document.getElementById('season'),W=360,H=170,L=30,R=6,Tp=8,B=22;
+ const n=T.length,x=i=>L+(W-L-R)*i/(n-1);
+ const mxw=Math.max(...T.map(d=>Math.max(d.rain,d.irrigation,d.dr)));
+ const y=v=>Tp+(H-Tp-B)*(1-v/mxw);let h='';
+ h+='<line x1="'+L+'" y1="'+(H-B)+'" x2="'+(W-R)+'" y2="'+(H-B)+'" stroke="var(--rule)"/>';
+ T.forEach((d,i)=>{if(d.rain>0)h+='<rect x="'+(x(i)-1)+'" y="'+y(d.rain)+'" width="2" height="'+(H-B-y(d.rain))+'" fill="#9cc9d6"/>';});
+ T.forEach((d,i)=>{if(d.irrigation>0)h+='<rect x="'+(x(i)-1)+'" y="'+y(d.irrigation)+'" width="2" height="'+(H-B-y(d.irrigation))+'" fill="var(--water)"/>';});
+ h+='<path d="'+T.map((d,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(d.dr).toFixed(1)).join(' ')+'" fill="none" stroke="var(--soil)" stroke-width="1.6"/>';
+ h+='<path d="'+T.map((d,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(d.raw).toFixed(1)).join(' ')+'" fill="none" stroke="var(--alert)" stroke-dasharray="3 3"/>';
+ h+='<line x1="'+x(today)+'" y1="'+Tp+'" x2="'+x(today)+'" y2="'+(H-B)+'" stroke="var(--ink)" stroke-width="1"/>';
+ h+='<text x="'+(x(today)+3)+'" y="'+(Tp+9)+'" font-size="9" fill="var(--ink-soft)">आज</text>';
+ [0,50,100,150].filter(v=>v<n).forEach(v=>h+='<text x="'+x(v)+'" y="'+(H-8)+'" font-size="9" text-anchor="middle" fill="var(--ink-soft)">दि '+v+'</text>');
+ h+='<text x="4" y="'+(Tp+8)+'" font-size="9" fill="var(--ink-soft)">'+Math.round(mxw)+' मिमी</text>';
+ s.innerHTML=h;})();
+
+/* ---------- inputs comparison ---------- */
+(function(){const s=document.getElementById('inputs'),W=360,H=130;
+ const rows=[['पाणी (मिमी)',a.irrigation_mm,b.irrigation_mm],['नत्र (किलो)',a.n_applied,b.n_applied],
+  ['फवारण्या',a.chem_sprays+a.bio_sprays,b.chem_sprays],['नत्र वाहून (किलो)',a.n_leached,b.n_leached]];
+ let h='';rows.forEach((r,i)=>{const yy=16+i*30,mx=Math.max(r[1],r[2])||1;
+  h+='<text x="0" y="'+(yy-3)+'" font-size="10" fill="var(--ink-soft)">'+r[0]+'</text>';
+  h+='<rect x="120" y="'+(yy-11)+'" width="'+(210*r[2]/mx)+'" height="9" fill="var(--rule)"/>';
+  h+='<rect x="120" y="'+(yy-1)+'" width="'+(210*r[1]/mx)+'" height="9" fill="var(--leaf)"/>';
+  h+='<text x="336" y="'+(yy+7)+'" font-size="9" text-anchor="end" fill="var(--ink-soft)">'+Math.round(r[1])+' / '+Math.round(r[2])+'</text>';});
+ h+='<text x="120" y="126" font-size="9" fill="var(--ink-soft)">हिरवा = AgriPilot, करडा = नेहमीची पद्धत</text>';
+ s.innerHTML=h;})();
+
+/* ---------- advisory log ---------- */
+document.getElementById('log').innerHTML=A.slice(-40).reverse().map(c=>
+ '<div class="row'+(c.status==='rejected'?' rej':'')+'"><span class="g">'+(GL[c.args.kind]||'🌾')+'</span>'
+ +'<span class="t">'+c.args.message+'</span><span class="s">दि '+c.day+'<br>'+(c.status==='executed'?'केले':'नाकारले')+'</span></div>').join('');
+document.getElementById('weight').textContent='पान '+(new Blob([document.documentElement.outerHTML]).size/1024).toFixed(0)+' KB · बाह्य विनंती नाही · ऑफलाइन चालते';
+document.getElementById('src').textContent='हंगाम सिम्युलेशन · '+A.length+' सल्ले · स्वीकृती '+Math.round(a.adoption_rate*100)+'%';
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tabs button').forEach(btn=>btn.onclick=()=>{
+ document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b===btn));
+ document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id===btn.dataset.p));});
+</script>
+</body></html>

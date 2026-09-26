@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "model_architecture": "MobileNetV2 (Transfer Learning)",
+    "pretrained_weights": "imagenet",
+    "input_shape": [
+      224,
+      224,
+      3
+    ],
+    "total_images": 330,
+    "train_images": 264,
+    "test_images": 66,
+    "num_classes": 11,
+    "classes": [
+      "Grape___Black_rot",
+      "Grape___Esca_(Black_Measles)",
+      "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "Grape___healthy",
+      "Potato___Early_blight",
+      "Potato___Late_blight",
+      "Potato___healthy",
+      "Tomato___Bacterial_spot",
+      "Tomato___Early_blight",
+      "Tomato___Late_blight",
+      "Tomato___healthy"
+    ],
+    "target_conv_layer": "Conv_1",
+    "training_timestamp": "2026-09-25 00:33:22",
+    "training_time_sec": 30.12
+  },
+  "overall": {
+    "accuracy": 0.8788,
+    "accuracy_pct": 87.88,
+    "precision_macro": 0.8973,
+    "precision_weighted": 0.8973,
+    "recall_macro": 0.8788,
+    "recall_weighted": 0.8788,
+    "f1_macro": 0.8797,
+    "f1_weighted": 0.8797,
+    "correct_samples": 58,
+    "total_samples": 66
+  },
+  "per_class": {
+    "Grape___Black_rot": {
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1_score": 0.9231,
+      "support": 6
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "precision": 1.0,
+      "recall": 0.8333,
+      "f1_score": 0.9091,
+      "support": 6
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6
+    },
+    "Grape___healthy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6
+    },
+    "Potato___Early_blight": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6
+    },
+    "Potato___Late_blight": {
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1_score": 0.9231,
+      "support": 6
+    },
+    "Potato___healthy": {
+      "precision": 1.0,
+      "recall": 0.6667,
+      "f1_score": 0.8,
+      "support": 6
+    },
+    "Tomato___Bacterial_spot": {
+      "precision": 0.5556,
+      "recall": 0.8333,
+      "f1_score": 0.6667,
+      "support": 6
+    },
+    "Tomato___Early_blight": {
+      "precision": 0.8,
+      "recall": 0.6667,
+      "f1_score": 0.7273,
+      "support": 6
+    },
+    "Tomato___Late_blight": {
+      "precision": 0.8,
+      "recall": 0.6667,
+      "f1_score": 0.7273,
+      "support": 6
+    },
+    "Tomato___healthy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6
+    }
+  },
+  "confusion_matrix": [
+    [
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      4,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ]
+  ],
+  "history": {
+    "loss": [
+      1.999,
+      0.7669,
+      0.4213,
+      0.3985,
+      0.1803,
+      0.17,
+      0.2122,
+      0.1649,
+      0.0904,
+      0.1275
+    ],
+    "accuracy": [
+      0.3788,
+      0.7576,
+      0.8788,
+      0.8636,
+      0.9583,
+      0.9621,
+      0.9508,
+      0.9432,
+      0.9735,
+      0.9659
+    ],
+    "val_loss": [
+      1.3458,
+      0.9771,
+      0.8086,
+      0.6357,
+      0.5412,
+      0.496,
+      0.4605,
+      0.4503,
+      0.3995,
+      0.3784
+    ],
+    "val_accuracy": [
+      0.5758,
+      0.7273,
+      0.7576,
+      0.8333,
+      0.8333,
+      0.8636,
+      0.8485,
+      0.8636,
+      0.8788,
+      0.8788
+    ]
+  }
+}

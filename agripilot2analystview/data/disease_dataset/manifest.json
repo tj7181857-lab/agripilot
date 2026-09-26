@@ -1,0 +1,13 @@
+{
+  "Tomato___Early_blight": 30,
+  "Tomato___Late_blight": 30,
+  "Tomato___Bacterial_spot": 30,
+  "Tomato___healthy": 30,
+  "Grape___Black_rot": 30,
+  "Grape___Esca_(Black_Measles)": 30,
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": 30,
+  "Grape___healthy": 30,
+  "Potato___Early_blight": 30,
+  "Potato___Late_blight": 30,
+  "Potato___healthy": 30
+}

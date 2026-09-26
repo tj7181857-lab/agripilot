@@ -1,0 +1,55 @@
+{
+ "setup": {
+  "crop": "onion",
+  "soil": "loam",
+  "system": "drip",
+  "train_episodes": 450,
+  "eval_episodes": 40,
+  "state_space": [
+   8,
+   4,
+   4
+  ],
+  "actions": [
+   "skip",
+   "light",
+   "full"
+  ]
+ },
+ "training_curve_sample": [
+  21.98,
+  21.98,
+  21.83,
+  21.77,
+  21.9,
+  21.98,
+  21.98,
+  21.96,
+  21.98,
+  21.98,
+  21.89,
+  21.98,
+  21.98,
+  21.69,
+  21.76,
+  21.96,
+  21.97,
+  21.88
+ ],
+ "q_learning_agent": {
+  "mean_yield_t_ha": 21.9712140009726,
+  "mean_water_mm": 551.7395194358661,
+  "water_productivity": 3.9821715188060813
+ },
+ "agripilot_analytic_agent": {
+  "mean_yield_t_ha": 25.183604077151415,
+  "mean_water_mm": 527.1682222385041,
+  "water_productivity": 4.777147600099029
+ },
+ "farmer_practice_baseline": {
+  "mean_yield_t_ha": 26.93979611928892,
+  "mean_water_mm": 600.0,
+  "water_productivity": 4.489966019881487
+ },
+ "note": "Q-learning acts on soil state alone, with no weather forecast; the analytic agent sees a 7-day ensemble forecast. The comparison isolates what learning a policy from scratch buys versus what forecast information buys."
+}

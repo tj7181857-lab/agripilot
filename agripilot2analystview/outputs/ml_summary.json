@@ -1,0 +1,1249 @@
+{
+ "generated_in_seconds": 19.2,
+ "supervised": {
+  "yield_regressor": {
+   "task": "yield_efficiency_regression",
+   "model": "GradientBoostingRegressor",
+   "cv_folds": 5,
+   "cv_scheme": "GroupKFold by farm_id",
+   "cv_r2_mean": 0.6694673734517567,
+   "cv_r2_std": 0.1727617394750097,
+   "cv_mae_efficiency": 0.041828613622114624,
+   "baseline_mae_efficiency": 0.09716305413495686,
+   "n_samples": 240,
+   "n_features": 28,
+   "top_features": [
+    {
+     "feature": "crop_cotton",
+     "importance": 0.8368
+    },
+    {
+     "feature": "crop_onion",
+     "importance": 0.3797
+    },
+    {
+     "feature": "soil_sandy",
+     "importance": 0.0839
+    },
+    {
+     "feature": "bio_sprays",
+     "importance": 0.0731
+    },
+    {
+     "feature": "water_scarcity",
+     "importance": 0.0442
+    },
+    {
+     "feature": "water_intensity",
+     "importance": 0.0295
+    },
+    {
+     "feature": "chem_sprays",
+     "importance": 0.0246
+    },
+    {
+     "feature": "irrigation_mm",
+     "importance": 0.0209
+    },
+    {
+     "feature": "n_intensity",
+     "importance": 0.0177
+    },
+    {
+     "feature": "n_applied",
+     "importance": 0.0174
+    }
+   ]
+  },
+  "stress_classifier": {
+   "task": "stress_risk_classification",
+   "model": "GradientBoostingClassifier",
+   "cv_folds": 5,
+   "cv_scheme": "GroupKFold by farm_id",
+   "cv_accuracy_mean": 0.8333333333333334,
+   "cv_f1_mean": 0.675035274655768,
+   "cv_auc_mean": 0.8883959155169944,
+   "baseline_accuracy": 0.7375,
+   "n_samples": 240,
+   "n_features": 22,
+   "top_features": [
+    {
+     "feature": "crop_onion",
+     "importance": 0.3845
+    },
+    {
+     "feature": "soil_sandy",
+     "importance": 0.0893
+    },
+    {
+     "feature": "sustainability_pref",
+     "importance": 0.0719
+    },
+    {
+     "feature": "crop_tomato",
+     "importance": 0.0692
+    },
+    {
+     "feature": "monsoon_index",
+     "importance": 0.0301
+    },
+    {
+     "feature": "soil_black_cotton",
+     "importance": 0.0229
+    },
+    {
+     "feature": "area_ha",
+     "importance": 0.0216
+    },
+    {
+     "feature": "water_scarcity",
+     "importance": 0.0177
+    }
+   ]
+  }
+ },
+ "unsupervised": {
+  "method": "KMeans on standardised farm-management features",
+  "k_search": {
+   "2": 0.1778,
+   "3": 0.1599,
+   "4": 0.1681,
+   "5": 0.1433,
+   "6": 0.1696
+  },
+  "silhouette_optimal_k": 2,
+  "chosen_k": 3,
+  "silhouette": 0.15988233744924435,
+  "k_selection_rule": "smallest k>=3 within 22% of the silhouette-optimal score, for actionable segment count",
+  "pca_explained_variance": [
+   0.228,
+   0.205
+  ]
+ },
+ "unsupervised_clusters": [
+  {
+   "cluster": 0,
+   "n_farms": 53,
+   "label": "Balanced / moderate-input (Soybean-led)",
+   "mean_water_m3_per_ha": 5330.776125927441,
+   "mean_n_applied": 68.39789871837877,
+   "mean_chem_sprays": 6.216981132075472,
+   "mean_gross_margin": 71997.73238324502,
+   "mean_water_productivity": 0.6873884128110512,
+   "mean_adoption_rate": 0.6432747089302129,
+   "dominant_crops": {
+    "soybean": 26,
+    "wheat": 13,
+    "cotton": 12
+   },
+   "points": [
+    {
+     "x": -1.729,
+     "y": -0.5,
+     "farm_id": "F002",
+     "crop": "soybean"
+    },
+    {
+     "x": 1.194,
+     "y": -1.76,
+     "farm_id": "F006",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.108,
+     "y": -1.164,
+     "farm_id": "F007",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.438,
+     "y": 0.127,
+     "farm_id": "F007",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.444,
+     "y": -1.627,
+     "farm_id": "F008",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.541,
+     "y": -0.605,
+     "farm_id": "F009",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.857,
+     "y": -0.869,
+     "farm_id": "F011",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.792,
+     "y": -0.38,
+     "farm_id": "F011",
+     "crop": "wheat"
+    },
+    {
+     "x": -1.342,
+     "y": -0.495,
+     "farm_id": "F013",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.825,
+     "y": -0.283,
+     "farm_id": "F014",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.447,
+     "y": -0.644,
+     "farm_id": "F014",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.689,
+     "y": -2.752,
+     "farm_id": "F015",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.584,
+     "y": -0.277,
+     "farm_id": "F016",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.439,
+     "y": -0.339,
+     "farm_id": "F016",
+     "crop": "wheat"
+    },
+    {
+     "x": 0.159,
+     "y": -2.061,
+     "farm_id": "F017",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.957,
+     "y": -1.14,
+     "farm_id": "F019",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.93,
+     "y": -1.915,
+     "farm_id": "F020",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.821,
+     "y": -0.458,
+     "farm_id": "F021",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.474,
+     "y": -1.852,
+     "farm_id": "F022",
+     "crop": "wheat"
+    },
+    {
+     "x": -1.222,
+     "y": 0.126,
+     "farm_id": "F023",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.021,
+     "y": -1.047,
+     "farm_id": "F024",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.018,
+     "y": -2.568,
+     "farm_id": "F025",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.353,
+     "y": -1.097,
+     "farm_id": "F026",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.348,
+     "y": -0.952,
+     "farm_id": "F028",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.64,
+     "y": -0.807,
+     "farm_id": "F029",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.442,
+     "y": -0.196,
+     "farm_id": "F029",
+     "crop": "wheat"
+    },
+    {
+     "x": -1.044,
+     "y": -0.246,
+     "farm_id": "F031",
+     "crop": "wheat"
+    },
+    {
+     "x": 0.046,
+     "y": -1.471,
+     "farm_id": "F033",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.216,
+     "y": -1.699,
+     "farm_id": "F033",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.294,
+     "y": -1.325,
+     "farm_id": "F034",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.175,
+     "y": -2.632,
+     "farm_id": "F036",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.494,
+     "y": -1.34,
+     "farm_id": "F039",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.058,
+     "y": -0.447,
+     "farm_id": "F039",
+     "crop": "onion"
+    },
+    {
+     "x": -0.927,
+     "y": -0.376,
+     "farm_id": "F041",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.328,
+     "y": -0.14,
+     "farm_id": "F042",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.562,
+     "y": -0.637,
+     "farm_id": "F044",
+     "crop": "cotton"
+    },
+    {
+     "x": 0.448,
+     "y": -1.259,
+     "farm_id": "F045",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.612,
+     "y": -1.281,
+     "farm_id": "F045",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.668,
+     "y": -2.455,
+     "farm_id": "F046",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.48,
+     "y": -1.4,
+     "farm_id": "F047",
+     "crop": "cotton"
+    },
+    {
+     "x": 0.316,
+     "y": -0.56,
+     "farm_id": "F047",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.248,
+     "y": -1.089,
+     "farm_id": "F048",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.473,
+     "y": -0.643,
+     "farm_id": "F050",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.09,
+     "y": 0.108,
+     "farm_id": "F050",
+     "crop": "wheat"
+    },
+    {
+     "x": 0.549,
+     "y": -0.118,
+     "farm_id": "F052",
+     "crop": "onion"
+    },
+    {
+     "x": 0.02,
+     "y": -2.331,
+     "farm_id": "F054",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.627,
+     "y": -0.332,
+     "farm_id": "F055",
+     "crop": "cotton"
+    },
+    {
+     "x": 0.193,
+     "y": -2.397,
+     "farm_id": "F056",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.832,
+     "y": -0.856,
+     "farm_id": "F056",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.322,
+     "y": -1.591,
+     "farm_id": "F057",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.175,
+     "y": -1.162,
+     "farm_id": "F057",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.461,
+     "y": -1.478,
+     "farm_id": "F058",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.536,
+     "y": -0.95,
+     "farm_id": "F059",
+     "crop": "soybean"
+    }
+   ]
+  },
+  {
+   "cluster": 1,
+   "n_farms": 35,
+   "label": "Low-trust / low-adoption (Onion-led)",
+   "mean_water_m3_per_ha": 10850.861107656367,
+   "mean_n_applied": 86.89950765345185,
+   "mean_chem_sprays": 5.485714285714286,
+   "mean_gross_margin": 184489.67486535935,
+   "mean_water_productivity": 1.4940388919715577,
+   "mean_adoption_rate": 0.6047188393350821,
+   "dominant_crops": {
+    "onion": 12,
+    "cotton": 6,
+    "wheat": 6
+   },
+   "points": [
+    {
+     "x": -0.502,
+     "y": 1.045,
+     "farm_id": "F003",
+     "crop": "onion"
+    },
+    {
+     "x": 1.251,
+     "y": 2.918,
+     "farm_id": "F003",
+     "crop": "tomato"
+    },
+    {
+     "x": -3.235,
+     "y": 1.606,
+     "farm_id": "F004",
+     "crop": "cotton"
+    },
+    {
+     "x": -2.458,
+     "y": 0.84,
+     "farm_id": "F004",
+     "crop": "wheat"
+    },
+    {
+     "x": -2.594,
+     "y": 0.94,
+     "farm_id": "F010",
+     "crop": "cotton"
+    },
+    {
+     "x": -1.23,
+     "y": 1.471,
+     "farm_id": "F010",
+     "crop": "onion"
+    },
+    {
+     "x": -1.979,
+     "y": 0.515,
+     "farm_id": "F012",
+     "crop": "cotton"
+    },
+    {
+     "x": -1.227,
+     "y": 0.895,
+     "farm_id": "F012",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.582,
+     "y": 0.865,
+     "farm_id": "F013",
+     "crop": "onion"
+    },
+    {
+     "x": -1.132,
+     "y": 2.05,
+     "farm_id": "F018",
+     "crop": "onion"
+    },
+    {
+     "x": -2.057,
+     "y": 1.164,
+     "farm_id": "F018",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.035,
+     "y": 0.673,
+     "farm_id": "F023",
+     "crop": "wheat"
+    },
+    {
+     "x": -2.192,
+     "y": -0.13,
+     "farm_id": "F027",
+     "crop": "cotton"
+    },
+    {
+     "x": -0.984,
+     "y": 0.223,
+     "farm_id": "F027",
+     "crop": "wheat"
+    },
+    {
+     "x": -0.83,
+     "y": 2.548,
+     "farm_id": "F030",
+     "crop": "onion"
+    },
+    {
+     "x": 0.499,
+     "y": 2.983,
+     "farm_id": "F030",
+     "crop": "tomato"
+    },
+    {
+     "x": -1.272,
+     "y": 0.114,
+     "farm_id": "F031",
+     "crop": "cotton"
+    },
+    {
+     "x": 0.789,
+     "y": 3.638,
+     "farm_id": "F035",
+     "crop": "tomato"
+    },
+    {
+     "x": -1.451,
+     "y": 0.824,
+     "farm_id": "F035",
+     "crop": "wheat"
+    },
+    {
+     "x": -1.488,
+     "y": 1.983,
+     "farm_id": "F038",
+     "crop": "onion"
+    },
+    {
+     "x": -2.46,
+     "y": 0.396,
+     "farm_id": "F038",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.06,
+     "y": 1.628,
+     "farm_id": "F040",
+     "crop": "onion"
+    },
+    {
+     "x": 0.937,
+     "y": 2.255,
+     "farm_id": "F040",
+     "crop": "tomato"
+    },
+    {
+     "x": -0.921,
+     "y": 0.866,
+     "farm_id": "F042",
+     "crop": "onion"
+    },
+    {
+     "x": 0.178,
+     "y": 3.597,
+     "farm_id": "F043",
+     "crop": "tomato"
+    },
+    {
+     "x": -1.779,
+     "y": 1.431,
+     "farm_id": "F043",
+     "crop": "wheat"
+    },
+    {
+     "x": 0.063,
+     "y": 1.191,
+     "farm_id": "F049",
+     "crop": "onion"
+    },
+    {
+     "x": -0.978,
+     "y": -0.104,
+     "farm_id": "F049",
+     "crop": "soybean"
+    },
+    {
+     "x": -1.241,
+     "y": 2.408,
+     "farm_id": "F051",
+     "crop": "onion"
+    },
+    {
+     "x": -2.052,
+     "y": 1.687,
+     "farm_id": "F051",
+     "crop": "soybean"
+    },
+    {
+     "x": -0.33,
+     "y": 0.246,
+     "farm_id": "F052",
+     "crop": "soybean"
+    },
+    {
+     "x": 0.537,
+     "y": 2.645,
+     "farm_id": "F053",
+     "crop": "grape"
+    },
+    {
+     "x": -0.05,
+     "y": 1.72,
+     "farm_id": "F055",
+     "crop": "onion"
+    },
+    {
+     "x": -2.133,
+     "y": 1.28,
+     "farm_id": "F060",
+     "crop": "cotton"
+    },
+    {
+     "x": -1.022,
+     "y": 1.78,
+     "farm_id": "F060",
+     "crop": "onion"
+    }
+   ]
+  },
+  {
+   "cluster": 2,
+   "n_farms": 32,
+   "label": "High-margin commercial (Onion-led)",
+   "mean_water_m3_per_ha": 5935.2570640305385,
+   "mean_n_applied": 81.78640543880888,
+   "mean_chem_sprays": 5.671875,
+   "mean_gross_margin": 502763.4137545179,
+   "mean_water_productivity": 5.128145990762113,
+   "mean_adoption_rate": 0.6437522238230723,
+   "dominant_crops": {
+    "onion": 16,
+    "grape": 10,
+    "tomato": 6
+   },
+   "points": [
+    {
+     "x": 0.946,
+     "y": -0.237,
+     "farm_id": "F001",
+     "crop": "onion"
+    },
+    {
+     "x": 3.435,
+     "y": 1.296,
+     "farm_id": "F001",
+     "crop": "tomato"
+    },
+    {
+     "x": 0.298,
+     "y": 1.5,
+     "farm_id": "F002",
+     "crop": "grape"
+    },
+    {
+     "x": 2.229,
+     "y": -0.944,
+     "farm_id": "F005",
+     "crop": "onion"
+    },
+    {
+     "x": 4.58,
+     "y": -0.017,
+     "farm_id": "F005",
+     "crop": "tomato"
+    },
+    {
+     "x": 3.26,
+     "y": -0.058,
+     "farm_id": "F006",
+     "crop": "grape"
+    },
+    {
+     "x": 0.711,
+     "y": -0.422,
+     "farm_id": "F008",
+     "crop": "onion"
+    },
+    {
+     "x": 1.014,
+     "y": 0.252,
+     "farm_id": "F009",
+     "crop": "onion"
+    },
+    {
+     "x": 1.251,
+     "y": -1.103,
+     "farm_id": "F015",
+     "crop": "onion"
+    },
+    {
+     "x": 1.938,
+     "y": -0.954,
+     "farm_id": "F017",
+     "crop": "onion"
+    },
+    {
+     "x": 1.073,
+     "y": 1.202,
+     "farm_id": "F019",
+     "crop": "grape"
+    },
+    {
+     "x": 0.999,
+     "y": -0.539,
+     "farm_id": "F020",
+     "crop": "onion"
+    },
+    {
+     "x": 1.32,
+     "y": 1.536,
+     "farm_id": "F021",
+     "crop": "grape"
+    },
+    {
+     "x": 4.503,
+     "y": 0.199,
+     "farm_id": "F022",
+     "crop": "tomato"
+    },
+    {
+     "x": 0.557,
+     "y": -0.65,
+     "farm_id": "F024",
+     "crop": "onion"
+    },
+    {
+     "x": 1.575,
+     "y": -1.24,
+     "farm_id": "F025",
+     "crop": "onion"
+    },
+    {
+     "x": 0.81,
+     "y": -0.301,
+     "farm_id": "F026",
+     "crop": "onion"
+    },
+    {
+     "x": 2.103,
+     "y": 0.916,
+     "farm_id": "F028",
+     "crop": "grape"
+    },
+    {
+     "x": 1.417,
+     "y": -0.582,
+     "farm_id": "F032",
+     "crop": "onion"
+    },
+    {
+     "x": 4.336,
+     "y": 1.138,
+     "farm_id": "F032",
+     "crop": "tomato"
+    },
+    {
+     "x": 1.873,
+     "y": 0.684,
+     "farm_id": "F034",
+     "crop": "grape"
+    },
+    {
+     "x": 1.958,
+     "y": -0.085,
+     "farm_id": "F036",
+     "crop": "grape"
+    },
+    {
+     "x": 1.927,
+     "y": 0.875,
+     "farm_id": "F037",
+     "crop": "grape"
+    },
+    {
+     "x": 3.302,
+     "y": 0.772,
+     "farm_id": "F037",
+     "crop": "tomato"
+    },
+    {
+     "x": 0.086,
+     "y": 0.474,
+     "farm_id": "F041",
+     "crop": "onion"
+    },
+    {
+     "x": 0.399,
+     "y": -0.247,
+     "farm_id": "F044",
+     "crop": "onion"
+    },
+    {
+     "x": 1.699,
+     "y": 0.306,
+     "farm_id": "F046",
+     "crop": "grape"
+    },
+    {
+     "x": 1.727,
+     "y": 1.048,
+     "farm_id": "F048",
+     "crop": "grape"
+    },
+    {
+     "x": 1.45,
+     "y": 2.426,
+     "farm_id": "F053",
+     "crop": "tomato"
+    },
+    {
+     "x": 1.301,
+     "y": -1.027,
+     "farm_id": "F054",
+     "crop": "onion"
+    },
+    {
+     "x": 0.851,
+     "y": -0.567,
+     "farm_id": "F058",
+     "crop": "onion"
+    },
+    {
+     "x": 0.407,
+     "y": -0.196,
+     "farm_id": "F059",
+     "crop": "onion"
+    }
+   ]
+  }
+ ],
+ "anomaly": {
+  "method": "IsolationForest, per-farm, on (rain, crop water use, irrigation, depletion ratio, stress-threshold ratio, pest pressure)",
+  "contamination": 0.05,
+  "total_days_scored": 695,
+  "total_flagged": 37
+ },
+ "anomaly_by_farm": {
+  "F001": {
+   "crop": "tomato",
+   "n_days": 145,
+   "n_flagged": 8,
+   "flagged_days": [
+    {
+     "day": 19,
+     "score": 0.637,
+     "rain": 32.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 49,
+     "score": 0.63,
+     "rain": 19.4,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 10,
+     "score": 0.624,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 79,
+     "score": 0.621,
+     "rain": 40.3,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 4,
+     "score": 0.605,
+     "rain": 10.5,
+     "irrigation": 4.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 140,
+     "score": 0.6,
+     "rain": 20.4,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.586,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.53
+    },
+    {
+     "day": 69,
+     "score": 0.571,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    }
+   ]
+  },
+  "F014": {
+   "crop": "onion",
+   "n_days": 150,
+   "n_flagged": 8,
+   "flagged_days": [
+    {
+     "day": 5,
+     "score": 0.75,
+     "rain": 23.4,
+     "irrigation": 11.8,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 6,
+     "score": 0.661,
+     "rain": 3.4,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 18,
+     "score": 0.607,
+     "rain": 4.3,
+     "irrigation": 4.0,
+     "depletion_ratio": 0.09
+    },
+    {
+     "day": 33,
+     "score": 0.602,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.31
+    },
+    {
+     "day": 57,
+     "score": 0.585,
+     "rain": 3.4,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.28
+    },
+    {
+     "day": 36,
+     "score": 0.567,
+     "rain": 0.0,
+     "irrigation": 10.9,
+     "depletion_ratio": 0.28
+    },
+    {
+     "day": 13,
+     "score": 0.562,
+     "rain": 0.0,
+     "irrigation": 14.6,
+     "depletion_ratio": 0.1
+    },
+    {
+     "day": 7,
+     "score": 0.561,
+     "rain": 0.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.08
+    }
+   ]
+  },
+  "F027": {
+   "crop": "grape",
+   "n_days": 205,
+   "n_flagged": 11,
+   "flagged_days": [
+    {
+     "day": 17,
+     "score": 0.768,
+     "rain": 35.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 200,
+     "score": 0.671,
+     "rain": 3.3,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.47
+    },
+    {
+     "day": 5,
+     "score": 0.669,
+     "rain": 28.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 0,
+     "score": 0.664,
+     "rain": 15.8,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 109,
+     "score": 0.643,
+     "rain": 3.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.32
+    },
+    {
+     "day": 24,
+     "score": 0.628,
+     "rain": 7.5,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.611,
+     "rain": 5.0,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 6,
+     "score": 0.604,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 125,
+     "score": 0.592,
+     "rain": 13.1,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.36
+    },
+    {
+     "day": 21,
+     "score": 0.59,
+     "rain": 0.0,
+     "irrigation": 21.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 138,
+     "score": 0.579,
+     "rain": 5.8,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.4
+    }
+   ]
+  },
+  "F038": {
+   "crop": "cotton",
+   "n_days": 195,
+   "n_flagged": 10,
+   "flagged_days": [
+    {
+     "day": 32,
+     "score": 0.655,
+     "rain": 37.1,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 94,
+     "score": 0.651,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 64,
+     "score": 0.63,
+     "rain": 33.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 82,
+     "score": 0.622,
+     "rain": 15.3,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 146,
+     "score": 0.598,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.2
+    },
+    {
+     "day": 4,
+     "score": 0.597,
+     "rain": 16.6,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 71,
+     "score": 0.596,
+     "rain": 5.3,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 165,
+     "score": 0.593,
+     "rain": 23.2,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.18
+    },
+    {
+     "day": 35,
+     "score": 0.589,
+     "rain": 31.7,
+     "irrigation": 0.0,
+     "depletion_ratio": 0.0
+    },
+    {
+     "day": 1,
+     "score": 0.583,
+     "rain": 0.0,
+     "irrigation": 52.5,
+     "depletion_ratio": 0.0
+    }
+   ]
+  }
+ },
+ "reinforcement": {
+  "setup": {
+   "crop": "onion",
+   "soil": "loam",
+   "system": "drip",
+   "train_episodes": 450,
+   "eval_episodes": 40,
+   "state_space": [
+    8,
+    4,
+    4
+   ],
+   "actions": [
+    "skip",
+    "light",
+    "full"
+   ]
+  },
+  "training_curve_sample": [
+   21.98,
+   21.98,
+   21.83,
+   21.77,
+   21.9,
+   21.98,
+   21.98,
+   21.96,
+   21.98,
+   21.98,
+   21.89,
+   21.98,
+   21.98,
+   21.69,
+   21.76,
+   21.96,
+   21.97,
+   21.88
+  ],
+  "q_learning_agent": {
+   "mean_yield_t_ha": 21.9712140009726,
+   "mean_water_mm": 551.7395194358661,
+   "water_productivity": 3.9821715188060813
+  },
+  "agripilot_analytic_agent": {
+   "mean_yield_t_ha": 25.183604077151415,
+   "mean_water_mm": 527.1682222385041,
+   "water_productivity": 4.777147600099029
+  },
+  "farmer_practice_baseline": {
+   "mean_yield_t_ha": 26.93979611928892,
+   "mean_water_mm": 600.0,
+   "water_productivity": 4.489966019881487
+  },
+  "note": "Q-learning acts on soil state alone, with no weather forecast; the analytic agent sees a 7-day ensemble forecast. The comparison isolates what learning a policy from scratch buys versus what forecast information buys."
+ }
+}

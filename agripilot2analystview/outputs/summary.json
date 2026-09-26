@@ -1,0 +1,125 @@
+{
+ "n_farms": 60,
+ "n_farm_seasons": 240,
+ "yield_gain_vs_farmer_pct": 1.2013254973184957,
+ "yield_gain_vs_agronomist_pct": 4.972378148534385,
+ "water_saving_pct": 28.53246575335095,
+ "water_productivity_gain_pct": 47.25178169879737,
+ "nitrogen_reduction_pct": 51.110329482011856,
+ "chem_spray_reduction_pct": 56.37934083726544,
+ "pesticide_load_reduction_pct": 43.77445634946876,
+ "n_leaching_reduction_pct": 78.6572654845903,
+ "runoff_reduction_mm": 3.937830805580845,
+ "env_cost_reduction_pct": 58.921021576232015,
+ "biodiversity_index_gain_pct": 36.529029229913064,
+ "gross_margin_gain_pct": 91.87245904778784,
+ "gross_margin_gain_inr_per_ha": 80880.08210526194,
+ "roi_on_agent_cost": 73.52734736841995,
+ "mean_adoption_rate": 0.632156584269729,
+ "mean_final_trust": 0.9463528931444777,
+ "stress_days_delta": -0.36666666666666664,
+ "means": {
+  "farmer_practice": {
+   "yield_t_ha": 13.36509318905894,
+   "water_m3_per_ha": 10860.854166666666,
+   "water_productivity_kg_m3": 1.5578020913754225,
+   "n_applied": 156.04166666666666,
+   "n_use_efficiency": 0.663895905116832,
+   "chem_sprays": 14.058333333333334,
+   "bio_sprays": 0.0,
+   "n_leached": 58.95113733991748,
+   "runoff_mm": 71.41321115174955,
+   "cost": 64877.19583333333,
+   "revenue": 203675.8443676059,
+   "gross_margin": 138798.64853427254,
+   "env_cost": 21094.756954884222,
+   "biodiversity_index": 0.7188333333333332,
+   "stress_days": 3.0166666666666666,
+   "residue_penalty": 0.11866666666666668
+  },
+  "agronomist": {
+   "yield_t_ha": 13.116753895713973,
+   "water_m3_per_ha": 7470.81536187634,
+   "water_productivity_kg_m3": 1.753987289299181,
+   "n_applied": 117.03125,
+   "n_use_efficiency": 0.8982644407343272,
+   "chem_sprays": 6.995833333333334,
+   "bio_sprays": 0.0,
+   "n_leached": 27.630200795903527,
+   "runoff_mm": 66.84204791399316,
+   "cost": 45023.76181371289,
+   "revenue": 251888.95978591565,
+   "gross_margin": 206865.1979722028,
+   "env_cost": 10472.097907821906,
+   "biodiversity_index": 0.8600833333333334,
+   "stress_days": 0.13333333333333333,
+   "residue_penalty": 0.022125000000000002
+  },
+  "agripilot": {
+   "yield_t_ha": 13.630625675320466,
+   "water_m3_per_ha": 7101.995829092537,
+   "water_productivity_kg_m3": 2.1068634900198155,
+   "n_applied": 77.36446978322311,
+   "n_use_efficiency": 1.4485851245313133,
+   "chem_sprays": 5.858333333333333,
+   "bio_sprays": 11.833333333333334,
+   "n_leached": 14.599335626202985,
+   "runoff_mm": 67.4753803461687,
+   "cost": 54329.313775961426,
+   "revenue": 274008.04441549594,
+   "gross_margin": 219678.73063953448,
+   "env_cost": 8578.492169165389,
+   "biodiversity_index": 0.9710416666666666,
+   "stress_days": 2.65,
+   "residue_penalty": 0.0
+  }
+ },
+ "by_crop": {
+  "cotton": {
+   "yield_gain_pct": 3.6991652083141506,
+   "water_saving_pct": 38.601807881363,
+   "n_reduction_pct": 55.397243465514464,
+   "margin_gain_inr": 16900.309818640897
+  },
+  "grape": {
+   "yield_gain_pct": -0.9647398965875273,
+   "water_saving_pct": 27.601948501883577,
+   "n_reduction_pct": 55.90681931488171,
+   "margin_gain_inr": 443002.6093252102
+  },
+  "onion": {
+   "yield_gain_pct": 0.6389647623173719,
+   "water_saving_pct": 31.27124271966594,
+   "n_reduction_pct": 52.22815628814024,
+   "margin_gain_inr": 79658.17241233113
+  },
+  "soybean": {
+   "yield_gain_pct": -1.9619691031066624,
+   "water_saving_pct": 36.210588698140945,
+   "n_reduction_pct": 53.93080541487429,
+   "margin_gain_inr": 5930.665897501502
+  },
+  "tomato": {
+   "yield_gain_pct": 7.109767667337905,
+   "water_saving_pct": 38.65803665622474,
+   "n_reduction_pct": 33.66046493768934,
+   "margin_gain_inr": 151965.55504259752
+  },
+  "wheat": {
+   "yield_gain_pct": -2.0746932286363555,
+   "water_saving_pct": 34.38941666112949,
+   "n_reduction_pct": 48.00786169360902,
+   "margin_gain_inr": 14903.086981975277
+  }
+ },
+ "by_year": {
+  "1": {
+   "water_saving_pct": 35.12661205940517,
+   "yield_gain_pct": 1.760618721724705
+  },
+  "2": {
+   "water_saving_pct": 34.09439452924721,
+   "yield_gain_pct": 2.210949364032966
+  }
+ }
+}
